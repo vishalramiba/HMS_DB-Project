@@ -69,6 +69,7 @@ public class IntialGui extends javax.swing.JFrame {
         setVisible(false);
         StudentLoginGUI a = new StudentLoginGUI();
         a.setVisible(true);        // TODO add your handling code here:
+        System.out.println("I");
     }//GEN-LAST:event_stdloginbuttonActionPerformed
 
     private void admloginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admloginbuttonActionPerformed
