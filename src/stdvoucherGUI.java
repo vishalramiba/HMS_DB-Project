@@ -101,6 +101,11 @@ public class stdvoucherGUI extends javax.swing.JFrame {
 
         VoucherButton.setBorderPainted(false);
         VoucherButton.setContentAreaFilled(false);
+        VoucherButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoucherButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(VoucherButton);
         VoucherButton.setBounds(20, 140, 140, 29);
 
@@ -158,6 +163,12 @@ public class stdvoucherGUI extends javax.swing.JFrame {
         IntialGui a = new IntialGui();
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
+         setVisible(false);
+        stdvoucherGUI a = new stdvoucherGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_VoucherButtonActionPerformed
 
     /**
      * @param args the command line arguments

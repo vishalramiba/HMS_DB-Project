@@ -62,6 +62,11 @@ public class stdprofileGUI extends javax.swing.JFrame {
 
         UpdateProfileButton1.setBorderPainted(false);
         UpdateProfileButton1.setContentAreaFilled(false);
+        UpdateProfileButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateProfileButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(UpdateProfileButton1);
         UpdateProfileButton1.setBounds(330, 480, 160, 50);
 
@@ -206,6 +211,12 @@ public class stdprofileGUI extends javax.swing.JFrame {
         stdpassGUI a = new stdpassGUI();
         a.setVisible(true);
     }//GEN-LAST:event_UpdateProfileButtonActionPerformed
+
+    private void UpdateProfileButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateProfileButton1ActionPerformed
+        setVisible(false);
+        stdupdateGUI a = new stdupdateGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_UpdateProfileButton1ActionPerformed
 
     /**
      * @param args the command line arguments
