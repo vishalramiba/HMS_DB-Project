@@ -43,6 +43,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
+        VoucherStatusTF.setEditable(false);
         VoucherStatusTF.setBorder(null);
         VoucherStatusTF.setOpaque(false);
         VoucherStatusTF.addActionListener(new java.awt.event.ActionListener() {

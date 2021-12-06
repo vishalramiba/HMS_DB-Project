@@ -45,6 +45,7 @@ public class adminrg1GUI extends javax.swing.JFrame {
         Next = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        CancelButton = new javax.swing.JButton();
         adminrg1GUI = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -179,6 +180,15 @@ public class adminrg1GUI extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(510, 376, 250, 60);
 
+        CancelButton.setText("Cancel");
+        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CancelButton);
+        CancelButton.setBounds(620, 490, 90, 23);
+
         adminrg1GUI.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         adminrg1GUI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew1.jpg"))); // NOI18N
         adminrg1GUI.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -230,6 +240,12 @@ public class adminrg1GUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_NextActionPerformed
 
+    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+        setVisible(false);
+        adminrg1GUI a = new adminrg1GUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_CancelButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -267,6 +283,7 @@ public class adminrg1GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CNICTF;
+    private javax.swing.JButton CancelButton;
     private javax.swing.JButton EditButton;
     private javax.swing.JTextField EmailTF;
     private javax.swing.JButton Employees;

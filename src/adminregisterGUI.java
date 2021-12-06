@@ -139,7 +139,7 @@ public class adminregisterGUI extends javax.swing.JFrame {
         NameTF.setBorder(null);
         NameTF.setOpaque(false);
         getContentPane().add(NameTF);
-        NameTF.setBounds(220, 256, 260, 10);
+        NameTF.setBounds(220, 252, 260, 20);
 
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
@@ -184,8 +184,8 @@ public class adminregisterGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Register2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Register2ButtonActionPerformed
-       setVisible(false);
-        adminwelcomeGUI a = new adminwelcomeGUI();
+      setVisible(false);
+        admitempGUI a = new admitempGUI();
         a.setVisible(true);
     }//GEN-LAST:event_Register2ButtonActionPerformed
 

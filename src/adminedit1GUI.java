@@ -130,6 +130,7 @@ public class adminedit1GUI extends javax.swing.JFrame {
         getContentPane().add(seestudentsButton);
         seestudentsButton.setBounds(550, 450, 220, 40);
 
+        no_ofstudentsTF.setEditable(false);
         no_ofstudentsTF.setBorder(null);
         getContentPane().add(no_ofstudentsTF);
         no_ofstudentsTF.setBounds(570, 406, 170, 20);

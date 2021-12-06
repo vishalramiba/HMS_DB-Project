@@ -38,6 +38,7 @@ public class admreg3GUI extends javax.swing.JFrame {
         CNICTF = new javax.swing.JTextField();
         BuildingTF = new javax.swing.JTextField();
         NextButton = new javax.swing.JButton();
+        CancelButton = new javax.swing.JButton();
         Register2Button = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -212,6 +213,15 @@ public class admreg3GUI extends javax.swing.JFrame {
         getContentPane().add(NextButton);
         NextButton.setBounds(420, 490, 140, 30);
 
+        CancelButton.setText("Cancel");
+        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CancelButton);
+        CancelButton.setBounds(620, 480, 110, 23);
+
         Register2Button.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         Register2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew3.jpg"))); // NOI18N
         Register2Button.setOpaque(true);
@@ -279,6 +289,12 @@ public class admreg3GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LastNameTFActionPerformed
 
+    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+        setVisible(false);
+        adminrg1GUI a = new adminrg1GUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_CancelButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -319,6 +335,7 @@ public class admreg3GUI extends javax.swing.JFrame {
     private javax.swing.JTextField AddressTF;
     private javax.swing.JTextField BuildingTF;
     private javax.swing.JTextField CNICTF;
+    private javax.swing.JButton CancelButton;
     private javax.swing.JTextField DateOfBirthTF;
     private javax.swing.JButton EditButton;
     private javax.swing.JTextField EmailTF;

@@ -129,6 +129,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
         VacateRoomButton.setBounds(580, 460, 170, 20);
 
         Building1Occuiped.setEditable(false);
+        Building1Occuiped.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building1Occuiped.setBorder(null);
         Building1Occuiped.setOpaque(false);
         Building1Occuiped.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +141,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building1Occuiped.setBounds(340, 220, 90, 26);
 
         Building1Availble.setEditable(false);
+        Building1Availble.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building1Availble.setBorder(null);
         Building1Availble.setOpaque(false);
         Building1Availble.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +153,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building1Availble.setBounds(440, 220, 90, 20);
 
         Building2Occuiped.setEditable(false);
+        Building2Occuiped.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building2Occuiped.setBorder(null);
         Building2Occuiped.setOpaque(false);
         Building2Occuiped.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +165,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building2Occuiped.setBounds(340, 250, 90, 30);
 
         Building2Availble.setEditable(false);
+        Building2Availble.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building2Availble.setBorder(null);
         Building2Availble.setOpaque(false);
         Building2Availble.addActionListener(new java.awt.event.ActionListener() {
@@ -173,23 +177,28 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building2Availble.setBounds(440, 250, 90, 30);
 
         Building3Occuiped.setEditable(false);
+        Building3Occuiped.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building3Occuiped.setBorder(null);
         Building3Occuiped.setOpaque(false);
         getContentPane().add(Building3Occuiped);
         Building3Occuiped.setBounds(340, 280, 90, 30);
 
         Building3Availble.setEditable(false);
+        Building3Availble.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building3Availble.setBorder(null);
         Building3Availble.setOpaque(false);
         getContentPane().add(Building3Availble);
         Building3Availble.setBounds(440, 280, 90, 30);
 
         Building4Occuiped.setEditable(false);
+        Building4Occuiped.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building4Occuiped.setBorder(null);
         Building4Occuiped.setOpaque(false);
         getContentPane().add(Building4Occuiped);
         Building4Occuiped.setBounds(340, 320, 90, 20);
 
+        Building4Availble.setEditable(false);
+        Building4Availble.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building4Availble.setBorder(null);
         Building4Availble.setOpaque(false);
         getContentPane().add(Building4Availble);

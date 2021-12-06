@@ -42,6 +42,7 @@ public class admreg2GUI extends javax.swing.JFrame {
         ParkingCB = new javax.swing.JCheckBox();
         GymCB = new javax.swing.JCheckBox();
         SrCB = new javax.swing.JCheckBox();
+        CancelButton = new javax.swing.JButton();
         admreg2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -178,6 +179,15 @@ public class admreg2GUI extends javax.swing.JFrame {
         getContentPane().add(SrCB);
         SrCB.setBounds(240, 440, 81, 23);
 
+        CancelButton.setText("Cancel");
+        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CancelButton);
+        CancelButton.setBounds(610, 490, 90, 23);
+
         admreg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew2.jpg"))); // NOI18N
         getContentPane().add(admreg2);
         admreg2.setBounds(10, 0, 800, 569);
@@ -247,6 +257,12 @@ public class admreg2GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ParkingCBActionPerformed
 
+    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+        setVisible(false);
+        adminrg1GUI a = new adminrg1GUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_CancelButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -284,6 +300,7 @@ public class admreg2GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CancelButton;
     private javax.swing.JButton EditButton;
     private javax.swing.JButton Employees;
     private javax.swing.JCheckBox GymCB;
