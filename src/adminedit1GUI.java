@@ -35,7 +35,9 @@ public class adminedit1GUI extends javax.swing.JFrame {
         LogoutButton = new javax.swing.JButton();
         NextButton = new javax.swing.JButton();
         StudentIDTF = new javax.swing.JTextField();
-        admedit1 = new javax.swing.JLabel();
+        seestudentsButton = new javax.swing.JButton();
+        no_ofstudentsTF = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -70,7 +72,7 @@ public class adminedit1GUI extends javax.swing.JFrame {
         LogoutButton.setBorderPainted(false);
         LogoutButton.setContentAreaFilled(false);
         getContentPane().add(LogoutButton);
-        LogoutButton.setBounds(20, 510, 130, 30);
+        LogoutButton.setBounds(30, 510, 130, 30);
 
         NextButton.setBorder(null);
         NextButton.setContentAreaFilled(false);
@@ -80,16 +82,26 @@ public class adminedit1GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(NextButton);
-        NextButton.setBounds(220, 240, 150, 29);
+        NextButton.setBounds(220, 240, 150, 40);
 
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
         getContentPane().add(StudentIDTF);
-        StudentIDTF.setBounds(220, 200, 260, 30);
+        StudentIDTF.setBounds(220, 210, 260, 20);
 
-        admedit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_edit1.jpg"))); // NOI18N
-        getContentPane().add(admedit1);
-        admedit1.setBounds(0, 0, 800, 569);
+        seestudentsButton.setBorderPainted(false);
+        seestudentsButton.setContentAreaFilled(false);
+        getContentPane().add(seestudentsButton);
+        seestudentsButton.setBounds(550, 450, 220, 40);
+
+        no_ofstudentsTF.setBorder(null);
+        getContentPane().add(no_ofstudentsTF);
+        no_ofstudentsTF.setBounds(570, 406, 170, 20);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_edit1.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 800, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -142,6 +154,8 @@ public class adminedit1GUI extends javax.swing.JFrame {
     private javax.swing.JButton RoomsButton;
     private javax.swing.JTextField StudentIDTF;
     private javax.swing.JButton VoucherButton;
-    private javax.swing.JLabel admedit1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField no_ofstudentsTF;
+    private javax.swing.JButton seestudentsButton;
     // End of variables declaration//GEN-END:variables
 }

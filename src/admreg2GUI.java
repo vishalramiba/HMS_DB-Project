@@ -48,35 +48,65 @@ public class admreg2GUI extends javax.swing.JFrame {
 
         RegisterButton.setBorder(null);
         RegisterButton.setContentAreaFilled(false);
+        RegisterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(RegisterButton);
         RegisterButton.setBounds(20, 90, 140, 30);
 
         EditButton.setBorder(null);
         EditButton.setContentAreaFilled(false);
+        EditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(EditButton);
         EditButton.setBounds(20, 140, 140, 30);
 
         RoomsButton.setBorder(null);
         RoomsButton.setContentAreaFilled(false);
+        RoomsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RoomsButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(RoomsButton);
-        RoomsButton.setBounds(20, 190, 140, 30);
+        RoomsButton.setBounds(30, 190, 140, 30);
 
         Employees.setBorder(null);
         Employees.setContentAreaFilled(false);
+        Employees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmployeesActionPerformed(evt);
+            }
+        });
         getContentPane().add(Employees);
         Employees.setBounds(20, 230, 140, 30);
 
         VoucherButton.setBorder(null);
         VoucherButton.setBorderPainted(false);
         VoucherButton.setContentAreaFilled(false);
+        VoucherButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoucherButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(VoucherButton);
         VoucherButton.setBounds(30, 280, 130, 29);
 
         LogoutButton.setBorder(null);
         LogoutButton.setBorderPainted(false);
         LogoutButton.setContentAreaFilled(false);
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(LogoutButton);
-        LogoutButton.setBounds(20, 510, 130, 30);
+        LogoutButton.setBounds(30, 510, 130, 30);
 
         NextButton.setBorder(null);
         NextButton.setBorderPainted(false);
@@ -87,7 +117,7 @@ public class admreg2GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(NextButton);
-        NextButton.setBounds(420, 490, 140, 30);
+        NextButton.setBounds(430, 490, 150, 30);
 
         ShowAvailbleRoomsButton.setBorder(null);
         ShowAvailbleRoomsButton.setContentAreaFilled(false);
@@ -97,7 +127,7 @@ public class admreg2GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ShowAvailbleRoomsButton);
-        ShowAvailbleRoomsButton.setBounds(590, 200, 170, 30);
+        ShowAvailbleRoomsButton.setBounds(600, 200, 160, 30);
 
         RoomNoTF.setBorder(null);
         RoomNoTF.setOpaque(false);
@@ -107,7 +137,7 @@ public class admreg2GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(RoomNoTF);
-        RoomNoTF.setBounds(220, 200, 270, 30);
+        RoomNoTF.setBounds(240, 210, 230, 10);
 
         MessRadioButton.setAlignmentY(0.0F);
         MessRadioButton.setBorder(null);
@@ -128,30 +158,50 @@ public class admreg2GUI extends javax.swing.JFrame {
         LaundryButton.setAlignmentY(0.0F);
         LaundryButton.setBorder(null);
         LaundryButton.setOpaque(false);
+        LaundryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LaundryButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(LaundryButton);
         LaundryButton.setBounds(220, 361, 70, 30);
 
         ParkingRadioButton.setAlignmentY(0.0F);
         ParkingRadioButton.setBorder(null);
         ParkingRadioButton.setOpaque(false);
+        ParkingRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ParkingRadioButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(ParkingRadioButton);
         ParkingRadioButton.setBounds(220, 380, 90, 40);
 
         GymRadioButton.setAlignmentY(0.0F);
         GymRadioButton.setBorder(null);
         GymRadioButton.setOpaque(false);
+        GymRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GymRadioButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(GymRadioButton);
         GymRadioButton.setBounds(220, 411, 100, 30);
 
         SingleRoomRadioButton.setAlignmentY(0.0F);
         SingleRoomRadioButton.setBorder(null);
         SingleRoomRadioButton.setOpaque(false);
+        SingleRoomRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SingleRoomRadioButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(SingleRoomRadioButton);
         SingleRoomRadioButton.setBounds(220, 440, 21, 21);
 
         admreg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew2.jpg"))); // NOI18N
         getContentPane().add(admreg2);
-        admreg2.setBounds(0, 0, 800, 569);
+        admreg2.setBounds(10, 0, 800, 569);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -171,6 +221,58 @@ public class admreg2GUI extends javax.swing.JFrame {
     private void MessRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MessRadioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MessRadioButtonActionPerformed
+
+    private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
+       setVisible(false);
+        adminrg1GUI a = new adminrg1GUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_RegisterButtonActionPerformed
+
+    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
+        setVisible(false);
+        adminedit1GUI a = new adminedit1GUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_EditButtonActionPerformed
+
+    private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
+        setVisible(false);
+        adminroomsGUI a = new adminroomsGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_RoomsButtonActionPerformed
+
+    private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
+        setVisible(false);
+        admitempGUI a = new admitempGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_EmployeesActionPerformed
+
+    private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
+        setVisible(false);
+        adminvoucherGUI a = new adminvoucherGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_VoucherButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+         setVisible(false);
+        IntialGui a = new IntialGui();
+        a.setVisible(true);
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void LaundryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaundryButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LaundryButtonActionPerformed
+
+    private void ParkingRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParkingRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ParkingRadioButtonActionPerformed
+
+    private void GymRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GymRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GymRadioButtonActionPerformed
+
+    private void SingleRoomRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SingleRoomRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SingleRoomRadioButtonActionPerformed
 
     /**
      * @param args the command line arguments

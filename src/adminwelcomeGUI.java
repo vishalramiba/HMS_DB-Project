@@ -83,6 +83,11 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
         VoucherButton.setBorder(null);
         VoucherButton.setBorderPainted(false);
         VoucherButton.setContentAreaFilled(false);
+        VoucherButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoucherButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(VoucherButton);
         VoucherButton.setBounds(30, 280, 130, 29);
 
@@ -122,7 +127,7 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
         setVisible(false);
-        adminregisterGUI a = new adminregisterGUI();
+        adminrg1GUI a = new adminrg1GUI();
         a.setVisible(true);
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
@@ -139,8 +144,16 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        admitempGUI a = new admitempGUI();
+        a.setVisible(true);
     }//GEN-LAST:event_EmployeesActionPerformed
+
+    private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
+        setVisible(false);
+        adminvoucherGUI a = new adminvoucherGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_VoucherButtonActionPerformed
 
     /**
      * @param args the command line arguments

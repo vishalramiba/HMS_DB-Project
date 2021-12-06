@@ -78,19 +78,16 @@ public class adminvoucherGUI extends javax.swing.JFrame {
 
         ViewChallanButton.setBorder(null);
         ViewChallanButton.setContentAreaFilled(false);
-        ViewChallanButton.setOpaque(false);
         getContentPane().add(ViewChallanButton);
         ViewChallanButton.setBounds(580, 189, 170, 40);
 
         CheckButton.setBorder(null);
         CheckButton.setContentAreaFilled(false);
-        CheckButton.setOpaque(false);
         getContentPane().add(CheckButton);
         CheckButton.setBounds(580, 330, 170, 30);
 
         PayChallanButton.setBorder(null);
         PayChallanButton.setContentAreaFilled(false);
-        PayChallanButton.setOpaque(false);
         PayChallanButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PayChallanButtonActionPerformed(evt);

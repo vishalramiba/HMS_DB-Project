@@ -50,40 +50,70 @@ public class adminrg1GUI extends javax.swing.JFrame {
 
         RegisterButton.setBorder(null);
         RegisterButton.setContentAreaFilled(false);
+        RegisterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(RegisterButton);
         RegisterButton.setBounds(20, 90, 140, 30);
 
         EditButton.setBorder(null);
         EditButton.setContentAreaFilled(false);
+        EditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(EditButton);
         EditButton.setBounds(20, 140, 140, 30);
 
         RoomsButton.setBorder(null);
         RoomsButton.setContentAreaFilled(false);
+        RoomsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RoomsButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(RoomsButton);
         RoomsButton.setBounds(20, 190, 140, 30);
 
         Employees.setBorder(null);
         Employees.setContentAreaFilled(false);
+        Employees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmployeesActionPerformed(evt);
+            }
+        });
         getContentPane().add(Employees);
         Employees.setBounds(20, 230, 140, 30);
 
         VoucherButton.setBorder(null);
         VoucherButton.setBorderPainted(false);
         VoucherButton.setContentAreaFilled(false);
+        VoucherButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoucherButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(VoucherButton);
         VoucherButton.setBounds(30, 280, 130, 29);
 
         LogoutButton.setBorder(null);
         LogoutButton.setBorderPainted(false);
         LogoutButton.setContentAreaFilled(false);
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(LogoutButton);
         LogoutButton.setBounds(20, 510, 130, 30);
 
         FirstNameTF.setBorder(null);
         FirstNameTF.setOpaque(false);
         getContentPane().add(FirstNameTF);
-        FirstNameTF.setBounds(220, 200, 260, 30);
+        FirstNameTF.setBounds(220, 210, 260, 10);
 
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
@@ -93,40 +123,45 @@ public class adminrg1GUI extends javax.swing.JFrame {
         CNICTF.setBorder(null);
         CNICTF.setOpaque(false);
         getContentPane().add(CNICTF);
-        CNICTF.setBounds(220, 310, 270, 30);
+        CNICTF.setBounds(220, 320, 270, 10);
 
         ProgramTF.setBorder(null);
         ProgramTF.setOpaque(false);
         getContentPane().add(ProgramTF);
-        ProgramTF.setBounds(220, 360, 270, 30);
+        ProgramTF.setBounds(220, 370, 270, 10);
 
         FatherNameTF.setBorder(null);
         FatherNameTF.setOpaque(false);
         getContentPane().add(FatherNameTF);
-        FatherNameTF.setBounds(220, 420, 270, 20);
+        FatherNameTF.setBounds(230, 420, 240, 20);
 
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
         getContentPane().add(LastNameTF);
-        LastNameTF.setBounds(510, 200, 270, 30);
+        LastNameTF.setBounds(510, 210, 270, 10);
 
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
         getContentPane().add(EmailTF);
-        EmailTF.setBounds(510, 250, 270, 40);
+        EmailTF.setBounds(510, 260, 250, 20);
 
         PhoneTF.setBorder(null);
         PhoneTF.setOpaque(false);
         getContentPane().add(PhoneTF);
-        PhoneTF.setBounds(510, 310, 270, 30);
+        PhoneTF.setBounds(510, 320, 270, 10);
 
         AddressTF.setBorder(null);
         AddressTF.setOpaque(false);
         getContentPane().add(AddressTF);
-        AddressTF.setBounds(510, 360, 260, 80);
+        AddressTF.setBounds(510, 370, 250, 60);
 
         Next.setBorder(null);
         Next.setContentAreaFilled(false);
+        Next.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NextActionPerformed(evt);
+            }
+        });
         getContentPane().add(Next);
         Next.setBounds(420, 490, 150, 29);
 
@@ -136,6 +171,48 @@ public class adminrg1GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
+         setVisible(false);
+        adminedit1GUI a = new adminedit1GUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_EditButtonActionPerformed
+
+    private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
+        setVisible(false);
+        adminrg1GUI a = new adminrg1GUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_RegisterButtonActionPerformed
+
+    private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
+         setVisible(false);
+        adminroomsGUI a = new adminroomsGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_RoomsButtonActionPerformed
+
+    private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
+        setVisible(false);
+        admitempGUI a = new admitempGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_EmployeesActionPerformed
+
+    private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
+        setVisible(false);
+        adminvoucherGUI a = new adminvoucherGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_VoucherButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+       setVisible(false);
+        IntialGui a = new IntialGui();
+        a.setVisible(true);
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
+        setVisible(false);
+        admreg2GUI a = new admreg2GUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_NextActionPerformed
 
     /**
      * @param args the command line arguments
