@@ -15,6 +15,7 @@ public class StdwelcomeGUI extends javax.swing.JFrame {
      */
     public StdwelcomeGUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**
@@ -46,15 +47,28 @@ public class StdwelcomeGUI extends javax.swing.JFrame {
 
         VoucherButton.setBorderPainted(false);
         VoucherButton.setContentAreaFilled(false);
+        VoucherButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoucherButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(VoucherButton);
         VoucherButton.setBounds(20, 140, 140, 29);
 
         LogoutButton.setBorderPainted(false);
         LogoutButton.setContentAreaFilled(false);
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(LogoutButton);
         LogoutButton.setBounds(20, 510, 140, 30);
 
         stdwelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/std_welcomescreen.jpg"))); // NOI18N
+        stdwelcome.setMaximumSize(new java.awt.Dimension(0, 0));
+        stdwelcome.setMinimumSize(new java.awt.Dimension(0, 0));
+        stdwelcome.setPreferredSize(new java.awt.Dimension(0, 0));
         getContentPane().add(stdwelcome);
         stdwelcome.setBounds(0, 0, 800, 570);
 
@@ -62,8 +76,22 @@ public class StdwelcomeGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        stdprofileGUI a = new stdprofileGUI();
+        a.setVisible(true);
     }//GEN-LAST:event_ProfileButtonActionPerformed
+
+    private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
+        setVisible(false);
+        stdvoucherGUI a = new stdvoucherGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_VoucherButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        setVisible(false);
+        IntialGui a = new IntialGui();
+        a.setVisible(true);
+    }//GEN-LAST:event_LogoutButtonActionPerformed
 
     /**
      * @param args the command line arguments

@@ -15,6 +15,7 @@ public class IntialGui extends javax.swing.JFrame {
      */
     public IntialGui() {
         initComponents();
+        setSize(810,600);
     }
 
     /**
@@ -59,17 +60,21 @@ public class IntialGui extends javax.swing.JFrame {
 
         IntialLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Initial.jpg"))); // NOI18N
         getContentPane().add(IntialLabel);
-        IntialLabel.setBounds(0, 0, 800, 569);
+        IntialLabel.setBounds(0, 0, 850, 569);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void stdloginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stdloginbuttonActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        StudentLoginGUI a = new StudentLoginGUI();
+        a.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_stdloginbuttonActionPerformed
 
     private void admloginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admloginbuttonActionPerformed
-        // TODO add your handling code here:
+       setVisible(false);
+        admloginGUI a = new admloginGUI();
+        a.setVisible(true);
     }//GEN-LAST:event_admloginbuttonActionPerformed
 
     /**

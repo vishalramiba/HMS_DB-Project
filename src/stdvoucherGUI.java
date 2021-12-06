@@ -15,6 +15,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
      */
     public stdvoucherGUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**
@@ -49,17 +50,17 @@ public class stdvoucherGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(VoucherStatusTF);
-        VoucherStatusTF.setBounds(530, 150, 60, 30);
+        VoucherStatusTF.setBounds(530, 150, 60, 20);
 
         RoomFeeTF.setBorder(null);
         RoomFeeTF.setOpaque(false);
         getContentPane().add(RoomFeeTF);
-        RoomFeeTF.setBounds(320, 316, 170, 30);
+        RoomFeeTF.setBounds(320, 316, 170, 20);
 
         MessTF.setBorder(null);
         MessTF.setOpaque(false);
         getContentPane().add(MessTF);
-        MessTF.setBounds(320, 340, 170, 30);
+        MessTF.setBounds(320, 350, 170, 20);
 
         LaundryTF.setBorder(null);
         LaundryTF.setOpaque(false);
@@ -79,7 +80,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
         GymTF.setBorder(null);
         GymTF.setOpaque(false);
         getContentPane().add(GymTF);
-        GymTF.setBounds(580, 340, 190, 30);
+        GymTF.setBounds(580, 350, 190, 20);
 
         ProfileButton.setBorderPainted(false);
         ProfileButton.setContentAreaFilled(false);
@@ -108,6 +109,11 @@ public class stdvoucherGUI extends javax.swing.JFrame {
 
         LogoutButton.setBorderPainted(false);
         LogoutButton.setContentAreaFilled(false);
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(LogoutButton);
         LogoutButton.setBounds(20, 510, 130, 30);
 
@@ -119,11 +125,15 @@ public class stdvoucherGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void VoucherStatusTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherStatusTFActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        stdvoucherGUI a = new stdvoucherGUI();
+        a.setVisible(true);
     }//GEN-LAST:event_VoucherStatusTFActionPerformed
 
     private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
-        // TODO add your handling code here:
+         setVisible(false);
+        stdprofileGUI a = new stdprofileGUI();
+        a.setVisible(true);
     }//GEN-LAST:event_ProfileButtonActionPerformed
 
     private void GenerateVoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateVoucherButtonActionPerformed
@@ -131,8 +141,16 @@ public class stdvoucherGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_GenerateVoucherButtonActionPerformed
 
     private void ParkingTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParkingTFActionPerformed
-        // TODO add your handling code here:
+         setVisible(false);
+        IntialGui a = new IntialGui();
+        a.setVisible(true);
     }//GEN-LAST:event_ParkingTFActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        setVisible(false);
+        IntialGui a = new IntialGui();
+        a.setVisible(true);
+    }//GEN-LAST:event_LogoutButtonActionPerformed
 
     /**
      * @param args the command line arguments

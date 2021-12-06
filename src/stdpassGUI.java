@@ -15,6 +15,7 @@ public class stdpassGUI extends javax.swing.JFrame {
      */
     public stdpassGUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**
@@ -51,24 +52,37 @@ public class stdpassGUI extends javax.swing.JFrame {
 
         VoucherButton.setBorderPainted(false);
         VoucherButton.setContentAreaFilled(false);
+        VoucherButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoucherButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(VoucherButton);
         VoucherButton.setBounds(20, 140, 130, 29);
 
         LogoutButton.setBorderPainted(false);
         LogoutButton.setContentAreaFilled(false);
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(LogoutButton);
         LogoutButton.setBounds(20, 510, 130, 30);
 
         UpdateButton.setBorder(null);
         UpdateButton.setContentAreaFilled(false);
-        UpdateButton.setOpaque(false);
         getContentPane().add(UpdateButton);
         UpdateButton.setBounds(420, 390, 150, 29);
 
         CancelButton.setBorder(null);
         CancelButton.setBorderPainted(false);
         CancelButton.setContentAreaFilled(false);
-        CancelButton.setOpaque(false);
+        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(CancelButton);
         CancelButton.setBounds(420, 430, 150, 30);
 
@@ -85,12 +99,12 @@ public class stdpassGUI extends javax.swing.JFrame {
         NewPasswordTF.setBorder(null);
         NewPasswordTF.setOpaque(false);
         getContentPane().add(NewPasswordTF);
-        NewPasswordTF.setBounds(380, 250, 230, 30);
+        NewPasswordTF.setBounds(380, 250, 230, 20);
 
         ConfirmPasswordTF.setBorder(null);
         ConfirmPasswordTF.setOpaque(false);
         getContentPane().add(ConfirmPasswordTF);
-        ConfirmPasswordTF.setBounds(380, 320, 230, 40);
+        ConfirmPasswordTF.setBounds(380, 330, 230, 20);
 
         stdpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/std_changepw.jpg"))); // NOI18N
         getContentPane().add(stdpass);
@@ -100,12 +114,32 @@ public class stdpassGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        stdprofileGUI a = new stdprofileGUI();
+        a.setVisible(true);
     }//GEN-LAST:event_ProfileButtonActionPerformed
 
     private void OldPasswordTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldPasswordTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_OldPasswordTFActionPerformed
+
+    private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
+        setVisible(false);
+        stdvoucherGUI a = new stdvoucherGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_VoucherButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        setVisible(false);
+        IntialGui a = new IntialGui();
+        a.setVisible(true);
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+        setVisible(false);
+        stdprofileGUI a = new stdprofileGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_CancelButtonActionPerformed
 
     /**
      * @param args the command line arguments

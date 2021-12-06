@@ -15,6 +15,7 @@ public class admedit3GUI extends javax.swing.JFrame {
      */
     public admedit3GUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**

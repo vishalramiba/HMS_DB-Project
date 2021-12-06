@@ -15,6 +15,7 @@ public class admitempGUI extends javax.swing.JFrame {
      */
     public admitempGUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**

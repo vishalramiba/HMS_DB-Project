@@ -15,6 +15,7 @@ public class admedit2GUI extends javax.swing.JFrame {
      */
     public admedit2GUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**
@@ -66,25 +67,21 @@ public class admedit2GUI extends javax.swing.JFrame {
 
         RegisterButton.setBorder(null);
         RegisterButton.setContentAreaFilled(false);
-        RegisterButton.setOpaque(false);
         getContentPane().add(RegisterButton);
         RegisterButton.setBounds(20, 90, 140, 30);
 
         EditButton.setBorder(null);
         EditButton.setContentAreaFilled(false);
-        EditButton.setOpaque(false);
         getContentPane().add(EditButton);
         EditButton.setBounds(20, 140, 140, 30);
 
         RoomsButton.setBorder(null);
         RoomsButton.setContentAreaFilled(false);
-        RoomsButton.setOpaque(false);
         getContentPane().add(RoomsButton);
         RoomsButton.setBounds(20, 190, 140, 30);
 
         Employees.setBorder(null);
         Employees.setContentAreaFilled(false);
-        Employees.setOpaque(false);
         getContentPane().add(Employees);
         Employees.setBounds(20, 230, 140, 30);
 
@@ -155,13 +152,11 @@ public class admedit2GUI extends javax.swing.JFrame {
 
         Edit2Button.setBorder(null);
         Edit2Button.setContentAreaFilled(false);
-        Edit2Button.setOpaque(false);
         getContentPane().add(Edit2Button);
         Edit2Button.setBounds(340, 490, 150, 29);
 
         CancelButton.setBorder(null);
         CancelButton.setContentAreaFilled(false);
-        CancelButton.setOpaque(false);
         getContentPane().add(CancelButton);
         CancelButton.setBounds(500, 490, 150, 30);
 

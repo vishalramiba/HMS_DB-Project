@@ -15,6 +15,7 @@ public class stdprofileGUI extends javax.swing.JFrame {
      */
     public stdprofileGUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**
@@ -50,6 +51,11 @@ public class stdprofileGUI extends javax.swing.JFrame {
 
         UpdateProfileButton.setBorderPainted(false);
         UpdateProfileButton.setContentAreaFilled(false);
+        UpdateProfileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateProfileButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(UpdateProfileButton);
         UpdateProfileButton.setBounds(500, 480, 150, 50);
 
@@ -101,7 +107,7 @@ public class stdprofileGUI extends javax.swing.JFrame {
         ProgramTF.setBorder(null);
         ProgramTF.setOpaque(false);
         getContentPane().add(ProgramTF);
-        ProgramTF.setBounds(360, 336, 380, 30);
+        ProgramTF.setBounds(360, 336, 380, 20);
 
         DOBTF.setBorder(null);
         DOBTF.setOpaque(false);
@@ -125,16 +131,31 @@ public class stdprofileGUI extends javax.swing.JFrame {
 
         ProfileButton.setBorderPainted(false);
         ProfileButton.setContentAreaFilled(false);
+        ProfileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProfileButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(ProfileButton);
         ProfileButton.setBounds(20, 90, 150, 30);
 
         VoucherButton.setBorderPainted(false);
         VoucherButton.setContentAreaFilled(false);
+        VoucherButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoucherButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(VoucherButton);
         VoucherButton.setBounds(20, 140, 150, 29);
 
         LogoutButton.setBorderPainted(false);
         LogoutButton.setContentAreaFilled(false);
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(LogoutButton);
         LogoutButton.setBounds(20, 510, 150, 30);
 
@@ -148,6 +169,30 @@ public class stdprofileGUI extends javax.swing.JFrame {
     private void FathersNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FathersNameTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FathersNameTFActionPerformed
+
+    private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
+        setVisible(false);
+        stdvoucherGUI a = new stdvoucherGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_VoucherButtonActionPerformed
+
+    private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
+        setVisible(false);
+        stdprofileGUI a = new stdprofileGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_ProfileButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        setVisible(false);
+        IntialGui a = new IntialGui();
+        a.setVisible(true);
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void UpdateProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateProfileButtonActionPerformed
+        setVisible(false);
+        stdpassGUI a = new stdpassGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_UpdateProfileButtonActionPerformed
 
     /**
      * @param args the command line arguments

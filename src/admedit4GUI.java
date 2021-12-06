@@ -15,6 +15,7 @@ public class admedit4GUI extends javax.swing.JFrame {
      */
     public admedit4GUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**

@@ -15,6 +15,7 @@ public class adminvoucherGUI extends javax.swing.JFrame {
      */
     public adminvoucherGUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**

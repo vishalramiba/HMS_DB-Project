@@ -15,6 +15,7 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
      */
     public adminwelcomeGUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**
@@ -41,21 +42,41 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
 
         RegisterButton.setBorder(null);
         RegisterButton.setContentAreaFilled(false);
+        RegisterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(RegisterButton);
         RegisterButton.setBounds(20, 90, 140, 30);
 
         EditButton.setBorder(null);
         EditButton.setContentAreaFilled(false);
+        EditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(EditButton);
         EditButton.setBounds(20, 140, 140, 30);
 
         RoomsButton.setBorder(null);
         RoomsButton.setContentAreaFilled(false);
+        RoomsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RoomsButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(RoomsButton);
         RoomsButton.setBounds(20, 190, 140, 30);
 
         Employees.setBorder(null);
         Employees.setContentAreaFilled(false);
+        Employees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmployeesActionPerformed(evt);
+            }
+        });
         getContentPane().add(Employees);
         Employees.setBounds(20, 230, 140, 30);
 
@@ -68,6 +89,11 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
         LogoutButton.setBorder(null);
         LogoutButton.setBorderPainted(false);
         LogoutButton.setContentAreaFilled(false);
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(LogoutButton);
         LogoutButton.setBounds(20, 510, 130, 30);
 
@@ -87,6 +113,34 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+       setVisible(false);
+        IntialGui a = new IntialGui();
+        a.setVisible(true);
+    }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
+        setVisible(false);
+        adminregisterGUI a = new adminregisterGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_RegisterButtonActionPerformed
+
+    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
+        setVisible(false);
+        adminedit1GUI a = new adminedit1GUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_EditButtonActionPerformed
+
+    private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
+        setVisible(false);
+        adminroomsGUI a = new adminroomsGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_RoomsButtonActionPerformed
+
+    private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmployeesActionPerformed
 
     /**
      * @param args the command line arguments

@@ -15,6 +15,7 @@ public class admloginGUI extends javax.swing.JFrame {
      */
     public admloginGUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**
@@ -37,6 +38,11 @@ public class admloginGUI extends javax.swing.JFrame {
         LoginButton.setBorder(null);
         LoginButton.setBorderPainted(false);
         LoginButton.setContentAreaFilled(false);
+        LoginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(LoginButton);
         LoginButton.setBounds(540, 390, 130, 30);
 
@@ -74,6 +80,12 @@ public class admloginGUI extends javax.swing.JFrame {
     private void PasswordTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordTFActionPerformed
+
+    private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
+       setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_LoginButtonActionPerformed
 
     /**
      * @param args the command line arguments

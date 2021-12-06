@@ -15,6 +15,7 @@ public class admreg2GUI extends javax.swing.JFrame {
      */
     public admreg2GUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**

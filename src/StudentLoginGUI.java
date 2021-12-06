@@ -15,6 +15,8 @@ public class StudentLoginGUI extends javax.swing.JFrame {
      */
     public StudentLoginGUI() {
         initComponents();
+        setSize(810,600);
+        
     }
 
     /**
@@ -50,7 +52,7 @@ public class StudentLoginGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(loginButton);
-        loginButton.setBounds(530, 380, 140, 40);
+        loginButton.setBounds(530, 390, 140, 40);
 
         stdpwTF.setMargin(new java.awt.Insets(2, 2, 1, 1));
         getContentPane().add(stdpwTF);
@@ -58,13 +60,15 @@ public class StudentLoginGUI extends javax.swing.JFrame {
 
         StudentLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/std_login.jpg"))); // NOI18N
         getContentPane().add(StudentLogin);
-        StudentLogin.setBounds(0, 0, 800, 569);
+        StudentLogin.setBounds(0, 0, 870, 580);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        StdwelcomeGUI a = new StdwelcomeGUI();
+        a.setVisible(true); 
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void stdloginTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stdloginTFActionPerformed

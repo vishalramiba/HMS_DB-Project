@@ -15,6 +15,7 @@ public class adminregisterGUI extends javax.swing.JFrame {
      */
     public adminregisterGUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**

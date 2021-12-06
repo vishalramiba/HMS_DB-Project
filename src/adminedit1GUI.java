@@ -15,6 +15,7 @@ public class adminedit1GUI extends javax.swing.JFrame {
      */
     public adminedit1GUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**

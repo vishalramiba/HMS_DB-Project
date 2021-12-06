@@ -15,6 +15,7 @@ public class stdupdateGUI extends javax.swing.JFrame {
      */
     public stdupdateGUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**
@@ -64,11 +65,21 @@ public class stdupdateGUI extends javax.swing.JFrame {
 
         ProfileButton.setBorderPainted(false);
         ProfileButton.setContentAreaFilled(false);
+        ProfileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProfileButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(ProfileButton);
         ProfileButton.setBounds(20, 90, 130, 30);
 
         VoucherButton.setBorderPainted(false);
         VoucherButton.setContentAreaFilled(false);
+        VoucherButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoucherButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(VoucherButton);
         VoucherButton.setBounds(20, 140, 130, 29);
 
@@ -84,11 +95,21 @@ public class stdupdateGUI extends javax.swing.JFrame {
 
         UpdateButton.setBorderPainted(false);
         UpdateButton.setContentAreaFilled(false);
+        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(UpdateButton);
         UpdateButton.setBounds(420, 450, 150, 30);
 
         cancelButton.setBorderPainted(false);
         cancelButton.setContentAreaFilled(false);
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(cancelButton);
         cancelButton.setBounds(420, 490, 150, 30);
 
@@ -100,12 +121,38 @@ public class stdupdateGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        IntialGui a = new IntialGui();
+        a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void PhoneTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PhoneTFActionPerformed
+
+    private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
+        setVisible(false);
+        stdprofileGUI a = new stdprofileGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_ProfileButtonActionPerformed
+
+    private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
+         setVisible(false);
+        stdvoucherGUI a = new stdvoucherGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_VoucherButtonActionPerformed
+
+    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
+        setVisible(false);
+        stdprofileGUI a = new stdprofileGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_UpdateButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        setVisible(false);
+        stdprofileGUI a = new stdprofileGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
