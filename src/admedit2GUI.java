@@ -119,67 +119,67 @@ public class admedit2GUI extends javax.swing.JFrame {
         FirstNameTF.setBorder(null);
         FirstNameTF.setOpaque(false);
         getContentPane().add(FirstNameTF);
-        FirstNameTF.setBounds(320, 190, 180, 30);
+        FirstNameTF.setBounds(320, 200, 160, 20);
 
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
         getContentPane().add(StudentIDTF);
-        StudentIDTF.setBounds(320, 220, 460, 30);
+        StudentIDTF.setBounds(320, 220, 440, 20);
 
         FatherNameTF.setBorder(null);
         FatherNameTF.setOpaque(false);
         getContentPane().add(FatherNameTF);
-        FatherNameTF.setBounds(320, 240, 180, 40);
+        FatherNameTF.setBounds(320, 250, 160, 20);
 
         PhoneTF.setBorder(null);
         PhoneTF.setOpaque(false);
         getContentPane().add(PhoneTF);
-        PhoneTF.setBounds(320, 270, 180, 30);
+        PhoneTF.setBounds(320, 270, 160, 20);
 
         DateOfBirthTF.setBorder(null);
         DateOfBirthTF.setOpaque(false);
         getContentPane().add(DateOfBirthTF);
-        DateOfBirthTF.setBounds(320, 300, 180, 20);
+        DateOfBirthTF.setBounds(320, 300, 160, 20);
 
         AddressTF.setBorder(null);
         AddressTF.setOpaque(false);
         getContentPane().add(AddressTF);
-        AddressTF.setBounds(320, 320, 460, 40);
+        AddressTF.setBounds(320, 330, 440, 20);
 
         RoomTF.setBorder(null);
         RoomTF.setOpaque(false);
         getContentPane().add(RoomTF);
-        RoomTF.setBounds(320, 350, 180, 30);
+        RoomTF.setBounds(320, 350, 160, 20);
 
         FacilitiesTF.setBorder(null);
         FacilitiesTF.setOpaque(false);
         getContentPane().add(FacilitiesTF);
-        FacilitiesTF.setBounds(320, 380, 460, 14);
+        FacilitiesTF.setBounds(320, 380, 430, 14);
 
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
         getContentPane().add(LastNameTF);
-        LastNameTF.setBounds(580, 190, 200, 30);
+        LastNameTF.setBounds(580, 200, 180, 20);
 
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
         getContentPane().add(EmailTF);
-        EmailTF.setBounds(580, 240, 200, 40);
+        EmailTF.setBounds(580, 250, 180, 20);
 
         ProgramTF.setBorder(null);
         ProgramTF.setOpaque(false);
         getContentPane().add(ProgramTF);
-        ProgramTF.setBounds(580, 270, 200, 30);
+        ProgramTF.setBounds(580, 270, 170, 20);
 
         CNICTF.setBorder(null);
         CNICTF.setOpaque(false);
         getContentPane().add(CNICTF);
-        CNICTF.setBounds(580, 300, 200, 20);
+        CNICTF.setBounds(580, 300, 180, 20);
 
         BuildingTF.setBorder(null);
         BuildingTF.setOpaque(false);
         getContentPane().add(BuildingTF);
-        BuildingTF.setBounds(580, 350, 200, 30);
+        BuildingTF.setBounds(580, 350, 180, 20);
 
         Edit2Button.setBorder(null);
         Edit2Button.setContentAreaFilled(false);

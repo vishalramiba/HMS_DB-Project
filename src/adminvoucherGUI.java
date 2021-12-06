@@ -130,17 +130,17 @@ public class adminvoucherGUI extends javax.swing.JFrame {
         UnpaidChallansTF.setBorder(null);
         UnpaidChallansTF.setOpaque(false);
         getContentPane().add(UnpaidChallansTF);
-        UnpaidChallansTF.setBounds(450, 200, 84, 26);
+        UnpaidChallansTF.setBounds(450, 200, 70, 26);
 
         VoucherNoTF.setBorder(null);
         VoucherNoTF.setOpaque(false);
         getContentPane().add(VoucherNoTF);
-        VoucherNoTF.setBounds(220, 340, 320, 14);
+        VoucherNoTF.setBounds(220, 340, 310, 20);
 
         VoucherNo2TF.setBorder(null);
         VoucherNo2TF.setOpaque(false);
         getContentPane().add(VoucherNo2TF);
-        VoucherNo2TF.setBounds(220, 470, 320, 14);
+        VoucherNo2TF.setBounds(220, 470, 310, 20);
 
         admvoucher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_voucher.jpg"))); // NOI18N
         getContentPane().add(admvoucher);
