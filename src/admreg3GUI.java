@@ -50,73 +50,89 @@ public class admreg3GUI extends javax.swing.JFrame {
         Register2Button = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         VoucherButton.setBorder(null);
         VoucherButton.setBorderPainted(false);
         VoucherButton.setContentAreaFilled(false);
-        getContentPane().add(VoucherButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 130, 29));
+        getContentPane().add(VoucherButton);
+        VoucherButton.setBounds(30, 280, 130, 29);
 
         LogoutButton.setBorder(null);
         LogoutButton.setBorderPainted(false);
         LogoutButton.setContentAreaFilled(false);
-        getContentPane().add(LogoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 130, 30));
+        getContentPane().add(LogoutButton);
+        LogoutButton.setBounds(20, 510, 130, 30);
 
         RegisterButton.setBorder(null);
         RegisterButton.setContentAreaFilled(false);
-        getContentPane().add(RegisterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 140, 30));
+        getContentPane().add(RegisterButton);
+        RegisterButton.setBounds(20, 90, 140, 30);
 
         EditButton.setBorder(null);
         EditButton.setContentAreaFilled(false);
-        getContentPane().add(EditButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 140, 30));
+        getContentPane().add(EditButton);
+        EditButton.setBounds(20, 140, 140, 30);
 
         RoomsButton.setBorder(null);
         RoomsButton.setContentAreaFilled(false);
-        getContentPane().add(RoomsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 140, 30));
+        getContentPane().add(RoomsButton);
+        RoomsButton.setBounds(20, 190, 140, 30);
 
         Employees.setBorder(null);
         Employees.setContentAreaFilled(false);
-        getContentPane().add(Employees, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 140, 30));
+        getContentPane().add(Employees);
+        Employees.setBounds(20, 230, 140, 30);
 
         FirstNameTF.setBorder(null);
         FirstNameTF.setOpaque(false);
-        getContentPane().add(FirstNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 170, 20));
+        getContentPane().add(FirstNameTF);
+        FirstNameTF.setBounds(320, 200, 170, 20);
 
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
-        getContentPane().add(StudentIDTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 460, -1));
+        getContentPane().add(StudentIDTF);
+        StudentIDTF.setBounds(310, 220, 460, 16);
 
         FatherNameTF.setBorder(null);
         FatherNameTF.setOpaque(false);
-        getContentPane().add(FatherNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 160, -1));
+        getContentPane().add(FatherNameTF);
+        FatherNameTF.setBounds(320, 250, 160, 16);
 
         PhoneTF.setBorder(null);
         PhoneTF.setOpaque(false);
-        getContentPane().add(PhoneTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 160, 10));
+        getContentPane().add(PhoneTF);
+        PhoneTF.setBounds(320, 280, 160, 10);
 
         DateOfBirthTF.setBorder(null);
         DateOfBirthTF.setOpaque(false);
-        getContentPane().add(DateOfBirthTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 160, -1));
+        getContentPane().add(DateOfBirthTF);
+        DateOfBirthTF.setBounds(320, 300, 160, 16);
 
         AddressTF.setBorder(null);
         AddressTF.setOpaque(false);
-        getContentPane().add(AddressTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 440, 10));
+        getContentPane().add(AddressTF);
+        AddressTF.setBounds(320, 330, 440, 10);
 
         RoomTF.setBorder(null);
         RoomTF.setOpaque(false);
-        getContentPane().add(RoomTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 180, 10));
+        getContentPane().add(RoomTF);
+        RoomTF.setBounds(320, 360, 180, 10);
 
         FacilitiesTF.setBorder(null);
         FacilitiesTF.setOpaque(false);
-        getContentPane().add(FacilitiesTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 430, -1));
+        getContentPane().add(FacilitiesTF);
+        FacilitiesTF.setBounds(320, 380, 430, 16);
 
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
-        getContentPane().add(LastNameTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, 180, -1));
+        getContentPane().add(LastNameTF);
+        LastNameTF.setBounds(580, 200, 180, 16);
 
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
-        getContentPane().add(EmailTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 180, 10));
+        getContentPane().add(EmailTF);
+        EmailTF.setBounds(580, 250, 180, 10);
 
         ProgramTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         ProgramTF.setBorder(null);
@@ -125,7 +141,8 @@ public class admreg3GUI extends javax.swing.JFrame {
                 ProgramTFActionPerformed(evt);
             }
         });
-        getContentPane().add(ProgramTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 190, 20));
+        getContentPane().add(ProgramTF);
+        ProgramTF.setBounds(580, 280, 190, 20);
 
         CNICTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         CNICTF.setBorder(null);
@@ -134,11 +151,13 @@ public class admreg3GUI extends javax.swing.JFrame {
                 CNICTFActionPerformed(evt);
             }
         });
-        getContentPane().add(CNICTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 170, 20));
+        getContentPane().add(CNICTF);
+        CNICTF.setBounds(580, 300, 170, 20);
 
         BuildingTF.setBorder(null);
         BuildingTF.setOpaque(false);
-        getContentPane().add(BuildingTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 350, 180, -1));
+        getContentPane().add(BuildingTF);
+        BuildingTF.setBounds(580, 350, 180, 16);
 
         NextButton.setBorder(null);
         NextButton.setBorderPainted(false);
@@ -148,12 +167,14 @@ public class admreg3GUI extends javax.swing.JFrame {
                 NextButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 490, 140, 30));
+        getContentPane().add(NextButton);
+        NextButton.setBounds(420, 490, 140, 30);
 
         Register2Button.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         Register2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew3.jpg"))); // NOI18N
         Register2Button.setOpaque(true);
-        getContentPane().add(Register2Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(Register2Button);
+        Register2Button.setBounds(0, 0, 800, 569);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
