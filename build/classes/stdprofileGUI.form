@@ -52,6 +52,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="FirstNmeTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -65,6 +66,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="StudentIDTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -78,6 +80,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="LastNameTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -91,6 +94,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="FathersNameTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -107,6 +111,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="EmailTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -120,6 +125,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="PhoneTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -133,6 +139,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="AddressTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -146,6 +153,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="ProgramTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -159,6 +167,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="DOBTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -172,6 +181,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="CNICTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -185,6 +195,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="RoomTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -198,6 +209,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="BuldingTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>

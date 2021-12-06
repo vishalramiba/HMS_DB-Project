@@ -37,6 +37,9 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
         LogoutButton = new javax.swing.JButton();
         NoOfVacantRooms = new javax.swing.JTextField();
         NoOfUnpaidChallans = new javax.swing.JTextField();
+        VvacntroomsTF = new javax.swing.JTextField();
+        vacantroomTF = new javax.swing.JTextField();
+        unpaidTF = new javax.swing.JTextField();
         admwelcome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,6 +116,20 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
         NoOfUnpaidChallans.setOpaque(false);
         getContentPane().add(NoOfUnpaidChallans);
         NoOfUnpaidChallans.setBounds(610, 310, 0, 40);
+
+        VvacntroomsTF.setBorder(null);
+        getContentPane().add(VvacntroomsTF);
+        VvacntroomsTF.setBounds(620, 250, 0, 30);
+
+        vacantroomTF.setEditable(false);
+        vacantroomTF.setBorder(null);
+        getContentPane().add(vacantroomTF);
+        vacantroomTF.setBounds(620, 250, 0, 30);
+
+        unpaidTF.setEditable(false);
+        unpaidTF.setBorder(null);
+        getContentPane().add(unpaidTF);
+        unpaidTF.setBounds(620, 320, 60, 20);
 
         admwelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adm_welcome.jpg"))); // NOI18N
         getContentPane().add(admwelcome);
@@ -201,6 +218,9 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
     private javax.swing.JButton RegisterButton;
     private javax.swing.JButton RoomsButton;
     private javax.swing.JButton VoucherButton;
+    private javax.swing.JTextField VvacntroomsTF;
     private javax.swing.JLabel admwelcome;
+    private javax.swing.JTextField unpaidTF;
+    private javax.swing.JTextField vacantroomTF;
     // End of variables declaration//GEN-END:variables
 }

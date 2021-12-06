@@ -53,21 +53,25 @@ public class stdvoucherGUI extends javax.swing.JFrame {
         getContentPane().add(VoucherStatusTF);
         VoucherStatusTF.setBounds(530, 150, 60, 20);
 
+        RoomFeeTF.setEditable(false);
         RoomFeeTF.setBorder(null);
         RoomFeeTF.setOpaque(false);
         getContentPane().add(RoomFeeTF);
         RoomFeeTF.setBounds(320, 316, 170, 20);
 
+        MessTF.setEditable(false);
         MessTF.setBorder(null);
         MessTF.setOpaque(false);
         getContentPane().add(MessTF);
         MessTF.setBounds(320, 350, 170, 20);
 
+        LaundryTF.setEditable(false);
         LaundryTF.setBorder(null);
         LaundryTF.setOpaque(false);
         getContentPane().add(LaundryTF);
         LaundryTF.setBounds(320, 370, 170, 20);
 
+        ParkingTF.setEditable(false);
         ParkingTF.setBorder(null);
         ParkingTF.setOpaque(false);
         ParkingTF.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +82,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
         getContentPane().add(ParkingTF);
         ParkingTF.setBounds(580, 320, 190, 20);
 
+        GymTF.setEditable(false);
         GymTF.setBorder(null);
         GymTF.setOpaque(false);
         getContentPane().add(GymTF);

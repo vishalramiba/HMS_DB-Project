@@ -65,21 +65,25 @@ public class stdprofileGUI extends javax.swing.JFrame {
         getContentPane().add(UpdateProfileButton1);
         UpdateProfileButton1.setBounds(330, 480, 160, 50);
 
+        FirstNmeTF.setEditable(false);
         FirstNmeTF.setBorder(null);
         FirstNmeTF.setOpaque(false);
         getContentPane().add(FirstNmeTF);
         FirstNmeTF.setBounds(360, 140, 170, 30);
 
+        StudentIDTF.setEditable(false);
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
         getContentPane().add(StudentIDTF);
         StudentIDTF.setBounds(620, 140, 120, 30);
 
+        LastNameTF.setEditable(false);
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
         getContentPane().add(LastNameTF);
         LastNameTF.setBounds(360, 170, 380, 30);
 
+        FathersNameTF.setEditable(false);
         FathersNameTF.setBorder(null);
         FathersNameTF.setOpaque(false);
         FathersNameTF.addActionListener(new java.awt.event.ActionListener() {
@@ -90,41 +94,49 @@ public class stdprofileGUI extends javax.swing.JFrame {
         getContentPane().add(FathersNameTF);
         FathersNameTF.setBounds(360, 206, 380, 30);
 
+        EmailTF.setEditable(false);
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
         getContentPane().add(EmailTF);
         EmailTF.setBounds(360, 240, 380, 20);
 
+        PhoneTF.setEditable(false);
         PhoneTF.setBorder(null);
         PhoneTF.setOpaque(false);
         getContentPane().add(PhoneTF);
         PhoneTF.setBounds(360, 270, 380, 30);
 
+        AddressTF.setEditable(false);
         AddressTF.setBorder(null);
         AddressTF.setOpaque(false);
         getContentPane().add(AddressTF);
         AddressTF.setBounds(360, 300, 380, 30);
 
+        ProgramTF.setEditable(false);
         ProgramTF.setBorder(null);
         ProgramTF.setOpaque(false);
         getContentPane().add(ProgramTF);
         ProgramTF.setBounds(360, 336, 380, 20);
 
+        DOBTF.setEditable(false);
         DOBTF.setBorder(null);
         DOBTF.setOpaque(false);
         getContentPane().add(DOBTF);
         DOBTF.setBounds(360, 370, 380, 20);
 
+        CNICTF.setEditable(false);
         CNICTF.setBorder(null);
         CNICTF.setOpaque(false);
         getContentPane().add(CNICTF);
         CNICTF.setBounds(360, 400, 380, 30);
 
+        RoomTF.setEditable(false);
         RoomTF.setBorder(null);
         RoomTF.setOpaque(false);
         getContentPane().add(RoomTF);
         RoomTF.setBounds(360, 430, 170, 30);
 
+        BuldingTF.setEditable(false);
         BuldingTF.setBorder(null);
         BuldingTF.setOpaque(false);
         getContentPane().add(BuldingTF);

@@ -42,8 +42,9 @@ public class adminrg1GUI extends javax.swing.JFrame {
         LastNameTF = new javax.swing.JTextField();
         EmailTF = new javax.swing.JTextField();
         PhoneTF = new javax.swing.JTextField();
-        AddressTF = new javax.swing.JTextField();
         Next = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         adminrg1GUI = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -111,26 +112,31 @@ public class adminrg1GUI extends javax.swing.JFrame {
         getContentPane().add(LogoutButton);
         LogoutButton.setBounds(20, 510, 130, 30);
 
+        FirstNameTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         FirstNameTF.setBorder(null);
         FirstNameTF.setOpaque(false);
         getContentPane().add(FirstNameTF);
-        FirstNameTF.setBounds(220, 210, 260, 10);
+        FirstNameTF.setBounds(220, 210, 260, 13);
 
+        StudentIDTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
         getContentPane().add(StudentIDTF);
         StudentIDTF.setBounds(220, 260, 260, 20);
 
+        CNICTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         CNICTF.setBorder(null);
         CNICTF.setOpaque(false);
         getContentPane().add(CNICTF);
-        CNICTF.setBounds(220, 320, 270, 10);
+        CNICTF.setBounds(220, 316, 260, 20);
 
+        ProgramTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         ProgramTF.setBorder(null);
         ProgramTF.setOpaque(false);
         getContentPane().add(ProgramTF);
-        ProgramTF.setBounds(220, 370, 270, 10);
+        ProgramTF.setBounds(220, 370, 260, 13);
 
+        FatherNameTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         FatherNameTF.setBorder(null);
         FatherNameTF.setOpaque(false);
         getContentPane().add(FatherNameTF);
@@ -139,22 +145,19 @@ public class adminrg1GUI extends javax.swing.JFrame {
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
         getContentPane().add(LastNameTF);
-        LastNameTF.setBounds(510, 210, 270, 10);
+        LastNameTF.setBounds(510, 206, 250, 20);
 
+        EmailTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
         getContentPane().add(EmailTF);
         EmailTF.setBounds(510, 260, 250, 20);
 
+        PhoneTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         PhoneTF.setBorder(null);
         PhoneTF.setOpaque(false);
         getContentPane().add(PhoneTF);
-        PhoneTF.setBounds(510, 320, 270, 10);
-
-        AddressTF.setBorder(null);
-        AddressTF.setOpaque(false);
-        getContentPane().add(AddressTF);
-        AddressTF.setBounds(510, 370, 250, 60);
+        PhoneTF.setBounds(510, 316, 250, 13);
 
         Next.setBorder(null);
         Next.setContentAreaFilled(false);
@@ -166,7 +169,19 @@ public class adminrg1GUI extends javax.swing.JFrame {
         getContentPane().add(Next);
         Next.setBounds(420, 490, 150, 29);
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(510, 376, 250, 60);
+
+        adminrg1GUI.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         adminrg1GUI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew1.jpg"))); // NOI18N
+        adminrg1GUI.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         getContentPane().add(adminrg1GUI);
         adminrg1GUI.setBounds(0, 0, 800, 569);
 
@@ -251,7 +266,6 @@ public class adminrg1GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AddressTF;
     private javax.swing.JTextField CNICTF;
     private javax.swing.JButton EditButton;
     private javax.swing.JTextField EmailTF;
@@ -268,5 +282,7 @@ public class adminrg1GUI extends javax.swing.JFrame {
     private javax.swing.JTextField StudentIDTF;
     private javax.swing.JButton VoucherButton;
     private javax.swing.JLabel adminrg1GUI;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

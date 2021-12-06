@@ -48,13 +48,13 @@ public class admloginGUI extends javax.swing.JFrame {
         getContentPane().add(LoginButton);
         LoginButton.setBounds(540, 390, 130, 30);
         getContentPane().add(IdLoginTF);
-        IdLoginTF.setBounds(430, 260, 250, 40);
+        IdLoginTF.setBounds(430, 250, 250, 50);
 
         jTextField2.setText("jTextField2");
         getContentPane().add(jTextField2);
         jTextField2.setBounds(430, 260, 250, 20);
         getContentPane().add(passwordLoginTF);
-        passwordLoginTF.setBounds(430, 330, 250, 40);
+        passwordLoginTF.setBounds(430, 330, 250, 50);
 
         admlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_login.jpg"))); // NOI18N
         getContentPane().add(admlogin);

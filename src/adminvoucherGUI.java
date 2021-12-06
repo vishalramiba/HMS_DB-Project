@@ -127,6 +127,7 @@ public class adminvoucherGUI extends javax.swing.JFrame {
         getContentPane().add(PayChallanButton);
         PayChallanButton.setBounds(580, 460, 180, 30);
 
+        UnpaidChallansTF.setEditable(false);
         UnpaidChallansTF.setBorder(null);
         UnpaidChallansTF.setOpaque(false);
         getContentPane().add(UnpaidChallansTF);

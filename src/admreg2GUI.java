@@ -130,6 +130,7 @@ public class admreg2GUI extends javax.swing.JFrame {
         getContentPane().add(ShowAvailbleRoomsButton);
         ShowAvailbleRoomsButton.setBounds(600, 200, 160, 30);
 
+        RoomNoTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         RoomNoTF.setBorder(null);
         RoomNoTF.setOpaque(false);
         RoomNoTF.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +139,7 @@ public class admreg2GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(RoomNoTF);
-        RoomNoTF.setBounds(240, 210, 230, 10);
+        RoomNoTF.setBounds(240, 210, 230, 13);
 
         messCB.setBorder(null);
         messCB.setOpaque(false);

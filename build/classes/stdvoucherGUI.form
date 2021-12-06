@@ -43,6 +43,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="RoomFeeTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -56,6 +57,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="MessTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -69,6 +71,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="LaundryTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -82,6 +85,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="ParkingTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -98,6 +102,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="GymTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>

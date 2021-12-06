@@ -154,6 +154,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="Building1Occuiped">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -170,6 +171,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="Building1Availble">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -186,6 +188,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="Building2Occuiped">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -202,6 +205,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="Building2Availble">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -218,6 +222,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="Building3Occuiped">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -231,6 +236,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="Building3Availble">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -244,6 +250,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="Building4Occuiped">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -283,6 +290,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="NoOfAvailbleRoomsTF">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>

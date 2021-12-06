@@ -105,57 +105,72 @@ public class admreg3GUI extends javax.swing.JFrame {
         getContentPane().add(Employees);
         Employees.setBounds(20, 230, 140, 30);
 
+        FirstNameTF.setEditable(false);
         FirstNameTF.setBorder(null);
         FirstNameTF.setOpaque(false);
         getContentPane().add(FirstNameTF);
         FirstNameTF.setBounds(320, 200, 170, 20);
 
+        StudentIDTF.setEditable(false);
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
         getContentPane().add(StudentIDTF);
-        StudentIDTF.setBounds(310, 220, 460, 14);
+        StudentIDTF.setBounds(320, 220, 440, 14);
 
+        FatherNameTF.setEditable(false);
         FatherNameTF.setBorder(null);
         FatherNameTF.setOpaque(false);
         getContentPane().add(FatherNameTF);
         FatherNameTF.setBounds(320, 250, 160, 14);
 
+        PhoneTF.setEditable(false);
         PhoneTF.setBorder(null);
         PhoneTF.setOpaque(false);
         getContentPane().add(PhoneTF);
-        PhoneTF.setBounds(320, 280, 160, 10);
+        PhoneTF.setBounds(320, 276, 160, 20);
 
+        DateOfBirthTF.setEditable(false);
         DateOfBirthTF.setBorder(null);
         DateOfBirthTF.setOpaque(false);
         getContentPane().add(DateOfBirthTF);
         DateOfBirthTF.setBounds(320, 300, 160, 14);
 
+        AddressTF.setEditable(false);
         AddressTF.setBorder(null);
         AddressTF.setOpaque(false);
         getContentPane().add(AddressTF);
-        AddressTF.setBounds(320, 330, 440, 10);
+        AddressTF.setBounds(320, 330, 440, 20);
 
+        RoomTF.setEditable(false);
         RoomTF.setBorder(null);
         RoomTF.setOpaque(false);
         getContentPane().add(RoomTF);
-        RoomTF.setBounds(320, 360, 180, 10);
+        RoomTF.setBounds(320, 356, 170, 14);
 
+        FacilitiesTF.setEditable(false);
         FacilitiesTF.setBorder(null);
         FacilitiesTF.setOpaque(false);
         getContentPane().add(FacilitiesTF);
         FacilitiesTF.setBounds(320, 380, 430, 14);
 
+        LastNameTF.setEditable(false);
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
+        LastNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LastNameTFActionPerformed(evt);
+            }
+        });
         getContentPane().add(LastNameTF);
         LastNameTF.setBounds(580, 200, 180, 14);
 
+        EmailTF.setEditable(false);
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
         getContentPane().add(EmailTF);
         EmailTF.setBounds(580, 250, 180, 20);
 
-        ProgramTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        ProgramTF.setEditable(false);
         ProgramTF.setBorder(null);
         ProgramTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,9 +178,9 @@ public class admreg3GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ProgramTF);
-        ProgramTF.setBounds(580, 280, 190, 13);
+        ProgramTF.setBounds(580, 273, 190, 20);
 
-        CNICTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        CNICTF.setEditable(false);
         CNICTF.setBorder(null);
         CNICTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,10 +190,16 @@ public class admreg3GUI extends javax.swing.JFrame {
         getContentPane().add(CNICTF);
         CNICTF.setBounds(580, 300, 170, 20);
 
+        BuildingTF.setEditable(false);
         BuildingTF.setBorder(null);
         BuildingTF.setOpaque(false);
+        BuildingTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuildingTFActionPerformed(evt);
+            }
+        });
         getContentPane().add(BuildingTF);
-        BuildingTF.setBounds(580, 350, 180, 14);
+        BuildingTF.setBounds(580, 350, 180, 20);
 
         NextButton.setBorder(null);
         NextButton.setBorderPainted(false);
@@ -249,6 +270,14 @@ public class admreg3GUI extends javax.swing.JFrame {
         IntialGui a = new IntialGui();
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void BuildingTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuildingTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuildingTFActionPerformed
+
+    private void LastNameTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastNameTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LastNameTFActionPerformed
 
     /**
      * @param args the command line arguments
