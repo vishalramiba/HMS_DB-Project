@@ -1,13 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Mayur
- */
 public class admreg3GUI extends javax.swing.JFrame {
 
     /**
@@ -15,6 +5,7 @@ public class admreg3GUI extends javax.swing.JFrame {
      */
     public admreg3GUI() {
         initComponents();
+      setResizable(false);
         setSize(810,600);
     }
 
@@ -55,32 +46,62 @@ public class admreg3GUI extends javax.swing.JFrame {
         VoucherButton.setBorder(null);
         VoucherButton.setBorderPainted(false);
         VoucherButton.setContentAreaFilled(false);
+        VoucherButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VoucherButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(VoucherButton);
         VoucherButton.setBounds(30, 280, 130, 29);
 
         LogoutButton.setBorder(null);
         LogoutButton.setBorderPainted(false);
         LogoutButton.setContentAreaFilled(false);
+        LogoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogoutButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(LogoutButton);
         LogoutButton.setBounds(20, 510, 130, 30);
 
         RegisterButton.setBorder(null);
         RegisterButton.setContentAreaFilled(false);
+        RegisterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(RegisterButton);
         RegisterButton.setBounds(20, 90, 140, 30);
 
         EditButton.setBorder(null);
         EditButton.setContentAreaFilled(false);
+        EditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(EditButton);
         EditButton.setBounds(20, 140, 140, 30);
 
         RoomsButton.setBorder(null);
         RoomsButton.setContentAreaFilled(false);
+        RoomsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RoomsButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(RoomsButton);
         RoomsButton.setBounds(20, 190, 140, 30);
 
         Employees.setBorder(null);
         Employees.setContentAreaFilled(false);
+        Employees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmployeesActionPerformed(evt);
+            }
+        });
         getContentPane().add(Employees);
         Employees.setBounds(20, 230, 140, 30);
 
@@ -92,12 +113,12 @@ public class admreg3GUI extends javax.swing.JFrame {
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
         getContentPane().add(StudentIDTF);
-        StudentIDTF.setBounds(310, 220, 460, 16);
+        StudentIDTF.setBounds(310, 220, 460, 14);
 
         FatherNameTF.setBorder(null);
         FatherNameTF.setOpaque(false);
         getContentPane().add(FatherNameTF);
-        FatherNameTF.setBounds(320, 250, 160, 16);
+        FatherNameTF.setBounds(320, 250, 160, 14);
 
         PhoneTF.setBorder(null);
         PhoneTF.setOpaque(false);
@@ -107,7 +128,7 @@ public class admreg3GUI extends javax.swing.JFrame {
         DateOfBirthTF.setBorder(null);
         DateOfBirthTF.setOpaque(false);
         getContentPane().add(DateOfBirthTF);
-        DateOfBirthTF.setBounds(320, 300, 160, 16);
+        DateOfBirthTF.setBounds(320, 300, 160, 14);
 
         AddressTF.setBorder(null);
         AddressTF.setOpaque(false);
@@ -122,17 +143,17 @@ public class admreg3GUI extends javax.swing.JFrame {
         FacilitiesTF.setBorder(null);
         FacilitiesTF.setOpaque(false);
         getContentPane().add(FacilitiesTF);
-        FacilitiesTF.setBounds(320, 380, 430, 16);
+        FacilitiesTF.setBounds(320, 380, 430, 14);
 
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
         getContentPane().add(LastNameTF);
-        LastNameTF.setBounds(580, 200, 180, 16);
+        LastNameTF.setBounds(580, 200, 180, 14);
 
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
         getContentPane().add(EmailTF);
-        EmailTF.setBounds(580, 250, 180, 10);
+        EmailTF.setBounds(580, 250, 180, 20);
 
         ProgramTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         ProgramTF.setBorder(null);
@@ -142,7 +163,7 @@ public class admreg3GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ProgramTF);
-        ProgramTF.setBounds(580, 280, 190, 20);
+        ProgramTF.setBounds(580, 280, 190, 13);
 
         CNICTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         CNICTF.setBorder(null);
@@ -157,7 +178,7 @@ public class admreg3GUI extends javax.swing.JFrame {
         BuildingTF.setBorder(null);
         BuildingTF.setOpaque(false);
         getContentPane().add(BuildingTF);
-        BuildingTF.setBounds(580, 350, 180, 16);
+        BuildingTF.setBounds(580, 350, 180, 14);
 
         NextButton.setBorder(null);
         NextButton.setBorderPainted(false);
@@ -180,7 +201,9 @@ public class admreg3GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButtonActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
     }//GEN-LAST:event_NextButtonActionPerformed
 
     private void CNICTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNICTFActionPerformed
@@ -190,6 +213,42 @@ public class admreg3GUI extends javax.swing.JFrame {
     private void ProgramTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProgramTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ProgramTFActionPerformed
+
+    private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
+        setVisible(false);
+        adminrg1GUI a = new adminrg1GUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_RegisterButtonActionPerformed
+
+    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
+         setVisible(false);
+        adminedit1GUI a = new adminedit1GUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_EditButtonActionPerformed
+
+    private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
+        setVisible(false);
+        adminroomsGUI a = new adminroomsGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_RoomsButtonActionPerformed
+
+    private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
+        setVisible(false);
+        admitempGUI a = new admitempGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_EmployeesActionPerformed
+
+    private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
+         setVisible(false);
+        adminvoucherGUI a = new adminvoucherGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_VoucherButtonActionPerformed
+
+    private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
+        setVisible(false);
+        IntialGui a = new IntialGui();
+        a.setVisible(true);
+    }//GEN-LAST:event_LogoutButtonActionPerformed
 
     /**
      * @param args the command line arguments

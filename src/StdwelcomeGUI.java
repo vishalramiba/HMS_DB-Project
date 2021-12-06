@@ -15,6 +15,7 @@ public class StdwelcomeGUI extends javax.swing.JFrame {
      */
     public StdwelcomeGUI() {
         initComponents();
+        setResizable(false);
         setSize(810,600);
     }
 

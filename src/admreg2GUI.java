@@ -15,6 +15,7 @@ public class admreg2GUI extends javax.swing.JFrame {
      */
     public admreg2GUI() {
         initComponents();
+        setResizable(false);
         setSize(810,600);
     }
 
@@ -36,11 +37,11 @@ public class admreg2GUI extends javax.swing.JFrame {
         NextButton = new javax.swing.JButton();
         ShowAvailbleRoomsButton = new javax.swing.JButton();
         RoomNoTF = new javax.swing.JTextField();
-        MessRadioButton = new javax.swing.JRadioButton();
-        LaundryButton = new javax.swing.JRadioButton();
-        ParkingRadioButton = new javax.swing.JRadioButton();
-        GymRadioButton = new javax.swing.JRadioButton();
-        SingleRoomRadioButton = new javax.swing.JRadioButton();
+        messCB = new javax.swing.JCheckBox();
+        laundryCB = new javax.swing.JCheckBox();
+        ParkingCB = new javax.swing.JCheckBox();
+        GymCB = new javax.swing.JCheckBox();
+        SrCB = new javax.swing.JCheckBox();
         admreg2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -139,65 +140,42 @@ public class admreg2GUI extends javax.swing.JFrame {
         getContentPane().add(RoomNoTF);
         RoomNoTF.setBounds(240, 210, 230, 10);
 
-        MessRadioButton.setAlignmentY(0.0F);
-        MessRadioButton.setBorder(null);
-        MessRadioButton.setIconTextGap(3);
-        MessRadioButton.setMargin(new java.awt.Insets(1, 1, 1, 1));
-        MessRadioButton.setMaximumSize(new java.awt.Dimension(15, 15));
-        MessRadioButton.setMinimumSize(new java.awt.Dimension(15, 15));
-        MessRadioButton.setOpaque(false);
-        MessRadioButton.setPreferredSize(new java.awt.Dimension(15, 15));
-        MessRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MessRadioButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(MessRadioButton);
-        MessRadioButton.setBounds(220, 340, 133, 20);
+        messCB.setBorder(null);
+        messCB.setOpaque(false);
+        getContentPane().add(messCB);
+        messCB.setBounds(240, 340, 81, 23);
 
-        LaundryButton.setAlignmentY(0.0F);
-        LaundryButton.setBorder(null);
-        LaundryButton.setOpaque(false);
-        LaundryButton.addActionListener(new java.awt.event.ActionListener() {
+        laundryCB.setBorder(null);
+        laundryCB.setOpaque(false);
+        laundryCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LaundryButtonActionPerformed(evt);
+                laundryCBActionPerformed(evt);
             }
         });
-        getContentPane().add(LaundryButton);
-        LaundryButton.setBounds(220, 361, 70, 30);
+        getContentPane().add(laundryCB);
+        laundryCB.setBounds(240, 360, 81, 30);
 
-        ParkingRadioButton.setAlignmentY(0.0F);
-        ParkingRadioButton.setBorder(null);
-        ParkingRadioButton.setOpaque(false);
-        ParkingRadioButton.addActionListener(new java.awt.event.ActionListener() {
+        ParkingCB.setOpaque(false);
+        ParkingCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ParkingRadioButtonActionPerformed(evt);
+                ParkingCBActionPerformed(evt);
             }
         });
-        getContentPane().add(ParkingRadioButton);
-        ParkingRadioButton.setBounds(220, 380, 90, 40);
+        getContentPane().add(ParkingCB);
+        ParkingCB.setBounds(240, 390, 100, 30);
 
-        GymRadioButton.setAlignmentY(0.0F);
-        GymRadioButton.setBorder(null);
-        GymRadioButton.setOpaque(false);
-        GymRadioButton.addActionListener(new java.awt.event.ActionListener() {
+        GymCB.setOpaque(false);
+        GymCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GymRadioButtonActionPerformed(evt);
+                GymCBActionPerformed(evt);
             }
         });
-        getContentPane().add(GymRadioButton);
-        GymRadioButton.setBounds(220, 411, 100, 30);
+        getContentPane().add(GymCB);
+        GymCB.setBounds(240, 410, 100, 40);
 
-        SingleRoomRadioButton.setAlignmentY(0.0F);
-        SingleRoomRadioButton.setBorder(null);
-        SingleRoomRadioButton.setOpaque(false);
-        SingleRoomRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SingleRoomRadioButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(SingleRoomRadioButton);
-        SingleRoomRadioButton.setBounds(220, 440, 21, 21);
+        SrCB.setOpaque(false);
+        getContentPane().add(SrCB);
+        SrCB.setBounds(240, 440, 81, 23);
 
         admreg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew2.jpg"))); // NOI18N
         getContentPane().add(admreg2);
@@ -207,7 +185,9 @@ public class admreg2GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButtonActionPerformed
-        // TODO add your handling code here:
+         setVisible(false);
+        admreg3GUI a = new admreg3GUI();
+        a.setVisible(true);
     }//GEN-LAST:event_NextButtonActionPerformed
 
     private void ShowAvailbleRoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowAvailbleRoomsButtonActionPerformed
@@ -217,10 +197,6 @@ public class admreg2GUI extends javax.swing.JFrame {
     private void RoomNoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomNoTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RoomNoTFActionPerformed
-
-    private void MessRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MessRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MessRadioButtonActionPerformed
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
        setVisible(false);
@@ -258,21 +234,17 @@ public class admreg2GUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
-    private void LaundryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaundryButtonActionPerformed
+    private void laundryCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laundryCBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LaundryButtonActionPerformed
+    }//GEN-LAST:event_laundryCBActionPerformed
 
-    private void ParkingRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParkingRadioButtonActionPerformed
+    private void GymCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GymCBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ParkingRadioButtonActionPerformed
+    }//GEN-LAST:event_GymCBActionPerformed
 
-    private void GymRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GymRadioButtonActionPerformed
+    private void ParkingCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParkingCBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GymRadioButtonActionPerformed
-
-    private void SingleRoomRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SingleRoomRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SingleRoomRadioButtonActionPerformed
+    }//GEN-LAST:event_ParkingCBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,18 +285,18 @@ public class admreg2GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EditButton;
     private javax.swing.JButton Employees;
-    private javax.swing.JRadioButton GymRadioButton;
-    private javax.swing.JRadioButton LaundryButton;
+    private javax.swing.JCheckBox GymCB;
     private javax.swing.JButton LogoutButton;
-    private javax.swing.JRadioButton MessRadioButton;
     private javax.swing.JButton NextButton;
-    private javax.swing.JRadioButton ParkingRadioButton;
+    private javax.swing.JCheckBox ParkingCB;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JTextField RoomNoTF;
     private javax.swing.JButton RoomsButton;
     private javax.swing.JButton ShowAvailbleRoomsButton;
-    private javax.swing.JRadioButton SingleRoomRadioButton;
+    private javax.swing.JCheckBox SrCB;
     private javax.swing.JButton VoucherButton;
     private javax.swing.JLabel admreg2;
+    private javax.swing.JCheckBox laundryCB;
+    private javax.swing.JCheckBox messCB;
     // End of variables declaration//GEN-END:variables
 }

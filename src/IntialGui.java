@@ -15,6 +15,7 @@ public class IntialGui extends javax.swing.JFrame {
      */
     public IntialGui() {
         initComponents();
+        setResizable(false);
         setSize(810,600);
     }
 

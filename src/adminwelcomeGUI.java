@@ -15,7 +15,9 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
      */
     public adminwelcomeGUI() {
         initComponents();
+        setResizable(false);
         setSize(810,600);
+        
     }
 
     /**

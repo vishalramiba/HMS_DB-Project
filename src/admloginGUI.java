@@ -15,6 +15,7 @@ public class admloginGUI extends javax.swing.JFrame {
      */
     public admloginGUI() {
         initComponents();
+        setResizable(false);
         setSize(810,600);
     }
 

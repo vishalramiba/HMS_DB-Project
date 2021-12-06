@@ -15,6 +15,7 @@ public class stdprofileGUI extends javax.swing.JFrame {
      */
     public stdprofileGUI() {
         initComponents();
+        setResizable(false);
         setSize(810,600);
     }
 

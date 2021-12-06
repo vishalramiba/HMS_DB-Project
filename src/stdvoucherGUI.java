@@ -15,6 +15,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
      */
     public stdvoucherGUI() {
         initComponents();
+        setResizable(false);
         setSize(810,600);
     }
 

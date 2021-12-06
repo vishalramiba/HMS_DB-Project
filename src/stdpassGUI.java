@@ -15,6 +15,7 @@ public class stdpassGUI extends javax.swing.JFrame {
      */
     public stdpassGUI() {
         initComponents();
+        setResizable(false);
         setSize(810,600);
     }
 

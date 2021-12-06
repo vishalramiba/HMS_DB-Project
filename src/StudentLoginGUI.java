@@ -15,6 +15,7 @@ public class StudentLoginGUI extends javax.swing.JFrame {
      */
     public StudentLoginGUI() {
         initComponents();
+        setResizable(false);
         setSize(810,600);
         
     }

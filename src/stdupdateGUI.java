@@ -15,6 +15,7 @@ public class stdupdateGUI extends javax.swing.JFrame {
      */
     public stdupdateGUI() {
         initComponents();
+        setResizable(false);
         setSize(810,600);
     }
 
