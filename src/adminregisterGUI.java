@@ -49,6 +49,11 @@ public class adminregisterGUI extends javax.swing.JFrame {
 
         RegisterButton.setBorder(null);
         RegisterButton.setContentAreaFilled(false);
+        RegisterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(RegisterButton);
         RegisterButton.setBounds(20, 90, 140, 30);
 
@@ -167,6 +172,10 @@ public class adminregisterGUI extends javax.swing.JFrame {
     private void DepartmentIDTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepartmentIDTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_DepartmentIDTFActionPerformed
+
+    private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegisterButtonActionPerformed
 
     /**
      * @param args the command line arguments
