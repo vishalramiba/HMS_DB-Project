@@ -15,6 +15,7 @@ public class adminrg1GUI extends javax.swing.JFrame {
      */
     public adminrg1GUI() {
         initComponents();
+        setSize(810,600);
     }
 
     /**
