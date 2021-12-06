@@ -136,27 +136,42 @@ public class adminroomsGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Building1Occuiped);
-        Building1Occuiped.setBounds(340, 220, 110, 26);
+        Building1Occuiped.setBounds(340, 220, 90, 26);
 
         Building1Availble.setBorder(null);
         Building1Availble.setOpaque(false);
+        Building1Availble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Building1AvailbleActionPerformed(evt);
+            }
+        });
         getContentPane().add(Building1Availble);
-        Building1Availble.setBounds(440, 220, 90, 14);
+        Building1Availble.setBounds(440, 220, 90, 20);
 
         Building2Occuiped.setBorder(null);
         Building2Occuiped.setOpaque(false);
+        Building2Occuiped.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Building2OccuipedActionPerformed(evt);
+            }
+        });
         getContentPane().add(Building2Occuiped);
-        Building2Occuiped.setBounds(340, 250, 100, 30);
+        Building2Occuiped.setBounds(340, 250, 90, 30);
 
         Building2Availble.setBorder(null);
         Building2Availble.setOpaque(false);
+        Building2Availble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Building2AvailbleActionPerformed(evt);
+            }
+        });
         getContentPane().add(Building2Availble);
         Building2Availble.setBounds(440, 250, 90, 30);
 
         Building3Occuiped.setBorder(null);
         Building3Occuiped.setOpaque(false);
         getContentPane().add(Building3Occuiped);
-        Building3Occuiped.setBounds(340, 280, 90, 40);
+        Building3Occuiped.setBounds(340, 280, 90, 30);
 
         Building3Availble.setBorder(null);
         Building3Availble.setOpaque(false);
@@ -166,22 +181,22 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building4Occuiped.setBorder(null);
         Building4Occuiped.setOpaque(false);
         getContentPane().add(Building4Occuiped);
-        Building4Occuiped.setBounds(340, 320, 100, 14);
+        Building4Occuiped.setBounds(340, 320, 90, 20);
 
         Building4Availble.setBorder(null);
         Building4Availble.setOpaque(false);
         getContentPane().add(Building4Availble);
-        Building4Availble.setBounds(440, 320, 90, 14);
+        Building4Availble.setBounds(440, 320, 90, 20);
 
         RoomIDTF.setBorder(null);
         RoomIDTF.setOpaque(false);
         getContentPane().add(RoomIDTF);
-        RoomIDTF.setBounds(220, 460, 320, 20);
+        RoomIDTF.setBounds(220, 460, 310, 20);
 
         NoOfAvailbleRoomsTF.setBorder(null);
         NoOfAvailbleRoomsTF.setOpaque(false);
         getContentPane().add(NoOfAvailbleRoomsTF);
-        NoOfAvailbleRoomsTF.setBounds(590, 260, 150, 30);
+        NoOfAvailbleRoomsTF.setBounds(600, 260, 130, 20);
 
         admrooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_rooms.jpg"))); // NOI18N
         getContentPane().add(admrooms);
@@ -233,6 +248,18 @@ public class adminroomsGUI extends javax.swing.JFrame {
         IntialGui a = new IntialGui();
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void Building2AvailbleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Building2AvailbleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Building2AvailbleActionPerformed
+
+    private void Building2OccuipedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Building2OccuipedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Building2OccuipedActionPerformed
+
+    private void Building1AvailbleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Building1AvailbleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Building1AvailbleActionPerformed
 
     /**
      * @param args the command line arguments

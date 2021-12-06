@@ -135,7 +135,7 @@ public class admedit3GUI extends javax.swing.JFrame {
         FirstNameTF.setBorder(null);
         FirstNameTF.setOpaque(false);
         getContentPane().add(FirstNameTF);
-        FirstNameTF.setBounds(220, 200, 260, 30);
+        FirstNameTF.setBounds(220, 210, 260, 14);
 
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
@@ -145,37 +145,37 @@ public class admedit3GUI extends javax.swing.JFrame {
         CNICTF.setBorder(null);
         CNICTF.setOpaque(false);
         getContentPane().add(CNICTF);
-        CNICTF.setBounds(220, 310, 270, 30);
+        CNICTF.setBounds(220, 310, 260, 20);
 
         ProgramTF.setBorder(null);
         ProgramTF.setOpaque(false);
         getContentPane().add(ProgramTF);
-        ProgramTF.setBounds(220, 360, 270, 30);
+        ProgramTF.setBounds(220, 370, 260, 20);
 
         FatherNameTF.setBorder(null);
         FatherNameTF.setOpaque(false);
         getContentPane().add(FatherNameTF);
-        FatherNameTF.setBounds(220, 420, 270, 14);
+        FatherNameTF.setBounds(220, 420, 260, 14);
 
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
         getContentPane().add(LastNameTF);
-        LastNameTF.setBounds(510, 200, 270, 30);
+        LastNameTF.setBounds(510, 210, 250, 14);
 
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
         getContentPane().add(EmailTF);
-        EmailTF.setBounds(510, 250, 270, 40);
+        EmailTF.setBounds(510, 260, 250, 20);
 
         PhoneTF.setBorder(null);
         PhoneTF.setOpaque(false);
         getContentPane().add(PhoneTF);
-        PhoneTF.setBounds(510, 310, 270, 30);
+        PhoneTF.setBounds(510, 310, 250, 20);
 
         AddressTF.setBorder(null);
         AddressTF.setOpaque(false);
         getContentPane().add(AddressTF);
-        AddressTF.setBounds(510, 360, 260, 80);
+        AddressTF.setBounds(510, 370, 260, 70);
 
         admedit3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_edit3.jpg"))); // NOI18N
         getContentPane().add(admedit3);

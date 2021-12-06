@@ -29,8 +29,9 @@ public class admloginGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         LoginButton = new javax.swing.JButton();
-        AdminIDTF = new javax.swing.JTextField();
-        PasswordTF = new javax.swing.JTextField();
+        IdLoginTF = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        passwordLoginTF = new javax.swing.JTextField();
         admlogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,26 +47,14 @@ public class admloginGUI extends javax.swing.JFrame {
         });
         getContentPane().add(LoginButton);
         LoginButton.setBounds(540, 390, 130, 30);
+        getContentPane().add(IdLoginTF);
+        IdLoginTF.setBounds(430, 260, 250, 40);
 
-        AdminIDTF.setBorder(null);
-        AdminIDTF.setOpaque(false);
-        AdminIDTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AdminIDTFActionPerformed(evt);
-            }
-        });
-        getContentPane().add(AdminIDTF);
-        AdminIDTF.setBounds(440, 260, 230, 26);
-
-        PasswordTF.setBorder(null);
-        PasswordTF.setOpaque(false);
-        PasswordTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordTFActionPerformed(evt);
-            }
-        });
-        getContentPane().add(PasswordTF);
-        PasswordTF.setBounds(430, 330, 240, 30);
+        jTextField2.setText("jTextField2");
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(430, 260, 250, 20);
+        getContentPane().add(passwordLoginTF);
+        passwordLoginTF.setBounds(430, 330, 250, 40);
 
         admlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_login.jpg"))); // NOI18N
         getContentPane().add(admlogin);
@@ -73,14 +62,6 @@ public class admloginGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AdminIDTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminIDTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AdminIDTFActionPerformed
-
-    private void PasswordTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordTFActionPerformed
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
        setVisible(false);
@@ -124,9 +105,10 @@ public class admloginGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AdminIDTF;
+    private javax.swing.JTextField IdLoginTF;
     private javax.swing.JButton LoginButton;
-    private javax.swing.JTextField PasswordTF;
     private javax.swing.JLabel admlogin;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField passwordLoginTF;
     // End of variables declaration//GEN-END:variables
 }

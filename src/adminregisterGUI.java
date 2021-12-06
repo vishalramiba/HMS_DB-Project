@@ -139,17 +139,17 @@ public class adminregisterGUI extends javax.swing.JFrame {
         NameTF.setBorder(null);
         NameTF.setOpaque(false);
         getContentPane().add(NameTF);
-        NameTF.setBounds(220, 246, 270, 30);
+        NameTF.setBounds(220, 256, 260, 10);
 
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
         getContentPane().add(EmailTF);
-        EmailTF.setBounds(220, 300, 270, 30);
+        EmailTF.setBounds(220, 306, 260, 14);
 
         SalaryTF.setBorder(null);
         SalaryTF.setOpaque(false);
         getContentPane().add(SalaryTF);
-        SalaryTF.setBounds(220, 360, 270, 20);
+        SalaryTF.setBounds(220, 360, 250, 20);
 
         PhoneTF.setBorder(null);
         PhoneTF.setOpaque(false);
@@ -159,12 +159,12 @@ public class adminregisterGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(PhoneTF);
-        PhoneTF.setBounds(510, 250, 270, 14);
+        PhoneTF.setBounds(510, 250, 250, 14);
 
         CNICTF.setBorder(null);
         CNICTF.setOpaque(false);
         getContentPane().add(CNICTF);
-        CNICTF.setBounds(510, 300, 270, 30);
+        CNICTF.setBounds(510, 306, 250, 14);
 
         DepartmentIDTF.setBorder(null);
         DepartmentIDTF.setOpaque(false);
@@ -174,7 +174,7 @@ public class adminregisterGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(DepartmentIDTF);
-        DepartmentIDTF.setBounds(510, 360, 270, 20);
+        DepartmentIDTF.setBounds(510, 360, 250, 20);
 
         PhineTF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_registeremp.jpg"))); // NOI18N
         getContentPane().add(PhineTF);
