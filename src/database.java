@@ -15,7 +15,7 @@ public class database {
 
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hms_db","root", "");
             System.out.print("Database is connected !");
-            conn.close();
+//            conn.close();
         }
         catch(Exception e) {
             System.out.print("Do not connect to DB - Error:"+e);
@@ -24,8 +24,8 @@ public class database {
     }
     
 
-    public static void main(String[] args) throws SQLException {
-        database con = new database();
-        con.getConnection();
-    }
+//    public static void main(String[] args) throws SQLException {
+//        database con = new database();
+//        con.getConnection();
+//    }
 }
