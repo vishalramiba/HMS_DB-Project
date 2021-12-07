@@ -40,6 +40,7 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
         VvacntroomsTF = new javax.swing.JTextField();
         vacantroomTF = new javax.swing.JTextField();
         unpaidTF = new javax.swing.JTextField();
+        HomeButton = new javax.swing.JButton();
         admwelcome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -131,6 +132,16 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
         getContentPane().add(unpaidTF);
         unpaidTF.setBounds(620, 320, 60, 20);
 
+        HomeButton.setBorderPainted(false);
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(10, 9, 290, 40);
+
         admwelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adm_welcome.jpg"))); // NOI18N
         getContentPane().add(admwelcome);
         admwelcome.setBounds(0, 0, 800, 569);
@@ -174,6 +185,12 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+        setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_HomeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -212,6 +229,7 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EditButton;
     private javax.swing.JButton Employees;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JTextField NoOfUnpaidChallans;
     private javax.swing.JTextField NoOfVacantRooms;

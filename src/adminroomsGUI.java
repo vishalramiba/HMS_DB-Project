@@ -46,6 +46,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building4Availble = new javax.swing.JTextField();
         RoomIDTF = new javax.swing.JTextField();
         NoOfAvailbleRoomsTF = new javax.swing.JTextField();
+        HomeButton = new javax.swing.JButton();
         admrooms = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -215,6 +216,16 @@ public class adminroomsGUI extends javax.swing.JFrame {
         getContentPane().add(NoOfAvailbleRoomsTF);
         NoOfAvailbleRoomsTF.setBounds(600, 260, 130, 20);
 
+        HomeButton.setBorderPainted(false);
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(20, 9, 270, 40);
+
         admrooms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_rooms.jpg"))); // NOI18N
         getContentPane().add(admrooms);
         admrooms.setBounds(0, 0, 800, 569);
@@ -278,6 +289,12 @@ public class adminroomsGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Building1AvailbleActionPerformed
 
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+        setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_HomeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -325,6 +342,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
     private javax.swing.JTextField Building4Occuiped;
     private javax.swing.JButton EditButton;
     private javax.swing.JButton Employees;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JTextField NoOfAvailbleRoomsTF;
     private javax.swing.JButton RegisterButton;

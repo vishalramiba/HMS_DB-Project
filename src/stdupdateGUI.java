@@ -37,6 +37,7 @@ public class stdupdateGUI extends javax.swing.JFrame {
         LogoutButton = new javax.swing.JButton();
         UpdateButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
+        HomeButton = new javax.swing.JButton();
         stdupdate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,6 +115,16 @@ public class stdupdateGUI extends javax.swing.JFrame {
         getContentPane().add(cancelButton);
         cancelButton.setBounds(420, 490, 150, 30);
 
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.setDefaultCapable(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(10, 9, 290, 40);
+
         stdupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/std_updateprofile.jpg"))); // NOI18N
         getContentPane().add(stdupdate);
         stdupdate.setBounds(0, 0, 800, 569);
@@ -155,6 +166,12 @@ public class stdupdateGUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+        setVisible(false);
+        StdwelcomeGUI a = new StdwelcomeGUI();
+        a.setVisible(true); 
+    }//GEN-LAST:event_HomeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -193,6 +210,7 @@ public class stdupdateGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea AddressTA;
     private javax.swing.JTextField EmailTF;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JTextField PhoneTF;
     private javax.swing.JButton ProfileButton;

@@ -43,7 +43,8 @@ public class admreg2GUI extends javax.swing.JFrame {
         GymCB = new javax.swing.JCheckBox();
         SrCB = new javax.swing.JCheckBox();
         CancelButton = new javax.swing.JButton();
-        admreg2 = new javax.swing.JLabel();
+        HomeButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -119,7 +120,7 @@ public class admreg2GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(NextButton);
-        NextButton.setBounds(430, 490, 150, 30);
+        NextButton.setBounds(340, 490, 150, 30);
 
         ShowAvailbleRoomsButton.setBorder(null);
         ShowAvailbleRoomsButton.setContentAreaFilled(false);
@@ -131,6 +132,7 @@ public class admreg2GUI extends javax.swing.JFrame {
         getContentPane().add(ShowAvailbleRoomsButton);
         ShowAvailbleRoomsButton.setBounds(600, 200, 160, 30);
 
+        RoomNoTF.setEditable(false);
         RoomNoTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         RoomNoTF.setBorder(null);
         RoomNoTF.setOpaque(false);
@@ -145,7 +147,7 @@ public class admreg2GUI extends javax.swing.JFrame {
         messCB.setBorder(null);
         messCB.setOpaque(false);
         getContentPane().add(messCB);
-        messCB.setBounds(240, 340, 81, 23);
+        messCB.setBounds(230, 340, 81, 23);
 
         laundryCB.setBorder(null);
         laundryCB.setOpaque(false);
@@ -155,7 +157,7 @@ public class admreg2GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(laundryCB);
-        laundryCB.setBounds(240, 360, 81, 30);
+        laundryCB.setBounds(230, 360, 81, 30);
 
         ParkingCB.setOpaque(false);
         ParkingCB.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +166,7 @@ public class admreg2GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ParkingCB);
-        ParkingCB.setBounds(240, 390, 100, 30);
+        ParkingCB.setBounds(230, 390, 100, 30);
 
         GymCB.setOpaque(false);
         GymCB.addActionListener(new java.awt.event.ActionListener() {
@@ -173,32 +175,45 @@ public class admreg2GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(GymCB);
-        GymCB.setBounds(240, 410, 100, 40);
+        GymCB.setBounds(230, 410, 100, 40);
 
         SrCB.setOpaque(false);
         getContentPane().add(SrCB);
-        SrCB.setBounds(240, 440, 81, 23);
+        SrCB.setBounds(230, 440, 81, 23);
 
-        CancelButton.setText("Cancel");
+        CancelButton.setBorderPainted(false);
+        CancelButton.setContentAreaFilled(false);
         CancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelButtonActionPerformed(evt);
             }
         });
         getContentPane().add(CancelButton);
-        CancelButton.setBounds(610, 490, 90, 23);
+        CancelButton.setBounds(500, 493, 150, 30);
 
-        admreg2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew2.jpg"))); // NOI18N
-        getContentPane().add(admreg2);
-        admreg2.setBounds(10, 0, 800, 569);
+        HomeButton.setBorderPainted(false);
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(20, 19, 270, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew2.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 800, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButtonActionPerformed
          setVisible(false);
-        admreg3GUI a = new admreg3GUI();
+        adminwelcomeGUI a = new adminwelcomeGUI();
         a.setVisible(true);
+
     }//GEN-LAST:event_NextButtonActionPerformed
 
     private void ShowAvailbleRoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowAvailbleRoomsButtonActionPerformed
@@ -259,9 +274,15 @@ public class admreg2GUI extends javax.swing.JFrame {
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
         setVisible(false);
-        adminrg1GUI a = new adminrg1GUI();
+        adminwelcomeGUI a = new adminwelcomeGUI();
         a.setVisible(true);
     }//GEN-LAST:event_CancelButtonActionPerformed
+
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+       setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_HomeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,6 +325,7 @@ public class admreg2GUI extends javax.swing.JFrame {
     private javax.swing.JButton EditButton;
     private javax.swing.JButton Employees;
     private javax.swing.JCheckBox GymCB;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton NextButton;
     private javax.swing.JCheckBox ParkingCB;
@@ -313,7 +335,7 @@ public class admreg2GUI extends javax.swing.JFrame {
     private javax.swing.JButton ShowAvailbleRoomsButton;
     private javax.swing.JCheckBox SrCB;
     private javax.swing.JButton VoucherButton;
-    private javax.swing.JLabel admreg2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JCheckBox laundryCB;
     private javax.swing.JCheckBox messCB;
     // End of variables declaration//GEN-END:variables

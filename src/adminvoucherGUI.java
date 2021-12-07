@@ -40,6 +40,7 @@ public class adminvoucherGUI extends javax.swing.JFrame {
         UnpaidChallansTF = new javax.swing.JTextField();
         VoucherNoTF = new javax.swing.JTextField();
         VoucherNo2TF = new javax.swing.JTextField();
+        HomeBUtton = new javax.swing.JButton();
         admvoucher = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -143,6 +144,16 @@ public class adminvoucherGUI extends javax.swing.JFrame {
         getContentPane().add(VoucherNo2TF);
         VoucherNo2TF.setBounds(220, 470, 310, 20);
 
+        HomeBUtton.setBorderPainted(false);
+        HomeBUtton.setContentAreaFilled(false);
+        HomeBUtton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeBUttonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeBUtton);
+        HomeBUtton.setBounds(10, 9, 290, 40);
+
         admvoucher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_voucher.jpg"))); // NOI18N
         getContentPane().add(admvoucher);
         admvoucher.setBounds(0, 0, 800, 569);
@@ -190,6 +201,12 @@ public class adminvoucherGUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
+    private void HomeBUttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBUttonActionPerformed
+        setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_HomeBUttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -229,6 +246,7 @@ public class adminvoucherGUI extends javax.swing.JFrame {
     private javax.swing.JButton CheckButton;
     private javax.swing.JButton EditButton;
     private javax.swing.JButton Employees;
+    private javax.swing.JButton HomeBUtton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton PayChallanButton;
     private javax.swing.JButton RegisterButton;

@@ -43,6 +43,7 @@ public class adminregisterGUI extends javax.swing.JFrame {
         PhoneTF = new javax.swing.JTextField();
         CNICTF = new javax.swing.JTextField();
         DepartmentIDTF = new javax.swing.JTextField();
+        HomeButton = new javax.swing.JButton();
         PhineTF = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -144,7 +145,7 @@ public class adminregisterGUI extends javax.swing.JFrame {
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
         getContentPane().add(EmailTF);
-        EmailTF.setBounds(220, 306, 260, 14);
+        EmailTF.setBounds(220, 306, 260, 20);
 
         SalaryTF.setBorder(null);
         SalaryTF.setOpaque(false);
@@ -159,12 +160,12 @@ public class adminregisterGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(PhoneTF);
-        PhoneTF.setBounds(510, 250, 250, 14);
+        PhoneTF.setBounds(510, 250, 250, 20);
 
         CNICTF.setBorder(null);
         CNICTF.setOpaque(false);
         getContentPane().add(CNICTF);
-        CNICTF.setBounds(510, 306, 250, 14);
+        CNICTF.setBounds(510, 306, 250, 20);
 
         DepartmentIDTF.setBorder(null);
         DepartmentIDTF.setOpaque(false);
@@ -175,6 +176,16 @@ public class adminregisterGUI extends javax.swing.JFrame {
         });
         getContentPane().add(DepartmentIDTF);
         DepartmentIDTF.setBounds(510, 360, 250, 20);
+
+        HomeButton.setBorderPainted(false);
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(20, 19, 270, 30);
 
         PhineTF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_registeremp.jpg"))); // NOI18N
         getContentPane().add(PhineTF);
@@ -239,6 +250,12 @@ public class adminregisterGUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+        setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_HomeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -282,6 +299,7 @@ public class adminregisterGUI extends javax.swing.JFrame {
     private javax.swing.JButton EditButton;
     private javax.swing.JTextField EmailTF;
     private javax.swing.JButton Employees;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JTextField NameTF;
     private javax.swing.JLabel PhineTF;

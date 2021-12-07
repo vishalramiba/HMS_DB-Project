@@ -31,6 +31,7 @@ public class StdwelcomeGUI extends javax.swing.JFrame {
         ProfileButton = new javax.swing.JButton();
         VoucherButton = new javax.swing.JButton();
         LogoutButton = new javax.swing.JButton();
+        HomeButton = new javax.swing.JButton();
         stdwelcome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,6 +67,16 @@ public class StdwelcomeGUI extends javax.swing.JFrame {
         getContentPane().add(LogoutButton);
         LogoutButton.setBounds(20, 510, 140, 30);
 
+        HomeButton.setBorderPainted(false);
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(20, 19, 270, 30);
+
         stdwelcome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/std_welcomescreen.jpg"))); // NOI18N
         stdwelcome.setMaximumSize(new java.awt.Dimension(0, 0));
         stdwelcome.setMinimumSize(new java.awt.Dimension(0, 0));
@@ -93,6 +104,12 @@ public class StdwelcomeGUI extends javax.swing.JFrame {
         IntialGui a = new IntialGui();
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
+
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+       setVisible(false);
+        StdwelcomeGUI a = new StdwelcomeGUI();
+        a.setVisible(true); 
+    }//GEN-LAST:event_HomeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -130,6 +147,7 @@ public class StdwelcomeGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton HomeButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton ProfileButton;
     private javax.swing.JButton VoucherButton;

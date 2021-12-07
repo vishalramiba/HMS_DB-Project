@@ -49,6 +49,7 @@ public class admedit2GUI extends javax.swing.JFrame {
         BuildingTF = new javax.swing.JTextField();
         Edit2Button = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
+        HomeButton = new javax.swing.JButton();
         admedit2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -162,7 +163,7 @@ public class admedit2GUI extends javax.swing.JFrame {
         FacilitiesTF.setBorder(null);
         FacilitiesTF.setOpaque(false);
         getContentPane().add(FacilitiesTF);
-        FacilitiesTF.setBounds(320, 380, 430, 14);
+        FacilitiesTF.setBounds(320, 380, 430, 20);
 
         LastNameTF.setEditable(false);
         LastNameTF.setBorder(null);
@@ -213,6 +214,16 @@ public class admedit2GUI extends javax.swing.JFrame {
         });
         getContentPane().add(CancelButton);
         CancelButton.setBounds(500, 490, 150, 30);
+
+        HomeButton.setBorderPainted(false);
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(20, 9, 280, 40);
 
         admedit2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_edit2.jpg"))); // NOI18N
         getContentPane().add(admedit2);
@@ -269,6 +280,12 @@ public class admedit2GUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_CancelButtonActionPerformed
 
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+        setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_HomeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -317,6 +334,7 @@ public class admedit2GUI extends javax.swing.JFrame {
     private javax.swing.JTextField FacilitiesTF;
     private javax.swing.JTextField FatherNameTF;
     private javax.swing.JTextField FirstNameTF;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JTextField LastNameTF;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JTextField PhoneTF;

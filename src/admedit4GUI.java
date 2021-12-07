@@ -48,6 +48,7 @@ public class admedit4GUI extends javax.swing.JFrame {
         ProgramTF = new javax.swing.JTextField();
         CNICTF = new javax.swing.JTextField();
         BuildingTF = new javax.swing.JTextField();
+        HomeButton = new javax.swing.JButton();
         admedit4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -159,7 +160,7 @@ public class admedit4GUI extends javax.swing.JFrame {
         AddressTF.setBorder(null);
         AddressTF.setOpaque(false);
         getContentPane().add(AddressTF);
-        AddressTF.setBounds(320, 330, 440, 14);
+        AddressTF.setBounds(320, 330, 440, 20);
 
         RoomTF.setEditable(false);
         RoomTF.setBorder(null);
@@ -171,7 +172,7 @@ public class admedit4GUI extends javax.swing.JFrame {
         FacilitiesTF.setBorder(null);
         FacilitiesTF.setOpaque(false);
         getContentPane().add(FacilitiesTF);
-        FacilitiesTF.setBounds(320, 380, 450, 14);
+        FacilitiesTF.setBounds(320, 380, 450, 20);
 
         LastNameTF.setEditable(false);
         LastNameTF.setBorder(null);
@@ -202,6 +203,16 @@ public class admedit4GUI extends javax.swing.JFrame {
         BuildingTF.setOpaque(false);
         getContentPane().add(BuildingTF);
         BuildingTF.setBounds(580, 350, 180, 20);
+
+        HomeButton.setBorderPainted(false);
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(20, 9, 270, 40);
 
         admedit4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_edit4.jpg"))); // NOI18N
         getContentPane().add(admedit4);
@@ -252,6 +263,12 @@ public class admedit4GUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+       setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_HomeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -299,6 +316,7 @@ public class admedit4GUI extends javax.swing.JFrame {
     private javax.swing.JTextField FacilitiesTF;
     private javax.swing.JTextField FatherNameTF;
     private javax.swing.JTextField FirstNameTF;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JTextField LastNameTF;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JTextField PhoneTF;

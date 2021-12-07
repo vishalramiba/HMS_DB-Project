@@ -36,6 +36,7 @@ public class stdpassGUI extends javax.swing.JFrame {
         OldPasswordTF = new javax.swing.JTextField();
         NewPasswordTF = new javax.swing.JTextField();
         ConfirmPasswordTF = new javax.swing.JTextField();
+        HomeButton = new javax.swing.JButton();
         stdpass = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,6 +108,16 @@ public class stdpassGUI extends javax.swing.JFrame {
         getContentPane().add(ConfirmPasswordTF);
         ConfirmPasswordTF.setBounds(380, 330, 230, 20);
 
+        HomeButton.setBorderPainted(false);
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(20, 9, 280, 40);
+
         stdpass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/std_changepw.jpg"))); // NOI18N
         getContentPane().add(stdpass);
         stdpass.setBounds(0, 0, 800, 569);
@@ -141,6 +152,12 @@ public class stdpassGUI extends javax.swing.JFrame {
         stdprofileGUI a = new stdprofileGUI();
         a.setVisible(true);
     }//GEN-LAST:event_CancelButtonActionPerformed
+
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+        setVisible(false);
+        StdwelcomeGUI a = new StdwelcomeGUI();
+        a.setVisible(true); 
+    }//GEN-LAST:event_HomeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,6 +197,7 @@ public class stdpassGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelButton;
     private javax.swing.JTextField ConfirmPasswordTF;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JTextField NewPasswordTF;
     private javax.swing.JTextField OldPasswordTF;

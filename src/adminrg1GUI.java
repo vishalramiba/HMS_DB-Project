@@ -46,7 +46,9 @@ public class adminrg1GUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         CancelButton = new javax.swing.JButton();
-        adminrg1GUI = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        HomeButton = new javax.swing.JButton();
+        DOBTF = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -117,48 +119,53 @@ public class adminrg1GUI extends javax.swing.JFrame {
         FirstNameTF.setBorder(null);
         FirstNameTF.setOpaque(false);
         getContentPane().add(FirstNameTF);
-        FirstNameTF.setBounds(220, 210, 260, 13);
+        FirstNameTF.setBounds(220, 200, 260, 13);
 
         StudentIDTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
         getContentPane().add(StudentIDTF);
-        StudentIDTF.setBounds(220, 260, 260, 20);
+        StudentIDTF.setBounds(220, 250, 260, 20);
 
         CNICTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         CNICTF.setBorder(null);
         CNICTF.setOpaque(false);
+        CNICTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CNICTFActionPerformed(evt);
+            }
+        });
         getContentPane().add(CNICTF);
-        CNICTF.setBounds(220, 316, 260, 20);
+        CNICTF.setBounds(220, 300, 260, 20);
 
         ProgramTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         ProgramTF.setBorder(null);
         ProgramTF.setOpaque(false);
         getContentPane().add(ProgramTF);
-        ProgramTF.setBounds(220, 370, 260, 13);
+        ProgramTF.setBounds(220, 360, 260, 13);
 
         FatherNameTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         FatherNameTF.setBorder(null);
         FatherNameTF.setOpaque(false);
         getContentPane().add(FatherNameTF);
-        FatherNameTF.setBounds(230, 420, 240, 20);
+        FatherNameTF.setBounds(230, 410, 240, 20);
 
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
         getContentPane().add(LastNameTF);
-        LastNameTF.setBounds(510, 206, 250, 20);
+        LastNameTF.setBounds(510, 196, 250, 20);
 
         EmailTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
         getContentPane().add(EmailTF);
-        EmailTF.setBounds(510, 260, 250, 20);
+        EmailTF.setBounds(510, 250, 250, 20);
 
         PhoneTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         PhoneTF.setBorder(null);
         PhoneTF.setOpaque(false);
         getContentPane().add(PhoneTF);
-        PhoneTF.setBounds(510, 316, 250, 13);
+        PhoneTF.setBounds(510, 300, 250, 13);
 
         Next.setBorder(null);
         Next.setContentAreaFilled(false);
@@ -168,7 +175,7 @@ public class adminrg1GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Next);
-        Next.setBounds(420, 490, 150, 29);
+        Next.setBounds(340, 500, 150, 29);
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
@@ -178,22 +185,40 @@ public class adminrg1GUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(510, 376, 250, 60);
+        jScrollPane1.setBounds(510, 366, 250, 110);
 
-        CancelButton.setText("Cancel");
+        CancelButton.setBorderPainted(false);
+        CancelButton.setContentAreaFilled(false);
         CancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelButtonActionPerformed(evt);
             }
         });
         getContentPane().add(CancelButton);
-        CancelButton.setBounds(620, 490, 90, 23);
+        CancelButton.setBounds(500, 503, 150, 30);
 
-        adminrg1GUI.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        adminrg1GUI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew1.jpg"))); // NOI18N
-        adminrg1GUI.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        getContentPane().add(adminrg1GUI);
-        adminrg1GUI.setBounds(0, 0, 800, 569);
+        jTextField2.setEditable(false);
+        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextField2.setBorder(null);
+        jTextField2.setOpaque(false);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(220, 460, 260, 20);
+
+        HomeButton.setBorderPainted(false);
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(20, 19, 280, 40);
+
+        DOBTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        DOBTF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew1.jpg"))); // NOI18N
+        DOBTF.setText("jLabel2");
+        getContentPane().add(DOBTF);
+        DOBTF.setBounds(0, 0, 800, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -241,10 +266,20 @@ public class adminrg1GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_NextActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
-        setVisible(false);
-        adminrg1GUI a = new adminrg1GUI();
+       setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
         a.setVisible(true);
     }//GEN-LAST:event_CancelButtonActionPerformed
+
+    private void CNICTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNICTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CNICTFActionPerformed
+
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+        setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_HomeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,11 +319,13 @@ public class adminrg1GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CNICTF;
     private javax.swing.JButton CancelButton;
+    private javax.swing.JLabel DOBTF;
     private javax.swing.JButton EditButton;
     private javax.swing.JTextField EmailTF;
     private javax.swing.JButton Employees;
     private javax.swing.JTextField FatherNameTF;
     private javax.swing.JTextField FirstNameTF;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JTextField LastNameTF;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton Next;
@@ -298,8 +335,8 @@ public class adminrg1GUI extends javax.swing.JFrame {
     private javax.swing.JButton RoomsButton;
     private javax.swing.JTextField StudentIDTF;
     private javax.swing.JButton VoucherButton;
-    private javax.swing.JLabel adminrg1GUI;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

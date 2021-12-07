@@ -38,6 +38,7 @@ public class adminedit1GUI extends javax.swing.JFrame {
         StudentIDTF = new javax.swing.JTextField();
         seestudentsButton = new javax.swing.JButton();
         no_ofstudentsTF = new javax.swing.JTextField();
+        HomeBUtton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -135,6 +136,16 @@ public class adminedit1GUI extends javax.swing.JFrame {
         getContentPane().add(no_ofstudentsTF);
         no_ofstudentsTF.setBounds(570, 406, 170, 20);
 
+        HomeBUtton.setBorderPainted(false);
+        HomeBUtton.setContentAreaFilled(false);
+        HomeBUtton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeBUttonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeBUtton);
+        HomeBUtton.setBounds(20, 9, 270, 40);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_edit1.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
@@ -189,6 +200,12 @@ public class adminedit1GUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
+    private void HomeBUttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBUttonActionPerformed
+        setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_HomeBUttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -227,6 +244,7 @@ public class adminedit1GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EditButton;
     private javax.swing.JButton Employees;
+    private javax.swing.JButton HomeBUtton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton NextButton;
     private javax.swing.JButton RegisterButton;

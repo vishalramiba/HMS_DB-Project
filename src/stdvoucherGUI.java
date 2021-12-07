@@ -38,6 +38,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
         VoucherButton = new javax.swing.JButton();
         GenerateVoucherButton = new javax.swing.JButton();
         LogoutButton = new javax.swing.JButton();
+        HomeButton = new javax.swing.JButton();
         stdvoucher = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -129,6 +130,16 @@ public class stdvoucherGUI extends javax.swing.JFrame {
         getContentPane().add(LogoutButton);
         LogoutButton.setBounds(20, 510, 130, 30);
 
+        HomeButton.setBorderPainted(false);
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(20, 9, 270, 40);
+
         stdvoucher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/std_voucher.jpg"))); // NOI18N
         getContentPane().add(stdvoucher);
         stdvoucher.setBounds(0, 0, 800, 569);
@@ -170,6 +181,12 @@ public class stdvoucherGUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+       setVisible(false);
+        StdwelcomeGUI a = new StdwelcomeGUI();
+        a.setVisible(true); 
+    }//GEN-LAST:event_HomeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -209,6 +226,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton GenerateVoucherButton;
     private javax.swing.JTextField GymTF;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JTextField LaundryTF;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JTextField MessTF;

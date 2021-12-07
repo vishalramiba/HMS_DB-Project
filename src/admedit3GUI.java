@@ -45,6 +45,7 @@ public class admedit3GUI extends javax.swing.JFrame {
         EmailTF = new javax.swing.JTextField();
         PhoneTF = new javax.swing.JTextField();
         AddressTF = new javax.swing.JTextField();
+        HomeButton = new javax.swing.JButton();
         admedit3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -135,12 +136,12 @@ public class admedit3GUI extends javax.swing.JFrame {
         FirstNameTF.setBorder(null);
         FirstNameTF.setOpaque(false);
         getContentPane().add(FirstNameTF);
-        FirstNameTF.setBounds(220, 210, 260, 14);
+        FirstNameTF.setBounds(220, 210, 260, 20);
 
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
         getContentPane().add(StudentIDTF);
-        StudentIDTF.setBounds(220, 260, 260, 14);
+        StudentIDTF.setBounds(220, 260, 260, 20);
 
         CNICTF.setBorder(null);
         CNICTF.setOpaque(false);
@@ -155,12 +156,12 @@ public class admedit3GUI extends javax.swing.JFrame {
         FatherNameTF.setBorder(null);
         FatherNameTF.setOpaque(false);
         getContentPane().add(FatherNameTF);
-        FatherNameTF.setBounds(220, 420, 260, 14);
+        FatherNameTF.setBounds(220, 420, 260, 20);
 
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
         getContentPane().add(LastNameTF);
-        LastNameTF.setBounds(510, 210, 250, 14);
+        LastNameTF.setBounds(510, 210, 250, 20);
 
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
@@ -176,6 +177,16 @@ public class admedit3GUI extends javax.swing.JFrame {
         AddressTF.setOpaque(false);
         getContentPane().add(AddressTF);
         AddressTF.setBounds(510, 370, 260, 70);
+
+        HomeButton.setBorderPainted(false);
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(20, 9, 270, 40);
 
         admedit3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_edit3.jpg"))); // NOI18N
         getContentPane().add(admedit3);
@@ -232,6 +243,12 @@ public class admedit3GUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+        setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_HomeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -277,6 +294,7 @@ public class admedit3GUI extends javax.swing.JFrame {
     private javax.swing.JButton Employees;
     private javax.swing.JTextField FatherNameTF;
     private javax.swing.JTextField FirstNameTF;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JTextField LastNameTF;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JTextField PhoneTF;

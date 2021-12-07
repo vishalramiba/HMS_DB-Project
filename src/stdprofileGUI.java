@@ -45,6 +45,7 @@ public class stdprofileGUI extends javax.swing.JFrame {
         ProfileButton = new javax.swing.JButton();
         VoucherButton = new javax.swing.JButton();
         LogoutButton = new javax.swing.JButton();
+        HomeButton = new javax.swing.JButton();
         stdprofile = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -177,6 +178,16 @@ public class stdprofileGUI extends javax.swing.JFrame {
         getContentPane().add(LogoutButton);
         LogoutButton.setBounds(20, 510, 150, 30);
 
+        HomeButton.setBorderPainted(false);
+        HomeButton.setContentAreaFilled(false);
+        HomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeButton);
+        HomeButton.setBounds(10, 9, 280, 40);
+
         stdprofile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/std_profile.jpg"))); // NOI18N
         getContentPane().add(stdprofile);
         stdprofile.setBounds(0, 0, 800, 569);
@@ -217,6 +228,12 @@ public class stdprofileGUI extends javax.swing.JFrame {
         stdupdateGUI a = new stdupdateGUI();
         a.setVisible(true);
     }//GEN-LAST:event_UpdateProfileButton1ActionPerformed
+
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
+        setVisible(false);
+        StdwelcomeGUI a = new StdwelcomeGUI();
+        a.setVisible(true); 
+    }//GEN-LAST:event_HomeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,6 +278,7 @@ public class stdprofileGUI extends javax.swing.JFrame {
     private javax.swing.JTextField EmailTF;
     private javax.swing.JTextField FathersNameTF;
     private javax.swing.JTextField FirstNmeTF;
+    private javax.swing.JButton HomeButton;
     private javax.swing.JTextField LastNameTF;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JTextField PhoneTF;

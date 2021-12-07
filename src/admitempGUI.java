@@ -36,6 +36,7 @@ public class admitempGUI extends javax.swing.JFrame {
         LogoutButton = new javax.swing.JButton();
         RegisterEmployeesButton = new javax.swing.JButton();
         VeiwAtEmployeesButton = new javax.swing.JButton();
+        HomeBUtton = new javax.swing.JButton();
         admemp = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -123,6 +124,16 @@ public class admitempGUI extends javax.swing.JFrame {
         getContentPane().add(VeiwAtEmployeesButton);
         VeiwAtEmployeesButton.setBounds(410, 310, 170, 20);
 
+        HomeBUtton.setBorderPainted(false);
+        HomeBUtton.setContentAreaFilled(false);
+        HomeBUtton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HomeBUttonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(HomeBUtton);
+        HomeBUtton.setBounds(10, 9, 280, 40);
+
         admemp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_emp.jpg"))); // NOI18N
         getContentPane().add(admemp);
         admemp.setBounds(0, 0, 800, 569);
@@ -176,6 +187,12 @@ public class admitempGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_VeiwAtEmployeesButtonActionPerformed
 
+    private void HomeBUttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBUttonActionPerformed
+       setVisible(false);
+        adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
+    }//GEN-LAST:event_HomeBUttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -214,6 +231,7 @@ public class admitempGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton EditButton;
     private javax.swing.JButton Employees;
+    private javax.swing.JButton HomeBUtton;
     private javax.swing.JButton LogoutButton;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JButton RegisterEmployeesButton;
