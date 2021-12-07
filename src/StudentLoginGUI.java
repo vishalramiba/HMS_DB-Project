@@ -9,7 +9,6 @@ import java.util.logging.Logger;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mayur
@@ -19,19 +18,17 @@ public class StudentLoginGUI extends javax.swing.JFrame {
     /**
      * Creates new form StudentLoginGUI
      */
-    database db = new database();
-    
-    student_driverCode std_dc;
+//    database db = new database();
+    student_driverCode std_dc = new student_driverCode();
+
     public StudentLoginGUI() {
-        
-        std_dc = new student_driverCode();
+
+
         initComponents();
         setResizable(false);
-        setSize(810,600);
-        
-        
-      //  stdloginTF.setEditable(false);
-        
+        setSize(810, 600);
+
+        //  stdloginTF.setEditable(false);
     }
 
     /**
@@ -87,12 +84,12 @@ public class StudentLoginGUI extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         setVisible(false);
-        
 
         String pwd = new String(stdpwTF.getPassword());
         int id = Integer.parseInt(stdloginTF.getText());
         try {
-            std_dc.stdLogin(id,pwd);
+            std_dc.stdLogin(id, pwd);
+            
         } catch (SQLException ex) {
             Logger.getLogger(StudentLoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }

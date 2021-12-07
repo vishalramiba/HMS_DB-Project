@@ -1,9 +1,13 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mayur
@@ -13,10 +17,63 @@ public class stdvoucherGUI extends javax.swing.JFrame {
     /**
      * Creates new form stdvoucher
      */
+    int std_id;
+    student_driverCode std_dc = new student_driverCode();
+
     public stdvoucherGUI() {
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
+    }
+
+    public stdvoucherGUI(int id) throws SQLException {
+
+        std_id = id;
+
+        initComponents();
+        setResizable(false);
+        setSize(810, 600);
+
+        boolean status = std_dc.checkVoucherStatus(std_id);
+        if (status) {
+            VoucherStatusTF.setText("PAID");
+        } else {
+            VoucherStatusTF.setText("NOT PAID");
+        }
+
+        std_dc.checkFacilities(std_id);
+        std_dc.addFacilitytoArray();
+        
+        RoomFeeTF.setText(std_dc.b[0]);
+        
+        for(int i = 1; i < 5; i++){
+            
+            if(std_dc.a[i].equals(2))
+            MessTF.setText(std_dc.b[1]);   
+            else MessTF.setText("-");  
+            
+            if(std_dc.a[i].equals(3))
+            MessTF.setText(std_dc.b[2]);   
+            else ParkingTF.setText("-"); 
+            
+            if(std_dc.a[i].equals(4))
+            MessTF.setText(std_dc.b[3]);   
+            else GymTF.setText("-");  
+            
+            if(std_dc.a[i].equals(5))
+            MessTF.setText(std_dc.b[4]);   
+            else LaundryTF.setText("-");  
+    
+ 
+        }
+
+        String total_fee = String.valueOf(std_dc.getTotalFee());
+
+//        RoomFeeTF.setText(std_dc.facility.get(0));
+//        MessTF.setText(std_dc.facility.get(1));
+//        ParkingTF.setText(std_dc.facility.get(2));
+//        LaundryTF.setText(std_dc.facility.get(3));
+//        GymTF.setText(std_dc.facility.get(4));
     }
 
     /**
@@ -45,6 +102,8 @@ public class stdvoucherGUI extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         VoucherStatusTF.setEditable(false);
+        VoucherStatusTF.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        VoucherStatusTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         VoucherStatusTF.setBorder(null);
         VoucherStatusTF.setOpaque(false);
         VoucherStatusTF.addActionListener(new java.awt.event.ActionListener() {
@@ -154,9 +213,15 @@ public class stdvoucherGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_VoucherStatusTFActionPerformed
 
     private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
-         setVisible(false);
-        stdprofileGUI a = new stdprofileGUI();
-        a.setVisible(true);
+        setVisible(false);
+        stdprofileGUI a;
+        try {
+            a = new stdprofileGUI(std_id);
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(stdvoucherGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_ProfileButtonActionPerformed
 
     private void GenerateVoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateVoucherButtonActionPerformed
@@ -164,7 +229,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_GenerateVoucherButtonActionPerformed
 
     private void ParkingTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParkingTFActionPerformed
-         setVisible(false);
+        setVisible(false);
         IntialGui a = new IntialGui();
         a.setVisible(true);
     }//GEN-LAST:event_ParkingTFActionPerformed
@@ -176,15 +241,15 @@ public class stdvoucherGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
-         setVisible(false);
+        setVisible(false);
         stdvoucherGUI a = new stdvoucherGUI();
         a.setVisible(true);
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
-       setVisible(false);
-        StdwelcomeGUI a = new StdwelcomeGUI();
-        a.setVisible(true); 
+        setVisible(false);
+        StdwelcomeGUI a = new StdwelcomeGUI(std_id);
+        a.setVisible(true);
     }//GEN-LAST:event_HomeButtonActionPerformed
 
     /**

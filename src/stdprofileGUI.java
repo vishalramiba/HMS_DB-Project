@@ -1,3 +1,8 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,10 +18,37 @@ public class stdprofileGUI extends javax.swing.JFrame {
     /**
      * Creates new form stdprofileGUI
      */
+    int std_id;
+     student_driverCode std_dc = new student_driverCode();
     public stdprofileGUI() {
+
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
+    }
+
+    public stdprofileGUI(int id) throws SQLException {
+        std_id = id;
+        std_dc.showProfile(std_id);
+
+
+        initComponents();
+        setResizable(false);
+        setSize(810, 600);
+        FirstNmeTF.setText(std_dc.profile.get(0));
+        LastNameTF.setText(std_dc.profile.get(1));
+        FathersNameTF.setText(std_dc.profile.get(2));
+        CNICTF.setText(std_dc.profile.get(3));
+        ProgramTF.setText(std_dc.profile.get(4));
+        DOBTF.setText(std_dc.profile.get(5));
+        AddressTF.setText(std_dc.profile.get(6));
+        PhoneTF.setText(std_dc.profile.get(7));
+        EmailTF.setText(std_dc.profile.get(8));
+        RoomTF.setText(std_dc.profile.get(9));
+        StudentIDTF.setText(std_dc.profile.get(10));
+        BuldingTF.setText(std_dc.profile.get(11));
+        
+        std_dc.profile.clear();
     }
 
     /**
@@ -74,6 +106,11 @@ public class stdprofileGUI extends javax.swing.JFrame {
         FirstNmeTF.setEditable(false);
         FirstNmeTF.setBorder(null);
         FirstNmeTF.setOpaque(false);
+        FirstNmeTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FirstNmeTFActionPerformed(evt);
+            }
+        });
         getContentPane().add(FirstNmeTF);
         FirstNmeTF.setBounds(360, 140, 170, 30);
 
@@ -207,8 +244,14 @@ public class stdprofileGUI extends javax.swing.JFrame {
 
     private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
         setVisible(false);
-        stdprofileGUI a = new stdprofileGUI();
-        a.setVisible(true);
+        stdprofileGUI a;
+        try {
+            a = new stdprofileGUI(std_id);
+                  a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(stdprofileGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
     }//GEN-LAST:event_ProfileButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -219,21 +262,31 @@ public class stdprofileGUI extends javax.swing.JFrame {
 
     private void UpdateProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateProfileButtonActionPerformed
         setVisible(false);
-        stdpassGUI a = new stdpassGUI();
+        stdpassGUI a = new stdpassGUI(std_id);
         a.setVisible(true);
     }//GEN-LAST:event_UpdateProfileButtonActionPerformed
 
     private void UpdateProfileButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateProfileButton1ActionPerformed
         setVisible(false);
-        stdupdateGUI a = new stdupdateGUI();
-        a.setVisible(true);
+        stdupdateGUI a;
+        try {
+            a = new stdupdateGUI(std_id);
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(stdprofileGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_UpdateProfileButton1ActionPerformed
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
         setVisible(false);
-        StdwelcomeGUI a = new StdwelcomeGUI();
-        a.setVisible(true); 
+        StdwelcomeGUI a = new StdwelcomeGUI(std_id);
+        a.setVisible(true);
     }//GEN-LAST:event_HomeButtonActionPerformed
+
+    private void FirstNmeTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNmeTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FirstNmeTFActionPerformed
 
     /**
      * @param args the command line arguments

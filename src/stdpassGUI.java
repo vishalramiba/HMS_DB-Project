@@ -1,9 +1,13 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mayur
@@ -13,10 +17,20 @@ public class stdpassGUI extends javax.swing.JFrame {
     /**
      * Creates new form stdpassGUI
      */
+    int std_id;
+    student_driverCode std_dc = new student_driverCode();
+
     public stdpassGUI() {
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
+    }
+
+    public stdpassGUI(int id) {
+        std_id = id;
+        initComponents();
+        setResizable(false);
+        setSize(810, 600);
     }
 
     /**
@@ -74,6 +88,11 @@ public class stdpassGUI extends javax.swing.JFrame {
 
         UpdateButton.setBorder(null);
         UpdateButton.setContentAreaFilled(false);
+        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(UpdateButton);
         UpdateButton.setBounds(420, 390, 150, 29);
 
@@ -127,8 +146,14 @@ public class stdpassGUI extends javax.swing.JFrame {
 
     private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
         setVisible(false);
-        stdprofileGUI a = new stdprofileGUI();
-        a.setVisible(true);
+        stdprofileGUI a;
+        try {
+            a = new stdprofileGUI(std_id);
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(stdpassGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_ProfileButtonActionPerformed
 
     private void OldPasswordTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OldPasswordTFActionPerformed
@@ -137,8 +162,14 @@ public class stdpassGUI extends javax.swing.JFrame {
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
         setVisible(false);
-        stdvoucherGUI a = new stdvoucherGUI();
-        a.setVisible(true);
+        stdvoucherGUI a;
+        try {
+            a = new stdvoucherGUI(std_id);
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(stdpassGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -149,15 +180,38 @@ public class stdpassGUI extends javax.swing.JFrame {
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
         setVisible(false);
-        stdprofileGUI a = new stdprofileGUI();
-        a.setVisible(true);
+        stdprofileGUI a;
+        try {
+            a = new stdprofileGUI(std_id);
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(stdpassGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
         setVisible(false);
-        StdwelcomeGUI a = new StdwelcomeGUI();
-        a.setVisible(true); 
+        StdwelcomeGUI a = new StdwelcomeGUI(std_id);
+        a.setVisible(true);
     }//GEN-LAST:event_HomeButtonActionPerformed
+
+    private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateButtonActionPerformed
+
+        String old_pass = new String(OldPasswordTF.getText());
+        String new_pass = new String(NewPasswordTF.getText());
+        String confirm_pass = new String(ConfirmPasswordTF.getText());
+        setVisible(false);
+        stdprofileGUI a;
+        try {
+            std_dc.updatePass(std_id, old_pass, new_pass, confirm_pass);
+            a = new stdprofileGUI(std_id);
+            a.setVisible(true);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(stdpassGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_UpdateButtonActionPerformed
 
     /**
      * @param args the command line arguments

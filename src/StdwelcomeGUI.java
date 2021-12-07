@@ -1,3 +1,8 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,10 +18,20 @@ public class StdwelcomeGUI extends javax.swing.JFrame {
     /**
      * Creates new form StdwelcomeGUI
      */
+        
+    int std_id;
     public StdwelcomeGUI() {
+        
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
+    }
+        public StdwelcomeGUI(int id) {
+        std_id=id;
+
+        initComponents();
+        setResizable(false);
+        setSize(810, 600);
     }
 
     /**
@@ -89,14 +104,26 @@ public class StdwelcomeGUI extends javax.swing.JFrame {
 
     private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
         setVisible(false);
-        stdprofileGUI a = new stdprofileGUI();
-        a.setVisible(true);
+        stdprofileGUI a;
+        try {
+            a = new stdprofileGUI(std_id);
+             a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StdwelcomeGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     }//GEN-LAST:event_ProfileButtonActionPerformed
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
         setVisible(false);
-        stdvoucherGUI a = new stdvoucherGUI();
-        a.setVisible(true);
+        stdvoucherGUI a;
+        try {
+            a = new stdvoucherGUI(std_id);
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StdwelcomeGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -106,9 +133,9 @@ public class StdwelcomeGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
-       setVisible(false);
-        StdwelcomeGUI a = new StdwelcomeGUI();
-        a.setVisible(true); 
+        setVisible(false);
+        StdwelcomeGUI a = new StdwelcomeGUI(std_id);
+        a.setVisible(true);
     }//GEN-LAST:event_HomeButtonActionPerformed
 
     /**
