@@ -1,3 +1,8 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,10 +18,15 @@ public class StudentLoginGUI extends javax.swing.JFrame {
     /**
      * Creates new form StudentLoginGUI
      */
+    
     public StudentLoginGUI() {
+        
+
         initComponents();
         setResizable(false);
         setSize(810,600);
+        
+        
       //  stdloginTF.setEditable(false);
         
     }
@@ -57,6 +67,11 @@ public class StudentLoginGUI extends javax.swing.JFrame {
         loginButton.setBounds(530, 390, 140, 40);
 
         stdpwTF.setMargin(new java.awt.Insets(2, 2, 1, 1));
+        stdpwTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stdpwTFActionPerformed(evt);
+            }
+        });
         getContentPane().add(stdpwTF);
         stdpwTF.setBounds(430, 330, 250, 40);
 
@@ -69,13 +84,26 @@ public class StudentLoginGUI extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         setVisible(false);
-        StdwelcomeGUI a = new StdwelcomeGUI();
-        a.setVisible(true); 
+        student_driverCode std_dc = new student_driverCode();
+        String pwd = new String(stdpwTF.getPassword());
+        int id = Integer.parseInt(stdloginTF.getText());
+        try {
+            std_dc.stdLogin(id,pwd);
+
+//        StdwelcomeGUI a = new StdwelcomeGUI();
+//        a.setVisible(true); 
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentLoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void stdloginTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stdloginTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_stdloginTFActionPerformed
+
+    private void stdpwTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stdpwTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stdpwTFActionPerformed
 
     /**
      * @param args the command line arguments
