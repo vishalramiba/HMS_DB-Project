@@ -1,3 +1,8 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,10 +18,21 @@ public class admreg2GUI extends javax.swing.JFrame {
     /**
      * Creates new form admreg2
      */
+    int std_id;
+        admin_driverCode adm_dc = new admin_driverCode();
+
     public admreg2GUI() {
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
+    }
+
+    public admreg2GUI(int id) {
+
+        std_id = id;
+        initComponents();
+        setResizable(false);
+        setSize(810, 600);
     }
 
     /**
@@ -132,7 +148,6 @@ public class admreg2GUI extends javax.swing.JFrame {
         getContentPane().add(ShowAvailbleRoomsButton);
         ShowAvailbleRoomsButton.setBounds(600, 200, 160, 30);
 
-        RoomNoTF.setEditable(false);
         RoomNoTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         RoomNoTF.setBorder(null);
         RoomNoTF.setOpaque(false);
@@ -142,7 +157,7 @@ public class admreg2GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(RoomNoTF);
-        RoomNoTF.setBounds(240, 210, 230, 13);
+        RoomNoTF.setBounds(220, 210, 250, 20);
 
         messCB.setBorder(null);
         messCB.setOpaque(false);
@@ -210,9 +225,15 @@ public class admreg2GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButtonActionPerformed
-         setVisible(false);
+        setVisible(false);
         adminwelcomeGUI a = new adminwelcomeGUI();
         a.setVisible(true);
+        int room_id = Integer.parseInt(RoomNoTF.getText());
+        try {
+            adm_dc.updateSTudentRoom(std_id, room_id);
+        } catch (SQLException ex) {
+            Logger.getLogger(admreg2GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_NextButtonActionPerformed
 
@@ -225,7 +246,7 @@ public class admreg2GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_RoomNoTFActionPerformed
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
-       setVisible(false);
+        setVisible(false);
         adminrg1GUI a = new adminrg1GUI();
         a.setVisible(true);
     }//GEN-LAST:event_RegisterButtonActionPerformed
@@ -255,7 +276,7 @@ public class admreg2GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-         setVisible(false);
+        setVisible(false);
         IntialGui a = new IntialGui();
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
@@ -279,7 +300,7 @@ public class admreg2GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
-       setVisible(false);
+        setVisible(false);
         adminwelcomeGUI a = new adminwelcomeGUI();
         a.setVisible(true);
     }//GEN-LAST:event_HomeButtonActionPerformed

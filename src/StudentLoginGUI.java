@@ -23,7 +23,6 @@ public class StudentLoginGUI extends javax.swing.JFrame {
 
     public StudentLoginGUI() {
 
-
         initComponents();
         setResizable(false);
         setSize(810, 600);
@@ -89,7 +88,7 @@ public class StudentLoginGUI extends javax.swing.JFrame {
         int id = Integer.parseInt(stdloginTF.getText());
         try {
             std_dc.stdLogin(id, pwd);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(StudentLoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }

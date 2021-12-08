@@ -1,3 +1,8 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,6 +18,9 @@ public class adminrg1GUI extends javax.swing.JFrame {
     /**
      * Creates new form adminrg1GUI
      */
+    int std_id;
+        admin_driverCode adm_dc = new admin_driverCode();
+
     public adminrg1GUI() {
         initComponents();
         setResizable(false);
@@ -44,7 +52,7 @@ public class adminrg1GUI extends javax.swing.JFrame {
         PhoneTF = new javax.swing.JTextField();
         Next = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        addTA = new javax.swing.JTextArea();
         CancelButton = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         HomeButton = new javax.swing.JButton();
@@ -153,7 +161,7 @@ public class adminrg1GUI extends javax.swing.JFrame {
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
         getContentPane().add(LastNameTF);
-        LastNameTF.setBounds(510, 196, 250, 20);
+        LastNameTF.setBounds(510, 196, 250, 16);
 
         EmailTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         EmailTF.setBorder(null);
@@ -177,12 +185,12 @@ public class adminrg1GUI extends javax.swing.JFrame {
         getContentPane().add(Next);
         Next.setBounds(340, 500, 150, 29);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(jTextArea1);
+        addTA.setColumns(20);
+        addTA.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        addTA.setLineWrap(true);
+        addTA.setRows(5);
+        addTA.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(addTA);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(510, 366, 250, 110);
@@ -197,7 +205,6 @@ public class adminrg1GUI extends javax.swing.JFrame {
         getContentPane().add(CancelButton);
         CancelButton.setBounds(500, 503, 150, 30);
 
-        jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextField2.setBorder(null);
         jTextField2.setOpaque(false);
@@ -259,10 +266,29 @@ public class adminrg1GUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
+    // Next Button
+    
     private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
-        setVisible(false);
-        admreg2GUI a = new admreg2GUI();
+
+        String f_name = FirstNameTF.getText();
+        String l_name = LastNameTF.getText();
+        String father_name = FatherNameTF.getText();
+        String cnic = CNICTF.getText();
+        String email = EmailTF.getText();
+        String phone = PhoneTF.getText();
+        String program = ProgramTF.getText();
+        String address = addTA.getText();
+        String DOB = DOBTF.getText();
+        std_id = Integer.parseInt(StudentIDTF.getText());
+                setVisible(false);
+        admreg2GUI a = new admreg2GUI(std_id);
         a.setVisible(true);
+        
+            try {
+                adm_dc.insertStudent(f_name, l_name, father_name, cnic, email, phone, program, address, DOB, std_id);
+            } catch (SQLException ex) {
+                Logger.getLogger(adminrg1GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_NextActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
@@ -335,8 +361,8 @@ public class adminrg1GUI extends javax.swing.JFrame {
     private javax.swing.JButton RoomsButton;
     private javax.swing.JTextField StudentIDTF;
     private javax.swing.JButton VoucherButton;
+    private javax.swing.JTextArea addTA;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

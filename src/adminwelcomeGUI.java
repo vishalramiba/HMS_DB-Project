@@ -1,3 +1,6 @@
+
+import java.sql.SQLException;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,11 +16,29 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
     /**
      * Creates new form adminwelcomeGUI
      */
+    int adm_id;
+    admin_driverCode adm_dc = new admin_driverCode();
+
     public adminwelcomeGUI() {
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
+
+    }
+
+    public adminwelcomeGUI(int id) throws SQLException {
+        adm_id = id;
+        initComponents();
+        setResizable(false);
+        setSize(810, 600);
         
+        int count = adm_dc.countRooms();
+        NoOfVacantRooms.setText(String.valueOf(count));
+        
+        int unpaid=  adm_dc.countUnpaidChallans();
+        unpaidTF.setText(String.valueOf(unpaid));
+        
+
     }
 
     /**
@@ -36,9 +57,6 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
         VoucherButton = new javax.swing.JButton();
         LogoutButton = new javax.swing.JButton();
         NoOfVacantRooms = new javax.swing.JTextField();
-        NoOfUnpaidChallans = new javax.swing.JTextField();
-        VvacntroomsTF = new javax.swing.JTextField();
-        vacantroomTF = new javax.swing.JTextField();
         unpaidTF = new javax.swing.JTextField();
         HomeButton = new javax.swing.JButton();
         admwelcome = new javax.swing.JLabel();
@@ -106,31 +124,32 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(LogoutButton);
-        LogoutButton.setBounds(20, 510, 130, 30);
+        LogoutButton.setBounds(20, 510, 140, 30);
 
+        NoOfVacantRooms.setEditable(false);
+        NoOfVacantRooms.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        NoOfVacantRooms.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         NoOfVacantRooms.setBorder(null);
         NoOfVacantRooms.setOpaque(false);
+        NoOfVacantRooms.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NoOfVacantRoomsActionPerformed(evt);
+            }
+        });
         getContentPane().add(NoOfVacantRooms);
-        NoOfVacantRooms.setBounds(610, 246, 0, 40);
-
-        NoOfUnpaidChallans.setBorder(null);
-        NoOfUnpaidChallans.setOpaque(false);
-        getContentPane().add(NoOfUnpaidChallans);
-        NoOfUnpaidChallans.setBounds(610, 310, 0, 40);
-
-        VvacntroomsTF.setBorder(null);
-        getContentPane().add(VvacntroomsTF);
-        VvacntroomsTF.setBounds(620, 250, 0, 30);
-
-        vacantroomTF.setEditable(false);
-        vacantroomTF.setBorder(null);
-        getContentPane().add(vacantroomTF);
-        vacantroomTF.setBounds(620, 250, 0, 30);
+        NoOfVacantRooms.setBounds(610, 246, 80, 40);
 
         unpaidTF.setEditable(false);
+        unpaidTF.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        unpaidTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         unpaidTF.setBorder(null);
+        unpaidTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unpaidTFActionPerformed(evt);
+            }
+        });
         getContentPane().add(unpaidTF);
-        unpaidTF.setBounds(620, 320, 60, 20);
+        unpaidTF.setBounds(610, 310, 80, 40);
 
         HomeButton.setBorderPainted(false);
         HomeButton.setContentAreaFilled(false);
@@ -150,7 +169,7 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-       setVisible(false);
+        setVisible(false);
         IntialGui a = new IntialGui();
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
@@ -190,6 +209,14 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
         adminwelcomeGUI a = new adminwelcomeGUI();
         a.setVisible(true);
     }//GEN-LAST:event_HomeButtonActionPerformed
+
+    private void NoOfVacantRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoOfVacantRoomsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NoOfVacantRoomsActionPerformed
+
+    private void unpaidTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unpaidTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unpaidTFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,14 +258,11 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
     private javax.swing.JButton Employees;
     private javax.swing.JButton HomeButton;
     private javax.swing.JButton LogoutButton;
-    private javax.swing.JTextField NoOfUnpaidChallans;
     private javax.swing.JTextField NoOfVacantRooms;
     private javax.swing.JButton RegisterButton;
     private javax.swing.JButton RoomsButton;
     private javax.swing.JButton VoucherButton;
-    private javax.swing.JTextField VvacntroomsTF;
     private javax.swing.JLabel admwelcome;
     private javax.swing.JTextField unpaidTF;
-    private javax.swing.JTextField vacantroomTF;
     // End of variables declaration//GEN-END:variables
 }

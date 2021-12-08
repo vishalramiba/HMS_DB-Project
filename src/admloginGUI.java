@@ -1,9 +1,13 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mayur
@@ -13,10 +17,13 @@ public class admloginGUI extends javax.swing.JFrame {
     /**
      * Creates new form admloginGUI
      */
+//    int adm_id;
+    admin_driverCode adm_dc = new admin_driverCode();
+
     public admloginGUI() {
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
     }
 
     /**
@@ -30,8 +37,7 @@ public class admloginGUI extends javax.swing.JFrame {
 
         LoginButton = new javax.swing.JButton();
         IdLoginTF = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        passwordLoginTF = new javax.swing.JTextField();
+        pwTF = new javax.swing.JPasswordField();
         admlogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,14 +53,12 @@ public class admloginGUI extends javax.swing.JFrame {
         });
         getContentPane().add(LoginButton);
         LoginButton.setBounds(540, 390, 130, 30);
-        getContentPane().add(IdLoginTF);
-        IdLoginTF.setBounds(430, 250, 250, 50);
 
-        jTextField2.setText("jTextField2");
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(430, 260, 250, 20);
-        getContentPane().add(passwordLoginTF);
-        passwordLoginTF.setBounds(430, 330, 250, 50);
+        IdLoginTF.setMaximumSize(new java.awt.Dimension(107, 107));
+        getContentPane().add(IdLoginTF);
+        IdLoginTF.setBounds(430, 260, 250, 40);
+        getContentPane().add(pwTF);
+        pwTF.setBounds(430, 330, 250, 40);
 
         admlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_login.jpg"))); // NOI18N
         getContentPane().add(admlogin);
@@ -64,9 +68,13 @@ public class admloginGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-       setVisible(false);
-        adminwelcomeGUI a = new adminwelcomeGUI();
-        a.setVisible(true);
+        String pwd = new String(pwTF.getPassword());
+        int id = Integer.parseInt(IdLoginTF.getText());
+        try {
+            adm_dc.adminLogin(id, pwd);
+        } catch (SQLException ex) {
+            Logger.getLogger(admloginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     /**
@@ -108,7 +116,6 @@ public class admloginGUI extends javax.swing.JFrame {
     private javax.swing.JTextField IdLoginTF;
     private javax.swing.JButton LoginButton;
     private javax.swing.JLabel admlogin;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField passwordLoginTF;
+    private javax.swing.JPasswordField pwTF;
     // End of variables declaration//GEN-END:variables
 }
