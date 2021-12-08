@@ -232,8 +232,14 @@ public class adminrg1GUI extends javax.swing.JFrame {
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
          setVisible(false);
-        adminedit1GUI a = new adminedit1GUI();
-        a.setVisible(true);
+        adminedit1GUI a;
+        try {
+            a = new adminedit1GUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminrg1GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
@@ -244,8 +250,14 @@ public class adminrg1GUI extends javax.swing.JFrame {
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
          setVisible(false);
-        adminroomsGUI a = new adminroomsGUI();
-        a.setVisible(true);
+        adminroomsGUI a;
+        try {
+            a = new adminroomsGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminrg1GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed

@@ -1,5 +1,6 @@
 
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,11 +21,15 @@ public class admreg2GUI extends javax.swing.JFrame {
      */
     int std_id;
         admin_driverCode adm_dc = new admin_driverCode();
+        
+        int facility_flag[]= new int[5];
 
     public admreg2GUI() {
         initComponents();
         setResizable(false);
         setSize(810, 600);
+        Arrays.fill(facility_flag, 0);
+
     }
 
     public admreg2GUI(int id) {
@@ -33,6 +38,9 @@ public class admreg2GUI extends javax.swing.JFrame {
         initComponents();
         setResizable(false);
         setSize(810, 600);
+        Arrays.fill(facility_flag, 0);
+
+        
     }
 
     /**
@@ -161,8 +169,13 @@ public class admreg2GUI extends javax.swing.JFrame {
 
         messCB.setBorder(null);
         messCB.setOpaque(false);
+        messCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                messCBActionPerformed(evt);
+            }
+        });
         getContentPane().add(messCB);
-        messCB.setBounds(230, 340, 81, 23);
+        messCB.setBounds(230, 340, 20, 23);
 
         laundryCB.setBorder(null);
         laundryCB.setOpaque(false);
@@ -172,7 +185,7 @@ public class admreg2GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(laundryCB);
-        laundryCB.setBounds(230, 360, 81, 30);
+        laundryCB.setBounds(230, 360, 20, 30);
 
         ParkingCB.setOpaque(false);
         ParkingCB.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +194,7 @@ public class admreg2GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ParkingCB);
-        ParkingCB.setBounds(230, 390, 100, 30);
+        ParkingCB.setBounds(230, 390, 20, 30);
 
         GymCB.setOpaque(false);
         GymCB.addActionListener(new java.awt.event.ActionListener() {
@@ -190,11 +203,16 @@ public class admreg2GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(GymCB);
-        GymCB.setBounds(230, 410, 100, 40);
+        GymCB.setBounds(230, 410, 20, 40);
 
         SrCB.setOpaque(false);
+        SrCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SrCBActionPerformed(evt);
+            }
+        });
         getContentPane().add(SrCB);
-        SrCB.setBounds(230, 440, 81, 23);
+        SrCB.setBounds(230, 440, 20, 23);
 
         CancelButton.setBorderPainted(false);
         CancelButton.setContentAreaFilled(false);
@@ -226,17 +244,21 @@ public class admreg2GUI extends javax.swing.JFrame {
 
     private void NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButtonActionPerformed
         setVisible(false);
-        adminwelcomeGUI a = new adminwelcomeGUI();
-        a.setVisible(true);
+
         int room_id = Integer.parseInt(RoomNoTF.getText());
         try {
+                    adminwelcomeGUI a = new adminwelcomeGUI();
+        a.setVisible(true);
             adm_dc.updateSTudentRoom(std_id, room_id);
+            adm_dc.setFacility(std_id, facility_flag);
         } catch (SQLException ex) {
             Logger.getLogger(admreg2GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_NextButtonActionPerformed
+    
 
+    
     private void ShowAvailbleRoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowAvailbleRoomsButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ShowAvailbleRoomsButtonActionPerformed
@@ -253,14 +275,26 @@ public class admreg2GUI extends javax.swing.JFrame {
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         setVisible(false);
-        adminedit1GUI a = new adminedit1GUI();
-        a.setVisible(true);
+        adminedit1GUI a;
+        try {
+            a = new adminedit1GUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admreg2GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
         setVisible(false);
-        adminroomsGUI a = new adminroomsGUI();
-        a.setVisible(true);
+        adminroomsGUI a;
+        try {
+            a = new adminroomsGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admreg2GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
@@ -271,8 +305,14 @@ public class admreg2GUI extends javax.swing.JFrame {
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
         setVisible(false);
-        adminvoucherGUI a = new adminvoucherGUI();
-        a.setVisible(true);
+        adminvoucherGUI a;
+        try {
+            a = new adminvoucherGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admreg2GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -281,30 +321,70 @@ public class admreg2GUI extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
+    
+        //array[mess, laundry, parking, gym, room]
+    
+    
     private void laundryCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laundryCBActionPerformed
-        // TODO add your handling code here:
+        if(laundryCB.isSelected())
+            facility_flag[1]=5;
     }//GEN-LAST:event_laundryCBActionPerformed
 
     private void GymCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GymCBActionPerformed
-        // TODO add your handling code here:
+          if(GymCB.isSelected())
+            facility_flag[3]=4;
     }//GEN-LAST:event_GymCBActionPerformed
 
     private void ParkingCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParkingCBActionPerformed
-        // TODO add your handling code here:
+              if(ParkingCB.isSelected())
+            facility_flag[2]=3;
     }//GEN-LAST:event_ParkingCBActionPerformed
 
+    
+    
+    
+    
+    
+    
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
         setVisible(false);
-        adminwelcomeGUI a = new adminwelcomeGUI();
-        a.setVisible(true);
+        adminwelcomeGUI a;
+        try {
+            a = new adminwelcomeGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admreg2GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
         setVisible(false);
-        adminwelcomeGUI a = new adminwelcomeGUI();
-        a.setVisible(true);
+        adminwelcomeGUI a;
+        try {
+            a = new adminwelcomeGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admreg2GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_HomeButtonActionPerformed
 
+    private void SrCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SrCBActionPerformed
+            if(SrCB.isSelected()){
+                System.out.println("hello");
+            facility_flag[4]=1;
+            }
+    }//GEN-LAST:event_SrCBActionPerformed
+
+    private void messCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messCBActionPerformed
+            if(messCB.isSelected())
+            facility_flag[0]=2;
+    }//GEN-LAST:event_messCBActionPerformed
+
+    public void a(){
+        System.out.println(Arrays.toString(facility_flag));
+    }
     /**
      * @param args the command line arguments
      */
@@ -334,9 +414,14 @@ public class admreg2GUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
+            
+        admreg2GUI b = new admreg2GUI();
+//        b.a();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new admreg2GUI().setVisible(true);
+                
             }
         });
     }

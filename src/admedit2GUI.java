@@ -1,9 +1,13 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mayur
@@ -13,10 +17,39 @@ public class admedit2GUI extends javax.swing.JFrame {
     /**
      * Creates new form admedit2GUI
      */
+    int std_id;
+
+    admin_driverCode adm_dc = new admin_driverCode();
+    student_driverCode std_dc = new student_driverCode();
+
     public admedit2GUI() {
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
+    }
+
+    public admedit2GUI(int id) throws SQLException {
+        std_id = id;
+        initComponents();
+        setResizable(false);
+        setSize(810, 600);
+        std_dc.showProfile(std_id);
+        FirstNameTF.setText(std_dc.profile.get(0));
+        LastNameTF.setText(std_dc.profile.get(1));
+        FatherNameTF.setText(std_dc.profile.get(2));
+        CNICTF.setText(std_dc.profile.get(3));
+        ProgramTF.setText(std_dc.profile.get(4));
+        DateOfBirthTF.setText(std_dc.profile.get(5));
+        AddressTF.setText(std_dc.profile.get(6));
+        PhoneTF.setText(std_dc.profile.get(7));
+        EmailTF.setText(std_dc.profile.get(8));
+        RoomTF.setText(std_dc.profile.get(9));
+        StudentIDTF.setText(std_dc.profile.get(10));
+        BuildingTF.setText(std_dc.profile.get(11));
+        
+        std_dc.getFacilities(std_id);
+
+        FacilitiesTF.setText(std_dc.profile.get(12));
     }
 
     /**
@@ -233,21 +266,33 @@ public class admedit2GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
-       setVisible(false);
+        setVisible(false);
         adminrg1GUI a = new adminrg1GUI();
         a.setVisible(true);
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
-         setVisible(false);
-        adminedit1GUI a = new adminedit1GUI();
-        a.setVisible(true);
+        setVisible(false);
+        adminedit1GUI a;
+        try {
+            a = new adminedit1GUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit2GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
         setVisible(false);
-        adminroomsGUI a = new adminroomsGUI();
-        a.setVisible(true);
+        adminroomsGUI a;
+        try {
+            a = new adminroomsGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit2GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
@@ -257,9 +302,15 @@ public class admedit2GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeesActionPerformed
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
-         setVisible(false);
-        adminvoucherGUI a = new adminvoucherGUI();
-        a.setVisible(true);
+        setVisible(false);
+        adminvoucherGUI a;
+        try {
+            a = new adminvoucherGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit2GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -270,20 +321,38 @@ public class admedit2GUI extends javax.swing.JFrame {
 
     private void Edit2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit2ButtonActionPerformed
         setVisible(false);
-        admedit3GUI a = new admedit3GUI();
-        a.setVisible(true);
+        admedit3GUI three_screen;
+        try {
+            three_screen = new admedit3GUI(std_id);
+            three_screen.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit2GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_Edit2ButtonActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
         setVisible(false);
-        adminedit1GUI a = new adminedit1GUI();
-        a.setVisible(true);
+        adminedit1GUI a;
+        try {
+            a = new adminedit1GUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit2GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
         setVisible(false);
-        adminwelcomeGUI a = new adminwelcomeGUI();
-        a.setVisible(true);
+        adminwelcomeGUI a;
+        try {
+            a = new adminwelcomeGUI();
+             a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit2GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
     }//GEN-LAST:event_HomeButtonActionPerformed
 
     /**

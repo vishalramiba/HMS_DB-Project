@@ -1,12 +1,46 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class admreg3GUI extends javax.swing.JFrame {
 
     /**
      * Creates new form admreg3
      */
+    int std_id;
+
+    admin_driverCode adm_dc = new admin_driverCode();
+    student_driverCode std_dc = new student_driverCode();
+
     public admreg3GUI() {
         initComponents();
-      setResizable(false);
-        setSize(810,600);
+        setResizable(false);
+        setSize(810, 600);
+
+    }
+
+    public admreg3GUI(int id) throws SQLException {
+
+        std_id = id;
+        initComponents();
+        setResizable(false);
+        setSize(810, 600);
+
+        std_dc.showProfile(std_id);
+        FirstNameTF.setText(std_dc.profile.get(0));
+        LastNameTF.setText(std_dc.profile.get(1));
+        FatherNameTF.setText(std_dc.profile.get(2));
+        CNICTF.setText(std_dc.profile.get(3));
+        ProgramTF.setText(std_dc.profile.get(4));
+        DateOfBirthTF.setText(std_dc.profile.get(5));
+        AddressTF.setText(std_dc.profile.get(6));
+        PhoneTF.setText(std_dc.profile.get(7));
+        EmailTF.setText(std_dc.profile.get(8));
+        RoomTF.setText(std_dc.profile.get(9));
+        StudentIDTF.setText(std_dc.profile.get(10));
+        BuildingTF.setText(std_dc.profile.get(11));
+
     }
 
     /**
@@ -252,15 +286,27 @@ public class admreg3GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
-         setVisible(false);
-        adminedit1GUI a = new adminedit1GUI();
-        a.setVisible(true);
+        setVisible(false);
+        adminedit1GUI a;
+        try {
+            a = new adminedit1GUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admreg3GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
         setVisible(false);
-        adminroomsGUI a = new adminroomsGUI();
-        a.setVisible(true);
+        adminroomsGUI a;
+        try {
+            a = new adminroomsGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admreg3GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
@@ -270,7 +316,7 @@ public class admreg3GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_EmployeesActionPerformed
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
-         setVisible(false);
+        setVisible(false);
         adminvoucherGUI a = new adminvoucherGUI();
         a.setVisible(true);
     }//GEN-LAST:event_VoucherButtonActionPerformed

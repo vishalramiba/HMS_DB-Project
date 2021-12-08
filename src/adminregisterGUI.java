@@ -1,9 +1,13 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mayur
@@ -13,10 +17,14 @@ public class adminregisterGUI extends javax.swing.JFrame {
     /**
      * Creates new form adminregisterGUI
      */
+    admin_driverCode adm_dc = new admin_driverCode();
+    int isadmin;
+    int dep_id;
+
     public adminregisterGUI() {
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
     }
 
     /**
@@ -134,6 +142,11 @@ public class adminregisterGUI extends javax.swing.JFrame {
         AdminRadioButton.setBackground(new java.awt.Color(204, 204, 204));
         AdminRadioButton.setBorder(null);
         AdminRadioButton.setOpaque(false);
+        AdminRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminRadioButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(AdminRadioButton);
         AdminRadioButton.setBounds(460, 410, 30, 20);
 
@@ -145,7 +158,7 @@ public class adminregisterGUI extends javax.swing.JFrame {
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
         getContentPane().add(EmailTF);
-        EmailTF.setBounds(220, 306, 260, 20);
+        EmailTF.setBounds(220, 306, 260, 16);
 
         SalaryTF.setBorder(null);
         SalaryTF.setOpaque(false);
@@ -160,12 +173,12 @@ public class adminregisterGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(PhoneTF);
-        PhoneTF.setBounds(510, 250, 250, 20);
+        PhoneTF.setBounds(510, 250, 250, 16);
 
         CNICTF.setBorder(null);
         CNICTF.setOpaque(false);
         getContentPane().add(CNICTF);
-        CNICTF.setBounds(510, 306, 250, 20);
+        CNICTF.setBounds(510, 306, 250, 16);
 
         DepartmentIDTF.setBorder(null);
         DepartmentIDTF.setOpaque(false);
@@ -195,9 +208,23 @@ public class adminregisterGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Register2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Register2ButtonActionPerformed
-      setVisible(false);
-        admitempGUI a = new admitempGUI();
-        a.setVisible(true);
+        setVisible(false);
+        String name = NameTF.getText();
+        String phone = PhoneTF.getText();
+        String email = EmailTF.getText();
+        String cnic = CNICTF.getText();
+        int salary = Integer.parseInt(SalaryTF.getText());
+
+        int dep_id = Integer.parseInt(DepartmentIDTF.getText());
+
+        try {
+            adm_dc.insertEmployee(name, phone, email, cnic, salary, dep_id, isadmin);
+            admitempGUI a = new admitempGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminregisterGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_Register2ButtonActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
@@ -215,25 +242,37 @@ public class adminregisterGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_DepartmentIDTFActionPerformed
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
-       setVisible(false);
+        setVisible(false);
         adminrg1GUI a = new adminrg1GUI();
         a.setVisible(true);
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
-         setVisible(false);
-        adminedit1GUI a = new adminedit1GUI();
-        a.setVisible(true);
+        setVisible(false);
+        adminedit1GUI a;
+        try {
+            a = new adminedit1GUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminregisterGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
         setVisible(false);
-        adminroomsGUI a = new adminroomsGUI();
-        a.setVisible(true);
+        adminroomsGUI a;
+        try {
+            a = new adminroomsGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminregisterGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
-         setVisible(false);
+        setVisible(false);
         admitempGUI a = new admitempGUI();
         a.setVisible(true);
     }//GEN-LAST:event_EmployeesActionPerformed
@@ -255,6 +294,20 @@ public class adminregisterGUI extends javax.swing.JFrame {
         adminwelcomeGUI a = new adminwelcomeGUI();
         a.setVisible(true);
     }//GEN-LAST:event_HomeButtonActionPerformed
+
+    private void AdminRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminRadioButtonActionPerformed
+        if (AdminRadioButton.isSelected()) {
+            isadmin = 1;
+            DepartmentIDTF.setText("100");
+            DepartmentIDTF.setEditable(false);
+        } else {
+            isadmin = 0;
+            DepartmentIDTF.setText("");
+            DepartmentIDTF.setEditable(true);
+            
+        }
+        
+    }//GEN-LAST:event_AdminRadioButtonActionPerformed
 
     /**
      * @param args the command line arguments

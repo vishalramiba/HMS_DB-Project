@@ -1,5 +1,7 @@
 
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,15 +21,10 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
     int adm_id;
     admin_driverCode adm_dc = new admin_driverCode();
 
-    public adminwelcomeGUI() {
-        initComponents();
-        setResizable(false);
-        setSize(810, 600);
 
-    }
 
-    public adminwelcomeGUI(int id) throws SQLException {
-        adm_id = id;
+    public adminwelcomeGUI() throws SQLException {
+
         initComponents();
         setResizable(false);
         setSize(810, 600);
@@ -182,14 +179,26 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         setVisible(false);
-        adminedit1GUI a = new adminedit1GUI();
-        a.setVisible(true);
+        adminedit1GUI b;
+        try {
+            b = new adminedit1GUI();
+            b.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminwelcomeGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
         setVisible(false);
-        adminroomsGUI a = new adminroomsGUI();
-        a.setVisible(true);
+        adminroomsGUI a;
+        try {
+            a = new adminroomsGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminwelcomeGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
@@ -200,14 +209,26 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
         setVisible(false);
-        adminvoucherGUI a = new adminvoucherGUI();
-        a.setVisible(true);
+        adminvoucherGUI a;
+        try {
+            a = new adminvoucherGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminwelcomeGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
         setVisible(false);
-        adminwelcomeGUI a = new adminwelcomeGUI();
-        a.setVisible(true);
+        adminwelcomeGUI a;
+        try {
+            a = new adminwelcomeGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminwelcomeGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_HomeButtonActionPerformed
 
     private void NoOfVacantRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoOfVacantRoomsActionPerformed
@@ -248,7 +269,11 @@ public class adminwelcomeGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new adminwelcomeGUI().setVisible(true);
+                try {
+                    new adminwelcomeGUI().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(adminwelcomeGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

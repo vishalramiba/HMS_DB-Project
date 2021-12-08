@@ -242,8 +242,14 @@ public class stdvoucherGUI extends javax.swing.JFrame {
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
         setVisible(false);
-        stdvoucherGUI a = new stdvoucherGUI();
-        a.setVisible(true);
+        stdvoucherGUI a;
+        try {
+            a = new stdvoucherGUI(std_id);
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(stdvoucherGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed

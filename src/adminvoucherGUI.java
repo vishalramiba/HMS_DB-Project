@@ -1,9 +1,15 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mayur
@@ -13,10 +19,13 @@ public class adminvoucherGUI extends javax.swing.JFrame {
     /**
      * Creates new form adminvoucherGUI
      */
-    public adminvoucherGUI() {
+    admin_driverCode adm_dc = new admin_driverCode();
+
+    public adminvoucherGUI() throws SQLException {
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
+        UnpaidChallansTF.setText(String.valueOf(adm_dc.countUnpaidChallans()));
     }
 
     /**
@@ -115,6 +124,11 @@ public class adminvoucherGUI extends javax.swing.JFrame {
 
         CheckButton.setBorder(null);
         CheckButton.setContentAreaFilled(false);
+        CheckButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(CheckButton);
         CheckButton.setBounds(580, 330, 170, 30);
 
@@ -129,10 +143,12 @@ public class adminvoucherGUI extends javax.swing.JFrame {
         PayChallanButton.setBounds(580, 460, 180, 30);
 
         UnpaidChallansTF.setEditable(false);
+        UnpaidChallansTF.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        UnpaidChallansTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         UnpaidChallansTF.setBorder(null);
         UnpaidChallansTF.setOpaque(false);
         getContentPane().add(UnpaidChallansTF);
-        UnpaidChallansTF.setBounds(450, 200, 70, 26);
+        UnpaidChallansTF.setBounds(450, 200, 70, 20);
 
         VoucherNoTF.setBorder(null);
         VoucherNoTF.setOpaque(false);
@@ -162,7 +178,22 @@ public class adminvoucherGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PayChallanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PayChallanButtonActionPerformed
-        // TODO add your handling code here:
+        String status = "";
+        int id = Integer.parseInt(VoucherNo2TF.getText());
+        try {
+            int check = adm_dc.payVoucher(id);
+            if(check ==1)
+                status += "Voucher PAID";
+            else if(check == 0)
+                status += "Already Paid!";
+            else status+= "Voucher Doesnot Exists!";
+            JFrame f = new JFrame();
+        JOptionPane.showMessageDialog(f, status);
+        VoucherNo2TF.setText("");
+        } catch (SQLException ex) {
+            Logger.getLogger(adminvoucherGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_PayChallanButtonActionPerformed
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
@@ -173,14 +204,26 @@ public class adminvoucherGUI extends javax.swing.JFrame {
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         setVisible(false);
-        adminedit1GUI a = new adminedit1GUI();
-        a.setVisible(true);
+        adminedit1GUI a;
+        try {
+            a = new adminedit1GUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminvoucherGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
         setVisible(false);
-        adminroomsGUI a = new adminroomsGUI();
-        a.setVisible(true);
+        adminroomsGUI a;
+        try {
+            a = new adminroomsGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminvoucherGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
@@ -191,21 +234,56 @@ public class adminvoucherGUI extends javax.swing.JFrame {
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
         setVisible(false);
-        adminvoucherGUI a = new adminvoucherGUI();
-        a.setVisible(true);
+        adminvoucherGUI a;
+        try {
+            a = new adminvoucherGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminvoucherGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-         setVisible(false);
+        setVisible(false);
         IntialGui a = new IntialGui();
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void HomeBUttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBUttonActionPerformed
         setVisible(false);
-        adminwelcomeGUI a = new adminwelcomeGUI();
-        a.setVisible(true);
+        adminwelcomeGUI a;
+        try {
+            a = new adminwelcomeGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminvoucherGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_HomeBUttonActionPerformed
+
+    private void CheckButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckButtonActionPerformed
+        String status = "";
+        int id = Integer.parseInt(VoucherNoTF.getText());
+        try {
+            int check = adm_dc.checkVoucher_Status(id);
+            if (check == 1) {
+                status += "PAID!!";
+            } else if (check == 0) {
+                status += "NOT PAID!";
+            } else {
+                status += "Voucher doesnot exist!";
+            }
+
+            JFrame f = new JFrame();
+
+            JOptionPane.showMessageDialog(f, status);
+
+            VoucherNoTF.setText("");
+        } catch (SQLException ex) {
+            Logger.getLogger(adminvoucherGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_CheckButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,7 +315,11 @@ public class adminvoucherGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new adminvoucherGUI().setVisible(true);
+                try {
+                    new adminvoucherGUI().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(adminvoucherGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

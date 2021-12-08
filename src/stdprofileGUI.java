@@ -8,7 +8,6 @@ import java.util.logging.Logger;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mayur
@@ -19,7 +18,8 @@ public class stdprofileGUI extends javax.swing.JFrame {
      * Creates new form stdprofileGUI
      */
     int std_id;
-     student_driverCode std_dc = new student_driverCode();
+    student_driverCode std_dc = new student_driverCode();
+
     public stdprofileGUI() {
 
         initComponents();
@@ -30,11 +30,10 @@ public class stdprofileGUI extends javax.swing.JFrame {
     public stdprofileGUI(int id) throws SQLException {
         std_id = id;
         std_dc.showProfile(std_id);
-
-
         initComponents();
         setResizable(false);
         setSize(810, 600);
+        
         FirstNmeTF.setText(std_dc.profile.get(0));
         LastNameTF.setText(std_dc.profile.get(1));
         FathersNameTF.setText(std_dc.profile.get(2));
@@ -47,8 +46,7 @@ public class stdprofileGUI extends javax.swing.JFrame {
         RoomTF.setText(std_dc.profile.get(9));
         StudentIDTF.setText(std_dc.profile.get(10));
         BuldingTF.setText(std_dc.profile.get(11));
-        
-        std_dc.profile.clear();
+
     }
 
     /**
@@ -238,8 +236,14 @@ public class stdprofileGUI extends javax.swing.JFrame {
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
         setVisible(false);
-        stdvoucherGUI a = new stdvoucherGUI();
-        a.setVisible(true);
+        stdvoucherGUI a;
+        try {
+            a = new stdvoucherGUI(std_id);
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(stdprofileGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProfileButtonActionPerformed
@@ -247,11 +251,11 @@ public class stdprofileGUI extends javax.swing.JFrame {
         stdprofileGUI a;
         try {
             a = new stdprofileGUI(std_id);
-                  a.setVisible(true);
+            a.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(stdprofileGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-  
+
     }//GEN-LAST:event_ProfileButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -275,7 +279,7 @@ public class stdprofileGUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(stdprofileGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_UpdateProfileButton1ActionPerformed
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed

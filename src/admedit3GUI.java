@@ -1,9 +1,13 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mayur
@@ -13,10 +17,36 @@ public class admedit3GUI extends javax.swing.JFrame {
     /**
      * Creates new form admedit3GUI
      */
+    int std_id;
+
+    admin_driverCode adm_dc = new admin_driverCode();
+    student_driverCode std_dc = new student_driverCode();
+
     public admedit3GUI() {
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
+    }
+
+    admedit3GUI(int id) throws SQLException {
+
+        std_id = id;
+        initComponents();
+        setResizable(false);
+        setSize(810, 600);
+
+        std_dc.showProfile(std_id);
+        FirstNameTF.setText(std_dc.profile.get(0));
+        LastNameTF.setText(std_dc.profile.get(1));
+        FatherNameTF.setText(std_dc.profile.get(2));
+        CNICTF.setText(std_dc.profile.get(3));
+        ProgramTF.setText(std_dc.profile.get(4));
+        AddressTF.setText(std_dc.profile.get(6));
+        PhoneTF.setText(std_dc.profile.get(7));
+        EmailTF.setText(std_dc.profile.get(8));
+
+        StudentIDTF.setText(std_dc.profile.get(10));
+
     }
 
     /**
@@ -136,12 +166,13 @@ public class admedit3GUI extends javax.swing.JFrame {
         FirstNameTF.setBorder(null);
         FirstNameTF.setOpaque(false);
         getContentPane().add(FirstNameTF);
-        FirstNameTF.setBounds(220, 210, 260, 20);
+        FirstNameTF.setBounds(220, 210, 260, 16);
 
+        StudentIDTF.setEditable(false);
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
         getContentPane().add(StudentIDTF);
-        StudentIDTF.setBounds(220, 260, 260, 20);
+        StudentIDTF.setBounds(220, 260, 260, 16);
 
         CNICTF.setBorder(null);
         CNICTF.setOpaque(false);
@@ -156,12 +187,12 @@ public class admedit3GUI extends javax.swing.JFrame {
         FatherNameTF.setBorder(null);
         FatherNameTF.setOpaque(false);
         getContentPane().add(FatherNameTF);
-        FatherNameTF.setBounds(220, 420, 260, 20);
+        FatherNameTF.setBounds(220, 420, 260, 16);
 
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
         getContentPane().add(LastNameTF);
-        LastNameTF.setBounds(510, 210, 250, 20);
+        LastNameTF.setBounds(510, 210, 250, 16);
 
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
@@ -196,15 +227,43 @@ public class admedit3GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmButtonActionPerformed
-         setVisible(false);
-        admedit4GUI a = new admedit4GUI();
-        a.setVisible(true);
+        setVisible(false);
+        adminedit1GUI a;
+        try {
+            a = new adminedit1GUI();
+            a.setVisible(true);
+        String f_name = FirstNameTF.getText();
+        String l_name = LastNameTF.getText();
+        String father_name = FatherNameTF.getText();
+        String cnic = CNICTF.getText();
+        String email = EmailTF.getText();
+        String phone = PhoneTF.getText();
+        String program = ProgramTF.getText();
+        String address = AddressTF.getText();
+
+        try {
+            adm_dc.updateStudent(f_name, l_name, father_name, cnic, email, phone, program, address, std_id);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit3GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit3GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+
     }//GEN-LAST:event_ConfirmButtonActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
         setVisible(false);
-        adminedit1GUI a = new adminedit1GUI();
-        a.setVisible(true);
+        adminedit1GUI a;
+        try {
+            a = new adminedit1GUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit3GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
@@ -215,14 +274,26 @@ public class admedit3GUI extends javax.swing.JFrame {
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         setVisible(false);
-        adminedit1GUI a = new adminedit1GUI();
-        a.setVisible(true);
+        adminedit1GUI a;
+        try {
+            a = new adminedit1GUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit3GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
         setVisible(false);
-        adminroomsGUI a = new adminroomsGUI();
-        a.setVisible(true);
+        adminroomsGUI a;
+        try {
+            a = new adminroomsGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit3GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
@@ -233,8 +304,14 @@ public class admedit3GUI extends javax.swing.JFrame {
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
         setVisible(false);
-        adminvoucherGUI a = new adminvoucherGUI();
-        a.setVisible(true);
+        adminvoucherGUI a;
+        try {
+            a = new adminvoucherGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit3GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -245,8 +322,14 @@ public class admedit3GUI extends javax.swing.JFrame {
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
         setVisible(false);
-        adminwelcomeGUI a = new adminwelcomeGUI();
-        a.setVisible(true);
+        adminwelcomeGUI a;
+        try {
+            a = new adminwelcomeGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(admedit3GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_HomeButtonActionPerformed
 
     /**

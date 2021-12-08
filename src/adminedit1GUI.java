@@ -1,3 +1,8 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,10 +18,19 @@ public class adminedit1GUI extends javax.swing.JFrame {
     /**
      * Creates new form adminedit1GUI
      */
-    public adminedit1GUI() {
+    int std_id;
+    
+     admin_driverCode adm_dc = new admin_driverCode();
+
+    public adminedit1GUI() throws SQLException {
         initComponents();
         setResizable(false);
         setSize(810,600);
+        
+        
+        int count = adm_dc.getTotalStudents();
+        
+        no_ofstudentsTF.setText(String.valueOf(count));
     }
 
     /**
@@ -132,7 +146,10 @@ public class adminedit1GUI extends javax.swing.JFrame {
         seestudentsButton.setBounds(550, 450, 220, 40);
 
         no_ofstudentsTF.setEditable(false);
+        no_ofstudentsTF.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        no_ofstudentsTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         no_ofstudentsTF.setBorder(null);
+        no_ofstudentsTF.setOpaque(false);
         getContentPane().add(no_ofstudentsTF);
         no_ofstudentsTF.setBounds(570, 406, 170, 20);
 
@@ -156,14 +173,29 @@ public class adminedit1GUI extends javax.swing.JFrame {
 
     private void NextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButtonActionPerformed
        setVisible(false);
-        admedit2GUI a = new admedit2GUI();
-        a.setVisible(true);
+       std_id = Integer.parseInt(StudentIDTF.getText());
+        admedit2GUI see;
+        try {
+            see = new admedit2GUI(std_id);
+            see.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminedit1GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
     }//GEN-LAST:event_NextButtonActionPerformed
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
        setVisible(false);
-        adminroomsGUI a = new adminroomsGUI();
-        a.setVisible(true);
+        adminroomsGUI a;
+        try {
+            a = new adminroomsGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminedit1GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
@@ -186,12 +218,18 @@ public class adminedit1GUI extends javax.swing.JFrame {
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         setVisible(false);
-        adminedit1GUI a = new adminedit1GUI();
-        a.setVisible(true);
+        adminedit1GUI a;
+        try {
+            a = new adminedit1GUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminedit1GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void seestudentsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seestudentsButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_seestudentsButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -236,7 +274,11 @@ public class adminedit1GUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new adminedit1GUI().setVisible(true);
+                try {
+                    new adminedit1GUI().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(adminedit1GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

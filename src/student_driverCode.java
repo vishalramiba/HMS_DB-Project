@@ -221,6 +221,23 @@ public class student_driverCode {
         st.executeUpdate();
 
     }
+    
+    public void getFacilities(int id) throws SQLException{
+        String query = "SELECT facility_desc from facility AS F NATURAL JOIN facilities_availed AS FA WHERE FA.student_id = ? ";
+        PreparedStatement st = conn.prepareStatement(query);
+        st.setInt(1, id);
+        ResultSet rs = st.executeQuery();
+        String all_Facilities= "";
+        while (rs.next()) {
+            System.out.println(all_Facilities);
+            
+            all_Facilities += rs.getString("facility_desc");
+            all_Facilities += ", ";
+            
+        }
+        
+        profile.add(all_Facilities);
+    }
 
     public void updatePass(int id, String old_pass, String new_pass, String confirm_pass) throws SQLException {
 

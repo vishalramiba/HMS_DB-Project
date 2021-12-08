@@ -1,9 +1,13 @@
+
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mayur
@@ -13,10 +17,47 @@ public class adminroomsGUI extends javax.swing.JFrame {
     /**
      * Creates new form admiroomsGUI
      */
-    public adminroomsGUI() {
+    admin_driverCode adm_dc = new admin_driverCode();
+
+    public adminroomsGUI() throws SQLException {
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
+        int total_avl = 0;
+
+        int total_b1 = adm_dc.getRoomCount(1);
+        int oc_b1 = adm_dc.getOCRooms(1);
+        int avl_b1 = total_b1 - oc_b1;
+        System.out.println(oc_b1 + " " + avl_b1);
+
+        int total_b2 = adm_dc.getRoomCount(2);
+        int oc_b2 = adm_dc.getOCRooms(2);
+        int avl_b2 = total_b2 - oc_b2;
+
+        int total_b3 = adm_dc.getRoomCount(3);
+        int oc_b3 = adm_dc.getOCRooms(3);
+        int avl_b3 = total_b3 - oc_b3;
+
+        int total_b4 = adm_dc.getRoomCount(4);
+        int oc_b4 = adm_dc.getOCRooms(4);
+        int avl_b4 = total_b4 - oc_b4;
+
+        total_avl = avl_b1 + avl_b2 + avl_b3 + avl_b4;
+
+        Building1Availble.setText(String.valueOf(avl_b1));
+        Building1Occuiped.setText(String.valueOf(oc_b1));
+
+        Building2Availble.setText(String.valueOf(avl_b2));
+        Building2Occuiped.setText(String.valueOf(oc_b2));
+
+        Building3Availble.setText(String.valueOf(avl_b3));
+        Building3Occuiped.setText(String.valueOf(oc_b3));
+
+        Building4Availble.setText(String.valueOf(avl_b4));
+        Building4Occuiped.setText(String.valueOf(oc_b4));
+
+        NoOfAvailbleRoomsTF.setText(String.valueOf(total_avl));
+
     }
 
     /**
@@ -126,10 +167,16 @@ public class adminroomsGUI extends javax.swing.JFrame {
 
         VacateRoomButton.setBorder(null);
         VacateRoomButton.setContentAreaFilled(false);
+        VacateRoomButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VacateRoomButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(VacateRoomButton);
         VacateRoomButton.setBounds(580, 460, 170, 20);
 
         Building1Occuiped.setEditable(false);
+        Building1Occuiped.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Building1Occuiped.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building1Occuiped.setBorder(null);
         Building1Occuiped.setOpaque(false);
@@ -142,6 +189,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building1Occuiped.setBounds(340, 220, 90, 26);
 
         Building1Availble.setEditable(false);
+        Building1Availble.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Building1Availble.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building1Availble.setBorder(null);
         Building1Availble.setOpaque(false);
@@ -154,6 +202,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building1Availble.setBounds(440, 220, 90, 20);
 
         Building2Occuiped.setEditable(false);
+        Building2Occuiped.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Building2Occuiped.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building2Occuiped.setBorder(null);
         Building2Occuiped.setOpaque(false);
@@ -166,6 +215,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building2Occuiped.setBounds(340, 250, 90, 30);
 
         Building2Availble.setEditable(false);
+        Building2Availble.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Building2Availble.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building2Availble.setBorder(null);
         Building2Availble.setOpaque(false);
@@ -178,6 +228,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building2Availble.setBounds(440, 250, 90, 30);
 
         Building3Occuiped.setEditable(false);
+        Building3Occuiped.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Building3Occuiped.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building3Occuiped.setBorder(null);
         Building3Occuiped.setOpaque(false);
@@ -185,6 +236,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building3Occuiped.setBounds(340, 280, 90, 30);
 
         Building3Availble.setEditable(false);
+        Building3Availble.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Building3Availble.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building3Availble.setBorder(null);
         Building3Availble.setOpaque(false);
@@ -192,6 +244,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building3Availble.setBounds(440, 280, 90, 30);
 
         Building4Occuiped.setEditable(false);
+        Building4Occuiped.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Building4Occuiped.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building4Occuiped.setBorder(null);
         Building4Occuiped.setOpaque(false);
@@ -199,6 +252,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
         Building4Occuiped.setBounds(340, 320, 90, 20);
 
         Building4Availble.setEditable(false);
+        Building4Availble.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         Building4Availble.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Building4Availble.setBorder(null);
         Building4Availble.setOpaque(false);
@@ -211,6 +265,8 @@ public class adminroomsGUI extends javax.swing.JFrame {
         RoomIDTF.setBounds(220, 460, 310, 20);
 
         NoOfAvailbleRoomsTF.setEditable(false);
+        NoOfAvailbleRoomsTF.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        NoOfAvailbleRoomsTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         NoOfAvailbleRoomsTF.setBorder(null);
         NoOfAvailbleRoomsTF.setOpaque(false);
         getContentPane().add(NoOfAvailbleRoomsTF);
@@ -249,14 +305,28 @@ public class adminroomsGUI extends javax.swing.JFrame {
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         setVisible(false);
-        adminedit1GUI a = new adminedit1GUI();
-        a.setVisible(true);
+        adminedit1GUI a;
+
+        try {
+            a = new adminedit1GUI();
+            a = new adminedit1GUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminroomsGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
-         setVisible(false);
-        adminroomsGUI a = new adminroomsGUI();
-        a.setVisible(true);
+        setVisible(false);
+        adminroomsGUI a;
+        try {
+            a = new adminroomsGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminroomsGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
@@ -272,7 +342,7 @@ public class adminroomsGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-       setVisible(false);
+        setVisible(false);
         IntialGui a = new IntialGui();
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
@@ -294,6 +364,20 @@ public class adminroomsGUI extends javax.swing.JFrame {
         adminwelcomeGUI a = new adminwelcomeGUI();
         a.setVisible(true);
     }//GEN-LAST:event_HomeButtonActionPerformed
+
+    private void VacateRoomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VacateRoomButtonActionPerformed
+        setVisible(false);
+        int room = Integer.parseInt(RoomIDTF.getText());
+        adminroomsGUI a;
+
+        try {
+            adm_dc.vacateRoom(room);
+            a = new adminroomsGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminroomsGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_VacateRoomButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,7 +410,11 @@ public class adminroomsGUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new adminroomsGUI().setVisible(true);
+                try {
+                    new adminroomsGUI().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(adminroomsGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

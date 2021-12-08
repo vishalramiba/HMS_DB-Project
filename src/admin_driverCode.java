@@ -6,8 +6,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -77,7 +80,7 @@ public class admin_driverCode {
                     }
 
                     if (Check_pass.equals(pass)) {
-                        adminwelcomeGUI a = new adminwelcomeGUI(std_id);
+                        adminwelcomeGUI a = new adminwelcomeGUI();
                         a.setVisible(true);
                         login = true;
                     } else {
@@ -151,70 +154,333 @@ public class admin_driverCode {
         st.setInt(2, id);
         st.executeUpdate();
 
-        String query2 = "update rooms set room_occupied = ? where room_id = ?";
-        PreparedStatement st2 = conn.prepareStatement(query);
+        // changing room status
+        String query2 = "update room set room_occupied= ? where room_id = ?";
+        PreparedStatement st2 = conn.prepareStatement(query2);
         st2.setBoolean(1, true);
         st2.setInt(2, room);
         st2.executeUpdate();
 
-        int b_id = 0; //fining b_id of room
+        int b_id = 0; //finding b_id of room
         String query3 = "select building_id from room where room_id = ?";
-        PreparedStatement st3 = conn.prepareStatement(query);
+        PreparedStatement st3 = conn.prepareStatement(query3);
         st3.setInt(1, room);
         ResultSet rs3 = st3.executeQuery();
-        if(!rs3.next())
-            
-        while (rs3.next()) {
-            b_id = rs3.getInt("building_id");
-        }
+
+        rs3.next();
+        b_id = rs3.getInt("building_id");
 
         int std_no = 0;
-        
-        // incrementing 
-        String query4 = "select no_of_students  from building where room_id = ?";
-        PreparedStatement st4 = conn.prepareStatement(query);
+
+        // incrementing students
+        String query4 = "select no_of_students from building where building_id = ?";
+        PreparedStatement st4 = conn.prepareStatement(query4);
+        st4.setInt(1, b_id);
         ResultSet rs4 = st4.executeQuery();
         while (rs4.next()) {
-            std_no = rs4.getInt("building_id");
+            std_no = rs4.getInt("no_of_students");
         }
 
         std_no++;
-        
-        // changing room status
+
+        // updating no_of_students in building table
         String query5 = "update building set no_of_students = ? where building_id = ?";
-        PreparedStatement st5 = conn.prepareStatement(query);
+        PreparedStatement st5 = conn.prepareStatement(query5);
         st5.setInt(1, std_no);
-        st5.setInt(1, b_id);
+        st5.setInt(2, b_id);
         st5.executeUpdate();
 
-        int voucher_num=0; //looking for last voucher number and incrememnting 1
+        int voucher_num = 0;
+
+        //looking for last voucher number and incrememnting 1
         String query6 = "select voucher_no from fees";
-        PreparedStatement st6 = conn.prepareStatement(query); //creating and preparing statements
+        PreparedStatement st6 = conn.prepareStatement(query6); //creating and preparing statements
         ResultSet rs6 = st6.executeQuery();
 
         if (!rs6.next()) {
-            voucher_num = 0;
+            voucher_num = 1;
         } else {
-            while (rs6.next()) {
-                voucher_num = rs6.getInt("voucher_no");
+            ResultSet rs8 = st6.executeQuery();
+            while (rs8.next()) {
+
+                voucher_num = rs8.getInt("voucher_no");
+
             }
+            voucher_num++;
+
         }
 
-        voucher_num++;
-
-//craeting voucher row
-        String query7 = "INSERT INTO fees(voucher_no, voucher_status, student_id) VALUES (?,?,?)";
-        PreparedStatement st7 = conn.prepareStatement(query);
+        //craeting voucher row fee=0
+        String query7 = "INSERT INTO fees(voucher_no, fees, voucher_status, student_id) VALUES (?,?,?,?)";
+        PreparedStatement st7 = conn.prepareStatement(query7);
         st7.setInt(1, voucher_num);
-        st7.setBoolean(1, false);
-        st7.setInt(3, id);
-        
+        st7.setInt(2, 0);
+        st7.setBoolean(3, false);
+        st7.setInt(4, id);
+        st7.executeUpdate();
 
     }
 
-//    public static void main(String[] args) throws SQLException {
-//        admin_driverCode s = new admin_driverCode();
-////        s.countUnpaidChallans();
+    public int getVoucherNum(int id) throws SQLException {
+        String query1 = "select voucher_no from fees where student_id=?";
+        PreparedStatement st1 = conn.prepareStatement(query1); //creating and preparing statements
+        st1.setInt(1, id);
+        ResultSet rs1 = st1.executeQuery();
+        int num = 0;
+        while (rs1.next()) {
+
+            num = rs1.getInt("voucher_no");
+
+        }
+        return num;
+    }
+
+    public void setFacility(int id, int[] a) throws SQLException {
+
+        int voucher_num = getVoucherNum(id);
+
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
+            if (a[i] == 0) {
+                //do nothing
+            } else {
+                String query1 = "INSERT INTO facilities_availed (facility_id, voucher_no, student_id) VALUES (?,?,?)";
+
+                PreparedStatement st1 = conn.prepareStatement(query1);
+                st1.setInt(1, a[i]);
+                st1.setInt(2, voucher_num);
+                st1.setInt(3, id);
+                st1.executeUpdate();
+
+            }
+
+        }
+
+    }
+
+    public int getTotalStudents() throws SQLException {
+        int count = 0;
+        String query = "SELECT count(student_id ) from students"; // query to check if id exists
+
+        PreparedStatement st = conn.prepareStatement(query); //creating and preparing statements
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+
+            count = rs.getInt("count(student_id )");
+        }
+        return count;
+    }
+
+    public void updateStudent(String f_name, String l_name, String father_name, String cnic,
+            String email, String phone, String program, String address, int id) throws SQLException {
+
+        String query = "update students set first_name = ?, last_name = ?, father_name = ?, cnic_num = ?, program = ?"
+                + ", home_add = ?, mobile_no = ?, email = ? where student_id = ?";
+        PreparedStatement st = conn.prepareStatement(query);
+
+//        st.setInt(1, new_id);
+        st.setString(1, f_name);
+        st.setString(2, l_name);
+        st.setString(3, father_name);
+        st.setString(4, cnic);
+        st.setString(5, program);
+        st.setString(6, address);
+        st.setString(7, phone);
+        st.setString(8, email);
+        st.setInt(9, id);
+
+        st.executeUpdate();
+
+    }
+
+    public int getOCRooms(int id) throws SQLException {
+        int count = 0;
+
+        String query = "SELECT count(room_occupied) from room where building_id=? AND room_occupied=1"; // query to check if id exists
+
+        PreparedStatement st = conn.prepareStatement(query); //creating and preparing statements
+        st.setInt(1, id);
+
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+
+            count = rs.getInt("count(room_occupied)");
+        }
+        return count;
+    }
+
+    public int getRoomCount(int id) throws SQLException {
+        int count = 0;
+
+        String query = "SELECT count(room_id) from room where building_id=?"; // query to check if id exists
+
+        PreparedStatement st = conn.prepareStatement(query); //creating and preparing statements
+        st.setInt(1, id);
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+
+            count = rs.getInt("count(room_id)");
+        }
+        return count;
+    }
+
+    public void vacateRoom(int id) throws SQLException {
+
+        String query = "Update room set room_occupied = false WHERE room_id=?"; // query to check if id exists
+
+        PreparedStatement st = conn.prepareStatement(query); //creating and preparing statements
+        st.setInt(1, id);
+        st.executeUpdate();
+
+        String query1 = "UPDATE students set room_id = null where room_id=?";
+        PreparedStatement st1 = conn.prepareStatement(query1); //creating and preparing statements
+        st1.setInt(1, id);
+        st1.executeUpdate();
+
+        int b_id = 0; //finding b_id of room
+        String query3 = "select building_id from room where room_id = ?";
+        PreparedStatement st3 = conn.prepareStatement(query3);
+        st3.setInt(1, id);
+        ResultSet rs3 = st3.executeQuery();
+        rs3.next();
+
+        b_id = rs3.getInt("building_id");
+
+        int std_no = 0;
+
+        // decrementing students
+        String query4 = "select no_of_students from building where building_id = ?";
+        PreparedStatement st4 = conn.prepareStatement(query4);
+        st4.setInt(1, b_id);
+        ResultSet rs4 = st4.executeQuery();
+        while (rs4.next()) {
+            std_no = rs4.getInt("no_of_students");
+        }
+        std_no--;
+
+        // updating no_of_students in building table
+        String query5 = "update building set no_of_students = ? where building_id = ?";
+        PreparedStatement st5 = conn.prepareStatement(query5);
+        st5.setInt(1, std_no);
+        st5.setInt(2, b_id);
+        st5.executeUpdate();
+
+    }
+
+    public int getEmp() throws SQLException {
+        int count = 0;
+
+        String query = "SELECT count(emp_id) from employee"; // query to check if id exists
+
+        PreparedStatement st = conn.prepareStatement(query); //creating and preparing statements
+
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+            count = rs.getInt("count(emp_id)");
+        }
+        return count;
+
+    }
+
+    public void insertEmployee(String name, String phone, String email, String cnic,
+            int salary, int dep_id, int isAdmin) throws SQLException {
+
+        boolean admin = true;
+        if (isAdmin == 0) {
+            admin = false;
+        }
+
+        String query1 = "Select department_id from department where department_id =?";
+        PreparedStatement st1 = conn.prepareStatement(query1);
+        st1.setInt(1, dep_id);
+        ResultSet rs = st1.executeQuery();
+
+        if (!rs.next()) {
+            System.out.println("Dept Not Found");
+        } else {
+
+            String query = "INSERT INTO employee(emp_id, full_name, mobile_name, email, cnic_num, Salary, password,"
+                    + " Isadmin, department_id, building_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement st = conn.prepareStatement(query);
+
+            int emp_id = getEmp() + 1;
+
+            st.setInt(1, emp_id);
+            st.setString(2, name);
+            st.setString(3, phone);
+            st.setString(4, email);
+            st.setString(5, cnic);
+            st.setInt(6, salary);
+            st.setString(7, "1234");
+            st.setBoolean(8, admin);
+            st.setInt(9, dep_id);
+
+            Random ran = new Random();
+            int x = ran.nextInt(4) + 1;
+
+            st.setInt(10, x);
+            st.execute();
+
+        }
+    }
+
+    public int checkVoucher_Status(int id) throws SQLException {
+        int status = 0;
+
+        String query1 = "select voucher_status from fees where voucher_no=?";
+        PreparedStatement st1 = conn.prepareStatement(query1); //creating and preparing statements
+        st1.setInt(1, id);
+        ResultSet rs1 = st1.executeQuery();
+        if (!rs1.next()) {
+            status = 99999;
+
+        }
+        ResultSet rs2 = st1.executeQuery();
+        while (rs2.next()) {
+            if (rs2.getBoolean("voucher_status")) {
+                status = 1;
+            }
+        }
+
+        return status;
+    }
+
+    public int payVoucher(int id) throws SQLException {
+
+        int paid = 0;
+        String query1 = "select voucher_status from fees where voucher_no=?";
+        PreparedStatement st1 = conn.prepareStatement(query1); //creating and preparing statements
+        st1.setInt(1, id);
+        ResultSet rs1 = st1.executeQuery();
+        if (!rs1.next()) {
+            paid = 99999;
+
+        } else {
+            ResultSet rs2 = st1.executeQuery();
+            rs2.next();
+            if (rs2.getBoolean("voucher_status"))
+                paid = 0;
+            else{
+            
+            String query = "update fees set voucher_status = true where voucher_no = ?";
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setInt(1, id);
+            paid = st.executeUpdate();
+            
+             }
+        }
+        System.out.println(paid);
+        return paid;
+    }
+
+    public static void main(String[] args) throws SQLException {
+        admin_driverCode s = new admin_driverCode();
+
+//        s.countUnpaidChallans();
 //s.insertStudent("bilal", "aslam", "aslam", "56426", "aslam@bilal.com", "1559988", "ACF", "Bahadrabad", "2000-02-18", 3);
-//    }
+//s.updateSTudentRoom(12, 2);
+        int a[] = {1, 0, 0, 1, 1};
+        s.setFacility(12, a);
+
+    }
 }
