@@ -196,7 +196,7 @@ public class admedit2GUI extends javax.swing.JFrame {
         FacilitiesTF.setBorder(null);
         FacilitiesTF.setOpaque(false);
         getContentPane().add(FacilitiesTF);
-        FacilitiesTF.setBounds(320, 380, 430, 20);
+        FacilitiesTF.setBounds(320, 380, 430, 16);
 
         LastNameTF.setEditable(false);
         LastNameTF.setBorder(null);
@@ -260,7 +260,7 @@ public class admedit2GUI extends javax.swing.JFrame {
 
         admedit2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin_edit2.jpg"))); // NOI18N
         getContentPane().add(admedit2);
-        admedit2.setBounds(0, 0, 800, 569);
+        admedit2.setBounds(0, 0, 800, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

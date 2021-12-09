@@ -1,13 +1,21 @@
 
+import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class student_driverCode {
 
@@ -41,7 +49,8 @@ public class student_driverCode {
             ResultSet rs = st.executeQuery();
 
             if (!rs.next()) {
-                System.out.println("Id Not Found");
+                JFrame f = new JFrame();
+                JOptionPane.showMessageDialog(f, "ID Does not exist");
             } else {
 
                 String query1 = "select student_id, password from students where student_id =?";
@@ -57,11 +66,14 @@ public class student_driverCode {
                 }
 
                 if (Check_pass.equals(pass)) {
+                    JFrame f = new JFrame();
+                    JOptionPane.showMessageDialog(f, "Login Successful!");
                     StdwelcomeGUI a = new StdwelcomeGUI(std_id);
                     a.setVisible(true);
                     login = true;
                 } else {
-                    System.out.println("Password not match");
+                    JFrame f = new JFrame();
+                    JOptionPane.showMessageDialog(f, "Password doesnot match!");
                 }
             }
 
@@ -76,40 +88,47 @@ public class student_driverCode {
         System.out.println(std_id);
     }
 
-    public void showProfile(int id) throws SQLException {
-
+    public int showProfile(int id) throws SQLException {
+        int exists = 1;
         String query = "select * from students where student_id =?";
         PreparedStatement st = conn.prepareStatement(query);
         st.setInt(1, id);
 
-        ResultSet rs = st.executeQuery();
-        while (rs.next()) {
-            profile.add(rs.getString("first_name"));
-            profile.add(rs.getString("last_name"));
-            profile.add(rs.getString("father_name"));
-            profile.add(rs.getString("cnic_num"));
-            profile.add(rs.getString("program"));
-            profile.add(rs.getString("dob"));
-            profile.add(rs.getString("home_add"));
-            profile.add(rs.getString("mobile_no"));
-            profile.add(rs.getString("email"));
-            profile.add(rs.getString("room_id"));
-            profile.add(rs.getString("student_id"));
+        ResultSet rs2 = st.executeQuery();
+
+        if (!rs2.next()) {
+            exists = 0;
+        } else {
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                profile.add(rs.getString("first_name"));
+                profile.add(rs.getString("last_name"));
+                profile.add(rs.getString("father_name"));
+                profile.add(rs.getString("cnic_num"));
+                profile.add(rs.getString("program"));
+                profile.add(rs.getString("dob"));
+                profile.add(rs.getString("home_add"));
+                profile.add(rs.getString("mobile_no"));
+                profile.add(rs.getString("email"));
+                profile.add(rs.getString("room_id"));
+                profile.add(rs.getString("student_id"));
+            }
+
+            int room_id = Integer.parseInt(profile.get(9));
+
+            String query1 = "select * from room where room_id =?";
+
+            PreparedStatement st1 = conn.prepareStatement(query1);
+
+            st1.setInt(1, room_id);
+
+            ResultSet rs1 = st1.executeQuery();
+            while (rs1.next()) {
+                profile.add(rs1.getString("room_id"));
+            }
         }
-
-        int room_id = Integer.parseInt(profile.get(9));
-
-        String query1 = "select * from room where room_id =?";
-
-        PreparedStatement st1 = conn.prepareStatement(query1);
-
-        st1.setInt(1, room_id);
-
-        ResultSet rs1 = st1.executeQuery();
-        while (rs1.next()) {
-            profile.add(rs1.getString("room_id"));
-        }
-
+        return exists;
     }
 
     public boolean checkVoucherStatus(int id) throws SQLException {
@@ -154,7 +173,7 @@ public class student_driverCode {
         while (rs.next()) {
             facility.add(rs.getString("facility_charges"));
         }
-        
+
         arrayforTF();
 
     }
@@ -167,7 +186,7 @@ public class student_driverCode {
             a[i] = facilities.get(i);
             System.out.println(a[i]);
         }
-         for (int i = 0; i < facility.size(); i++) {
+        for (int i = 0; i < facility.size(); i++) {
             b[i] = facility.get(i);
             System.out.println(b[i]);
         }
@@ -221,29 +240,27 @@ public class student_driverCode {
         st.executeUpdate();
 
     }
-    
-    public void getFacilities(int id) throws SQLException{
+
+    public void getFacilities(int id) throws SQLException {
         String query = "SELECT facility_desc from facility AS F NATURAL JOIN facilities_availed AS FA WHERE FA.student_id = ? ";
         PreparedStatement st = conn.prepareStatement(query);
         st.setInt(1, id);
         ResultSet rs = st.executeQuery();
-        String all_Facilities= "";
+        String all_Facilities = "";
         while (rs.next()) {
             System.out.println(all_Facilities);
-            
+
             all_Facilities += rs.getString("facility_desc");
             all_Facilities += ", ";
-            
+
         }
-        
+
         profile.add(all_Facilities);
     }
 
-    public void updatePass(int id, String old_pass, String new_pass, String confirm_pass) throws SQLException {
+    public int updatePass(int id, String old_pass, String new_pass, String confirm_pass) throws SQLException {
 
-        if (!new_pass.equals(confirm_pass)) {
-            System.out.println("New password doesnot match");
-        }
+        int success = 0;
 
         String query = "Select password from students where student_id =?";
         PreparedStatement st = conn.prepareStatement(query);
@@ -256,23 +273,108 @@ public class student_driverCode {
         }
 
         if (!check_pass.equals(old_pass)) {
-            System.out.println("Old password doesnot match!");
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "Old password doesnot match");
         } else {
             String query1 = "update students set password = ? where student_id = ?";
             PreparedStatement st1 = conn.prepareStatement(query1);
             st1.setString(1, new_pass);
             st1.setInt(2, id);
             st1.executeUpdate();
-            System.out.println("New pssword updated: " + new_pass);
+            success = 1;
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "Password Updated! Your new password is: " + new_pass);
+
+        }
+        return success;
+    }
+
+    public String getAvailedFacilities(int id, String desc) throws SQLException {
+        String all_Facilities = "";
+        String query = "SELECT Facility_charges from facility AS F NATURAL JOIN facilities_availed AS FA WHERE FA.student_id = ? AND F.facility_desc=?";
+        PreparedStatement st = conn.prepareStatement(query);
+        st.setInt(1, id);
+        st.setString(2, desc);
+        ResultSet rs2 = st.executeQuery();
+        if(!rs2.next()){
+            all_Facilities ="-";
+        }
+        else{
+        ResultSet rs = st.executeQuery();
+
+        while (rs.next()) {
+            all_Facilities += rs.getString("Facility_charges");
+
+        }
+        }
+        return all_Facilities;
+    }
+    
+        public void getVoucher() throws SQLException{
+                   String[] columnNames = {"Facility", "Charges"};
+        JFrame frame1 = new JFrame("Database Search Result");
+
+//        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame1.setLayout(new BorderLayout());
+
+        DefaultTableModel model = new DefaultTableModel();
+
+        model.setColumnIdentifiers(columnNames);
+        model.setRowCount(0);
+
+        JTable table = new JTable();
+
+        table.setModel(model);
+
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
+        table.setFillsViewportHeight(true);
+
+        JScrollPane scroll = new JScrollPane(table);
+
+        scroll.setHorizontalScrollBarPolicy(
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+        scroll.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+        String query = "select * from employee";
+        PreparedStatement st = conn.prepareStatement(query);
+
+        ResultSet rs = st.executeQuery();
+        ResultSetMetaData rsd = rs.getMetaData();
+        int j = rsd.getColumnCount();
+//        "emp_id", "full_name", "mobile_name", "email", "cnic_num", "Salary", "Isadmin", "department_id", "building_id"
+
+        while (rs.next()) {
+            Vector v2 = new Vector();
+            for (int i = 0; i <= j; i++) {
+                v2.add(rs.getString("emp_id"));
+                v2.add(rs.getString("full_name"));
+                v2.add(rs.getString("mobile_name"));
+                v2.add(rs.getString("email"));
+                v2.add(rs.getString("cnic_num"));
+                v2.add(rs.getString("Salary"));
+                v2.add(rs.getString("Isadmin"));
+                v2.add(rs.getString("department_id"));
+                v2.add(rs.getString("building_id"));
+
+            }
+            model.addRow(v2);
 
         }
 
-    }
+        frame1.add(scroll);
 
-    public static void main(String[] args) throws SQLException {
-        student_driverCode s = new student_driverCode();
-        s.checkFacilities(1);
-        s.addFacilitytoArray();
-  
-    }
+        frame1.setVisible(true);
+
+        frame1.setSize(800, 300);
+            
+        }
+//    public static void main(String[] args) throws SQLException {
+//        student_driverCode s = new student_driverCode();
+//        s.checkFacilities(1);
+//        s.addFacilitytoArray();
+//
+//    }
 }

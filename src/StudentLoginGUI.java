@@ -82,13 +82,13 @@ public class StudentLoginGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        setVisible(false);
+        
 
         String pwd = new String(stdpwTF.getPassword());
         int id = Integer.parseInt(stdloginTF.getText());
         try {
             std_dc.stdLogin(id, pwd);
-
+  
         } catch (SQLException ex) {
             Logger.getLogger(StudentLoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }

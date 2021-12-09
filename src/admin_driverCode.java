@@ -1,16 +1,22 @@
 
+import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -25,6 +31,7 @@ public class admin_driverCode {
     int std_id;
     database db;
     Connection conn;
+//    student_driverCode std_dc = new student_driverCode();
 
     public admin_driverCode() {
         db = new database();
@@ -47,7 +54,8 @@ public class admin_driverCode {
             ResultSet rs = st.executeQuery();
 
             if (!rs.next()) {
-                System.out.println("Id Not Found");
+                JFrame f = new JFrame();
+                JOptionPane.showMessageDialog(f, "ID Does not exist");
             } else {
 
                 String query3 = "select * from employee where emp_id = ?"; // query to check if id exists
@@ -64,7 +72,9 @@ public class admin_driverCode {
                 }
 
                 if (flag == 0) {
-                    System.out.println("Not an admin!");
+
+                    JFrame f = new JFrame();
+                    JOptionPane.showMessageDialog(f, "You need to be an admin to login!");
                 } else {
 
                     String query1 = "select emp_id, password from employee where emp_id =?";
@@ -80,11 +90,14 @@ public class admin_driverCode {
                     }
 
                     if (Check_pass.equals(pass)) {
+                        JFrame f = new JFrame();
+                        JOptionPane.showMessageDialog(f, "Login Successful!");
                         adminwelcomeGUI a = new adminwelcomeGUI();
                         a.setVisible(true);
                         login = true;
                     } else {
-                        System.out.println("Password not match");
+                        JFrame f = new JFrame();
+                        JOptionPane.showMessageDialog(f, "Password doesnot match!");
                     }
 
                 }
@@ -123,6 +136,20 @@ public class admin_driverCode {
         }
 
         return count;
+    }
+
+    public int checkStudentID(int id) throws SQLException {
+        int status = 0;
+
+        String query1 = "select student_id  from students where student_id=?";
+        PreparedStatement st1 = conn.prepareStatement(query1); //creating and preparing statements
+        st1.setInt(1, id);
+        ResultSet rs1 = st1.executeQuery();
+        if (!rs1.next()) {
+            status = 1;
+        }
+
+        return status;
     }
 
     public void insertStudent(String f_name, String l_name, String father_name, String cnic,
@@ -193,7 +220,7 @@ public class admin_driverCode {
         int voucher_num = 0;
 
         //looking for last voucher number and incrememnting 1
-        String query6 = "select voucher_no from fees";
+        String query6 = "select voucher_no from fees order by voucher_no ASC";
         PreparedStatement st6 = conn.prepareStatement(query6); //creating and preparing statements
         ResultSet rs6 = st6.executeQuery();
 
@@ -204,10 +231,8 @@ public class admin_driverCode {
             while (rs8.next()) {
 
                 voucher_num = rs8.getInt("voucher_no");
-
             }
             voucher_num++;
-
         }
 
         //craeting voucher row fee=0
@@ -458,19 +483,297 @@ public class admin_driverCode {
         } else {
             ResultSet rs2 = st1.executeQuery();
             rs2.next();
-            if (rs2.getBoolean("voucher_status"))
+            if (rs2.getBoolean("voucher_status")) {
                 paid = 0;
-            else{
-            
-            String query = "update fees set voucher_status = true where voucher_no = ?";
-            PreparedStatement st = conn.prepareStatement(query);
-            st.setInt(1, id);
-            paid = st.executeUpdate();
-            
-             }
+            } else {
+
+                String query = "update fees set voucher_status = true where voucher_no = ?";
+                PreparedStatement st = conn.prepareStatement(query);
+                st.setInt(1, id);
+                paid = st.executeUpdate();
+
+            }
         }
         System.out.println(paid);
         return paid;
+    }
+
+    public int getTotalFee(int id) throws SQLException {
+        int Fee = 0;
+        String query = "SELECT Facility_charges from facility AS F NATURAL JOIN facilities_availed AS FA WHERE FA.student_id = ? ";
+        PreparedStatement st = conn.prepareStatement(query);
+        st.setInt(1, id);
+        ResultSet rs = st.executeQuery();
+
+        while (rs.next()) {
+            Fee += rs.getInt("Facility_charges");
+            System.out.println("Fee: " + Fee);
+        }
+        return Fee;
+    }
+
+    public void setFee(int id) throws SQLException {
+
+        int total_fee = getTotalFee(id);
+        System.out.println(total_fee);
+        int voucher_num = 0;
+
+        String query = "Select voucher_no  from fees where student_id=?";
+        PreparedStatement st = conn.prepareStatement(query);
+        st.setInt(1, id);
+
+        ResultSet rs = st.executeQuery();
+        while (rs.next()) {
+            voucher_num = rs.getInt("voucher_no");
+        }
+
+        String query9 = "update fees set fees = ? where voucher_no= ?";
+        PreparedStatement st9 = conn.prepareStatement(query9);
+        st9.setInt(1, total_fee);
+        st9.setInt(2, voucher_num);
+        st9.executeUpdate();
+    }
+
+    public void deleteStudent(int id) throws SQLException {
+        String query = "delete from students where student_id=?";
+        PreparedStatement st = conn.prepareStatement(query);
+        ResultSet rs = st.executeQuery();
+    }
+
+    public void getstudentTable() throws SQLException {
+        String[] columnNames = {"student_id", "f_name", "l_name", "father_name", "cnic", "email", "phone", "program", "address", "room_id"};
+        JFrame frame1 = new JFrame("Database Search Result");
+
+//        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame1.setLayout(new BorderLayout());
+
+        DefaultTableModel model = new DefaultTableModel();
+
+        model.setColumnIdentifiers(columnNames);
+        model.setRowCount(0);
+
+        JTable table = new JTable();
+
+        table.setModel(model);
+
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
+        table.setFillsViewportHeight(true);
+
+        JScrollPane scroll = new JScrollPane(table);
+
+        scroll.setHorizontalScrollBarPolicy(
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+        scroll.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+        String query = "select * from students";
+        PreparedStatement st = conn.prepareStatement(query);
+
+        ResultSet rs = st.executeQuery();
+        ResultSetMetaData rsd = rs.getMetaData();
+        int j = rsd.getColumnCount();
+//        "student_id","f_name", "l_name","father_name", "cnic", "email" ,"phone","program","address"};    
+//        JFrame frame1 = new JFrame("Database Search Result");
+
+        while (rs.next()) {
+            Vector v2 = new Vector();
+            for (int i = 0; i <= j; i++) {
+                v2.add(rs.getString("student_id"));
+                v2.add(rs.getString("first_name"));
+                v2.add(rs.getString("last_name"));
+                v2.add(rs.getString("father_name"));
+                v2.add(rs.getString("cnic_num"));
+                v2.add(rs.getString("program"));
+                v2.add(rs.getString("home_add"));
+                v2.add(rs.getString("mobile_no"));
+                v2.add(rs.getString("email"));
+                v2.add(rs.getString("room_id"));
+
+            }
+            model.addRow(v2);
+
+        }
+
+        frame1.add(scroll);
+
+        frame1.setVisible(true);
+
+        frame1.setSize(800, 300);
+    }
+
+    public void getRoomTable() throws SQLException {
+        String[] columnNames = {"room_id", "building_id"};
+        JFrame frame1 = new JFrame("Database Search Result");
+
+//        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame1.setLayout(new BorderLayout());
+
+        DefaultTableModel model = new DefaultTableModel();
+
+        model.setColumnIdentifiers(columnNames);
+        model.setRowCount(0);
+
+        JTable table = new JTable();
+
+        table.setModel(model);
+
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
+        table.setFillsViewportHeight(true);
+
+        JScrollPane scroll = new JScrollPane(table);
+
+        scroll.setHorizontalScrollBarPolicy(
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+        scroll.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+        String query = "select room_id, building_id from room where room_occupied=false";
+        PreparedStatement st = conn.prepareStatement(query);
+
+        ResultSet rs = st.executeQuery();
+        ResultSetMetaData rsd = rs.getMetaData();
+        int j = rsd.getColumnCount();
+//        "student_id","f_name", "l_name","father_name", "cnic", "email" ,"phone","program","address"};    
+//        JFrame frame1 = new JFrame("Database Search Result");
+
+        while (rs.next()) {
+            Vector v2 = new Vector();
+            for (int i = 0; i <= j; i++) {
+                v2.add(rs.getString("room_id"));
+                v2.add(rs.getString("building_id"));
+
+            }
+            model.addRow(v2);
+
+        }
+
+        frame1.add(scroll);
+
+        frame1.setVisible(true);
+
+        frame1.setSize(200, 600);
+    }
+
+    public void getChallanTable() throws SQLException {
+        String[] columnNames = {"voucher_no", "fees", "voucher_status", "student_id"};
+        JFrame frame1 = new JFrame("Database Search Result");
+
+//        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame1.setLayout(new BorderLayout());
+
+        DefaultTableModel model = new DefaultTableModel();
+
+        model.setColumnIdentifiers(columnNames);
+        model.setRowCount(0);
+
+        JTable table = new JTable();
+
+        table.setModel(model);
+
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
+        table.setFillsViewportHeight(true);
+
+        JScrollPane scroll = new JScrollPane(table);
+
+        scroll.setHorizontalScrollBarPolicy(
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+        scroll.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+        String query = "select * from fees";
+        PreparedStatement st = conn.prepareStatement(query);
+
+        ResultSet rs = st.executeQuery();
+        ResultSetMetaData rsd = rs.getMetaData();
+        int j = rsd.getColumnCount();
+//        "student_id","f_name", "l_name","father_name", "cnic", "email" ,"phone","program","address"};    
+//        JFrame frame1 = new JFrame("Database Search Result");
+
+        while (rs.next()) {
+            Vector v2 = new Vector();
+            for (int i = 0; i <= j; i++) {
+                v2.add(rs.getString("voucher_no"));
+                v2.add(rs.getString("fees"));
+                v2.add(rs.getString("voucher_status"));
+                v2.add(rs.getString("student_id"));
+
+            }
+            model.addRow(v2);
+
+        }
+
+        frame1.add(scroll);
+
+        frame1.setVisible(true);
+
+        frame1.setSize(800, 300);
+    }
+
+    public void getEmployeeTable() throws SQLException {
+        String[] columnNames = {"emp_id", "full_name", "mobile_name", "email", "cnic_num", "Salary", "Isadmin", "department_id", "building_id"};
+        JFrame frame1 = new JFrame("Database Search Result");
+
+//        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame1.setLayout(new BorderLayout());
+
+        DefaultTableModel model = new DefaultTableModel();
+
+        model.setColumnIdentifiers(columnNames);
+        model.setRowCount(0);
+
+        JTable table = new JTable();
+
+        table.setModel(model);
+
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
+        table.setFillsViewportHeight(true);
+
+        JScrollPane scroll = new JScrollPane(table);
+
+        scroll.setHorizontalScrollBarPolicy(
+                JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+        scroll.setVerticalScrollBarPolicy(
+                JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+        String query = "select * from employee";
+        PreparedStatement st = conn.prepareStatement(query);
+
+        ResultSet rs = st.executeQuery();
+        ResultSetMetaData rsd = rs.getMetaData();
+        int j = rsd.getColumnCount();
+//        "emp_id", "full_name", "mobile_name", "email", "cnic_num", "Salary", "Isadmin", "department_id", "building_id"
+
+        while (rs.next()) {
+            Vector v2 = new Vector();
+            for (int i = 0; i <= j; i++) {
+                v2.add(rs.getString("emp_id"));
+                v2.add(rs.getString("full_name"));
+                v2.add(rs.getString("mobile_name"));
+                v2.add(rs.getString("email"));
+                v2.add(rs.getString("cnic_num"));
+                v2.add(rs.getString("Salary"));
+                v2.add(rs.getString("Isadmin"));
+                v2.add(rs.getString("department_id"));
+                v2.add(rs.getString("building_id"));
+
+            }
+            model.addRow(v2);
+
+        }
+
+        frame1.add(scroll);
+
+        frame1.setVisible(true);
+
+        frame1.setSize(800, 300);
     }
 
     public static void main(String[] args) throws SQLException {
@@ -479,8 +782,9 @@ public class admin_driverCode {
 //        s.countUnpaidChallans();
 //s.insertStudent("bilal", "aslam", "aslam", "56426", "aslam@bilal.com", "1559988", "ACF", "Bahadrabad", "2000-02-18", 3);
 //s.updateSTudentRoom(12, 2);
-        int a[] = {1, 0, 0, 1, 1};
-        s.setFacility(12, a);
-
+//        int a[] = {1, 0, 0, 1, 1};
+//        s.setFacility(12, a);
+//        s.setFee(12);
+        s.deleteStudent(11);
     }
 }

@@ -2,6 +2,8 @@
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -290,7 +292,11 @@ public class adminroomsGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ShowAvailbleRoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowAvailbleRoomsButtonActionPerformed
-        // TODO add your handling code here:
+        try {
+            adm_dc.getRoomTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(adminroomsGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ShowAvailbleRoomsButtonActionPerformed
 
     private void Building1OccuipedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Building1OccuipedActionPerformed
@@ -337,8 +343,14 @@ public class adminroomsGUI extends javax.swing.JFrame {
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
         setVisible(false);
-        adminvoucherGUI a = new adminvoucherGUI();
-        a.setVisible(true);
+        adminvoucherGUI a;
+        try {
+            a = new adminvoucherGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminroomsGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
@@ -361,21 +373,34 @@ public class adminroomsGUI extends javax.swing.JFrame {
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
         setVisible(false);
-        adminwelcomeGUI a = new adminwelcomeGUI();
-        a.setVisible(true);
+        adminwelcomeGUI a;
+        try {
+            a = new adminwelcomeGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminroomsGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_HomeButtonActionPerformed
 
     private void VacateRoomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VacateRoomButtonActionPerformed
-        setVisible(false);
+        
+        if(RoomIDTF.getText().isEmpty()){
+            JFrame f = new JFrame();  
+           JOptionPane.showMessageDialog(f,"Enter Room_ID");
+        }
+        else{
         int room = Integer.parseInt(RoomIDTF.getText());
         adminroomsGUI a;
 
         try {
             adm_dc.vacateRoom(room);
+            setVisible(false);
             a = new adminroomsGUI();
             a.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(adminroomsGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     }//GEN-LAST:event_VacateRoomButtonActionPerformed
 

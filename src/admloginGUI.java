@@ -72,6 +72,7 @@ public class admloginGUI extends javax.swing.JFrame {
         int id = Integer.parseInt(IdLoginTF.getText());
         try {
             adm_dc.adminLogin(id, pwd);
+            setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(admloginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }

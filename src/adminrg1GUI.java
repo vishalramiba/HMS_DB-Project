@@ -1,14 +1,16 @@
 
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mayur
@@ -19,12 +21,12 @@ public class adminrg1GUI extends javax.swing.JFrame {
      * Creates new form adminrg1GUI
      */
     int std_id;
-        admin_driverCode adm_dc = new admin_driverCode();
+    admin_driverCode adm_dc = new admin_driverCode();
 
     public adminrg1GUI() {
         initComponents();
         setResizable(false);
-        setSize(810,600);
+        setSize(810, 600);
     }
 
     /**
@@ -54,9 +56,9 @@ public class adminrg1GUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         addTA = new javax.swing.JTextArea();
         CancelButton = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        DOBTF = new javax.swing.JTextField();
         HomeButton = new javax.swing.JButton();
-        DOBTF = new javax.swing.JLabel();
+        register = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -123,19 +125,19 @@ public class adminrg1GUI extends javax.swing.JFrame {
         getContentPane().add(LogoutButton);
         LogoutButton.setBounds(20, 510, 130, 30);
 
-        FirstNameTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        FirstNameTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         FirstNameTF.setBorder(null);
         FirstNameTF.setOpaque(false);
         getContentPane().add(FirstNameTF);
-        FirstNameTF.setBounds(220, 200, 260, 13);
+        FirstNameTF.setBounds(230, 193, 240, 20);
 
-        StudentIDTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        StudentIDTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         StudentIDTF.setBorder(null);
         StudentIDTF.setOpaque(false);
         getContentPane().add(StudentIDTF);
-        StudentIDTF.setBounds(220, 250, 260, 20);
+        StudentIDTF.setBounds(230, 250, 240, 20);
 
-        CNICTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        CNICTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         CNICTF.setBorder(null);
         CNICTF.setOpaque(false);
         CNICTF.addActionListener(new java.awt.event.ActionListener() {
@@ -144,36 +146,37 @@ public class adminrg1GUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CNICTF);
-        CNICTF.setBounds(220, 300, 260, 20);
+        CNICTF.setBounds(230, 300, 240, 20);
 
-        ProgramTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        ProgramTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         ProgramTF.setBorder(null);
         ProgramTF.setOpaque(false);
         getContentPane().add(ProgramTF);
-        ProgramTF.setBounds(220, 360, 260, 13);
+        ProgramTF.setBounds(230, 353, 240, 20);
 
-        FatherNameTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        FatherNameTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         FatherNameTF.setBorder(null);
         FatherNameTF.setOpaque(false);
         getContentPane().add(FatherNameTF);
-        FatherNameTF.setBounds(230, 410, 240, 20);
+        FatherNameTF.setBounds(230, 410, 230, 20);
 
+        LastNameTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         LastNameTF.setBorder(null);
         LastNameTF.setOpaque(false);
         getContentPane().add(LastNameTF);
-        LastNameTF.setBounds(510, 196, 250, 16);
+        LastNameTF.setBounds(510, 196, 250, 15);
 
-        EmailTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        EmailTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         EmailTF.setBorder(null);
         EmailTF.setOpaque(false);
         getContentPane().add(EmailTF);
         EmailTF.setBounds(510, 250, 250, 20);
 
-        PhoneTF.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        PhoneTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         PhoneTF.setBorder(null);
         PhoneTF.setOpaque(false);
         getContentPane().add(PhoneTF);
-        PhoneTF.setBounds(510, 300, 250, 13);
+        PhoneTF.setBounds(510, 300, 250, 20);
 
         Next.setBorder(null);
         Next.setContentAreaFilled(false);
@@ -186,14 +189,14 @@ public class adminrg1GUI extends javax.swing.JFrame {
         Next.setBounds(340, 500, 150, 29);
 
         addTA.setColumns(20);
-        addTA.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        addTA.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         addTA.setLineWrap(true);
         addTA.setRows(5);
         addTA.setWrapStyleWord(true);
         jScrollPane1.setViewportView(addTA);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(510, 366, 250, 110);
+        jScrollPane1.setBounds(510, 356, 250, 120);
 
         CancelButton.setBorderPainted(false);
         CancelButton.setContentAreaFilled(false);
@@ -205,11 +208,11 @@ public class adminrg1GUI extends javax.swing.JFrame {
         getContentPane().add(CancelButton);
         CancelButton.setBounds(500, 503, 150, 30);
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField2.setBorder(null);
-        jTextField2.setOpaque(false);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(220, 460, 260, 20);
+        DOBTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        DOBTF.setBorder(null);
+        DOBTF.setOpaque(false);
+        getContentPane().add(DOBTF);
+        DOBTF.setBounds(230, 460, 240, 20);
 
         HomeButton.setBorderPainted(false);
         HomeButton.setContentAreaFilled(false);
@@ -221,17 +224,16 @@ public class adminrg1GUI extends javax.swing.JFrame {
         getContentPane().add(HomeButton);
         HomeButton.setBounds(20, 19, 280, 40);
 
-        DOBTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        DOBTF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew1.jpg"))); // NOI18N
-        DOBTF.setText("jLabel2");
-        getContentPane().add(DOBTF);
-        DOBTF.setBounds(0, 0, 800, 570);
+        register.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/amdin_registernew1.jpg"))); // NOI18N
+        getContentPane().add(register);
+        register.setBounds(0, 0, 800, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
-         setVisible(false);
+        setVisible(false);
         adminedit1GUI a;
         try {
             a = new adminedit1GUI();
@@ -239,7 +241,7 @@ public class adminrg1GUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(adminrg1GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
@@ -249,7 +251,7 @@ public class adminrg1GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     private void RoomsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsButtonActionPerformed
-         setVisible(false);
+        setVisible(false);
         adminroomsGUI a;
         try {
             a = new adminroomsGUI();
@@ -257,7 +259,7 @@ public class adminrg1GUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(adminrg1GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_RoomsButtonActionPerformed
 
     private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
@@ -268,20 +270,26 @@ public class adminrg1GUI extends javax.swing.JFrame {
 
     private void VoucherButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VoucherButtonActionPerformed
         setVisible(false);
-        adminvoucherGUI a = new adminvoucherGUI();
-        a.setVisible(true);
+        adminvoucherGUI a;
+        try {
+            a = new adminvoucherGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminrg1GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void LogoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButtonActionPerformed
-       setVisible(false);
+        setVisible(false);
         IntialGui a = new IntialGui();
         a.setVisible(true);
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     // Next Button
-    
-    private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
 
+    private void NextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextActionPerformed
+        std_id = -1;
         String f_name = FirstNameTF.getText();
         String l_name = LastNameTF.getText();
         String father_name = FatherNameTF.getText();
@@ -290,23 +298,57 @@ public class adminrg1GUI extends javax.swing.JFrame {
         String phone = PhoneTF.getText();
         String program = ProgramTF.getText();
         String address = addTA.getText();
-        String DOB = DOBTF.getText();
+        String DOB = register.getText();
         std_id = Integer.parseInt(StudentIDTF.getText());
-                setVisible(false);
-        admreg2GUI a = new admreg2GUI(std_id);
-        a.setVisible(true);
-        
-            try {
-                adm_dc.insertStudent(f_name, l_name, father_name, cnic, email, phone, program, address, DOB, std_id);
-            } catch (SQLException ex) {
-                Logger.getLogger(adminrg1GUI.class.getName()).log(Level.SEVERE, null, ex);
+
+        String[] TF = {f_name, l_name, father_name, cnic, email, phone, program, address};
+        boolean isempty = false;
+        for (int i = 0; i < TF.length; i++) {
+            if (TF[i] != null) {
+                isempty = true;
+                break;
             }
+        }
+        try {
+
+            if (!email.contains("@")) {
+                JFrame f = new JFrame();
+                JOptionPane.showMessageDialog(f, "Enter Correct Email!");
+                EmailTF.setForeground(Color.red);
+            }
+            if (std_id == -1) {
+                JFrame f = new JFrame();
+                JOptionPane.showMessageDialog(f, "Please Enter Student ID!");
+            }
+
+            if (adm_dc.checkStudentID(std_id) == 0) {
+                JFrame f = new JFrame();
+                JOptionPane.showMessageDialog(f, "Student ID Already exists!");
+                StudentIDTF.setForeground(Color.red);
+
+            } else {
+                adm_dc.insertStudent(f_name, l_name, father_name, cnic, email, phone, program, address, DOB, std_id);
+                setVisible(false);
+                admreg2GUI a = new admreg2GUI(std_id);
+                a.setVisible(true);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(adminrg1GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_NextActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
-       setVisible(false);
-        adminwelcomeGUI a = new adminwelcomeGUI();
-        a.setVisible(true);
+        setVisible(false);
+        adminwelcomeGUI a;
+        try {
+            a = new adminwelcomeGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminrg1GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     private void CNICTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNICTFActionPerformed
@@ -315,8 +357,14 @@ public class adminrg1GUI extends javax.swing.JFrame {
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
         setVisible(false);
-        adminwelcomeGUI a = new adminwelcomeGUI();
-        a.setVisible(true);
+        adminwelcomeGUI a;
+        try {
+            a = new adminwelcomeGUI();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(adminrg1GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_HomeButtonActionPerformed
 
     /**
@@ -357,7 +405,7 @@ public class adminrg1GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CNICTF;
     private javax.swing.JButton CancelButton;
-    private javax.swing.JLabel DOBTF;
+    private javax.swing.JTextField DOBTF;
     private javax.swing.JButton EditButton;
     private javax.swing.JTextField EmailTF;
     private javax.swing.JButton Employees;
@@ -375,6 +423,6 @@ public class adminrg1GUI extends javax.swing.JFrame {
     private javax.swing.JButton VoucherButton;
     private javax.swing.JTextArea addTA;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel register;
     // End of variables declaration//GEN-END:variables
 }

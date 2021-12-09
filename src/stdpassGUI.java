@@ -1,7 +1,10 @@
 
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -201,13 +204,28 @@ public class stdpassGUI extends javax.swing.JFrame {
         String old_pass = new String(OldPasswordTF.getText());
         String new_pass = new String(NewPasswordTF.getText());
         String confirm_pass = new String(ConfirmPasswordTF.getText());
-        setVisible(false);
+        
+       
         stdprofileGUI a;
         try {
-            std_dc.updatePass(std_id, old_pass, new_pass, confirm_pass);
-            a = new stdprofileGUI(std_id);
-            a.setVisible(true);
-
+             if (old_pass.isEmpty() || new_pass.isEmpty() || confirm_pass.isEmpty()) {
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "Fill All Fields");
+        }
+        
+        if (!new_pass.equals(confirm_pass)) {
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "Confirm password doesnot match");
+        }
+        
+        else{
+            int success = std_dc.updatePass(std_id, old_pass, new_pass, confirm_pass);
+            if (success == 1) {
+                setVisible(false);
+                a = new stdprofileGUI(std_id);
+                a.setVisible(true);
+            }
+        }
         } catch (SQLException ex) {
             Logger.getLogger(stdpassGUI.class.getName()).log(Level.SEVERE, null, ex);
         }

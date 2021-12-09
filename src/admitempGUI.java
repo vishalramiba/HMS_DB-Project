@@ -18,6 +18,8 @@ public class admitempGUI extends javax.swing.JFrame {
     /**
      * Creates new form admitempGUI
      */
+        admin_driverCode adm_dc = new admin_driverCode();
+
     public admitempGUI() {
         initComponents();
         setResizable(false);
@@ -207,7 +209,11 @@ public class admitempGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_LogoutButtonActionPerformed
 
     private void VeiwAtEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VeiwAtEmployeesButtonActionPerformed
-        // TODO add your handling code here:
+            try {
+                adm_dc.getEmployeeTable();
+            } catch (SQLException ex) {
+                Logger.getLogger(admitempGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }//GEN-LAST:event_VeiwAtEmployeesButtonActionPerformed
 
     private void HomeBUttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeBUttonActionPerformed

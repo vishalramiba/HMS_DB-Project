@@ -225,7 +225,7 @@ public class stdprofileGUI extends javax.swing.JFrame {
 
         stdprofile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/std_profile.jpg"))); // NOI18N
         getContentPane().add(stdprofile);
-        stdprofile.setBounds(0, 0, 800, 569);
+        stdprofile.setBounds(0, 0, 800, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -19,6 +19,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
      */
     int std_id;
     student_driverCode std_dc = new student_driverCode();
+        admin_driverCode adm_dc = new admin_driverCode();
 
     public stdvoucherGUI() {
         initComponents();
@@ -41,31 +42,37 @@ public class stdvoucherGUI extends javax.swing.JFrame {
             VoucherStatusTF.setText("NOT PAID");
         }
 
-        std_dc.checkFacilities(std_id);
-        std_dc.addFacilitytoArray();
-        
-        RoomFeeTF.setText(std_dc.b[0]);
-        
-        for(int i = 1; i < 5; i++){
-            
-            if(std_dc.a[i].equals(2))
-            MessTF.setText(std_dc.b[1]);   
-            else MessTF.setText("-");  
-            
-            if(std_dc.a[i].equals(3))
-            MessTF.setText(std_dc.b[2]);   
-            else ParkingTF.setText("-"); 
-            
-            if(std_dc.a[i].equals(4))
-            MessTF.setText(std_dc.b[3]);   
-            else GymTF.setText("-");  
-            
-            if(std_dc.a[i].equals(5))
-            MessTF.setText(std_dc.b[4]);   
-            else LaundryTF.setText("-");  
-    
- 
-        }
+        MessTF.setText(std_dc.getAvailedFacilities(std_id, "Mess"));
+        RoomFeeTF.setText(std_dc.getAvailedFacilities(std_id, "room"));
+        ParkingTF.setText(std_dc.getAvailedFacilities(std_id, "Parking"));
+        LaundryTF.setText(std_dc.getAvailedFacilities(std_id, "laundry"));
+        GymTF.setText(std_dc.getAvailedFacilities(std_id, "gym"));
+        TotalTF.setText(String.valueOf(adm_dc.getTotalFee(std_id)));
+//        std_dc.checkFacilities(std_id);
+//        std_dc.addFacilitytoArray();
+//        
+//        RoomFeeTF.setText(std_dc.b[0]);
+//        
+//        for(int i = 1; i < 5; i++){
+//            
+//            if(std_dc.a[i].equals(2))
+//            MessTF.setText(std_dc.b[1]);   
+//            else MessTF.setText("-");  
+//            
+//            if(std_dc.a[i].equals(3))
+//            MessTF.setText(std_dc.b[2]);   
+//            else ParkingTF.setText("-"); 
+//            
+//            if(std_dc.a[i].equals(4))
+//            MessTF.setText(std_dc.b[3]);   
+//            else GymTF.setText("-");  
+//            
+//            if(std_dc.a[i].equals(5))
+//            MessTF.setText(std_dc.b[4]);   
+//            else LaundryTF.setText("-");  
+//    
+// 
+//        }
 
         String total_fee = String.valueOf(std_dc.getTotalFee());
 
@@ -85,6 +92,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        TotalTF = new javax.swing.JTextField();
         VoucherStatusTF = new javax.swing.JTextField();
         RoomFeeTF = new javax.swing.JTextField();
         MessTF = new javax.swing.JTextField();
@@ -100,6 +108,13 @@ public class stdvoucherGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
+
+        TotalTF.setEditable(false);
+        TotalTF.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TotalTF.setBorder(null);
+        TotalTF.setOpaque(false);
+        getContentPane().add(TotalTF);
+        TotalTF.setBounds(580, 370, 190, 20);
 
         VoucherStatusTF.setEditable(false);
         VoucherStatusTF.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -201,7 +216,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
 
         stdvoucher.setIcon(new javax.swing.ImageIcon(getClass().getResource("/std_voucher.jpg"))); // NOI18N
         getContentPane().add(stdvoucher);
-        stdvoucher.setBounds(0, 0, 800, 569);
+        stdvoucher.setBounds(0, 0, 800, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -249,7 +264,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(stdvoucherGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_VoucherButtonActionPerformed
 
     private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeButtonActionPerformed
@@ -304,6 +319,7 @@ public class stdvoucherGUI extends javax.swing.JFrame {
     private javax.swing.JTextField ParkingTF;
     private javax.swing.JButton ProfileButton;
     private javax.swing.JTextField RoomFeeTF;
+    private javax.swing.JTextField TotalTF;
     private javax.swing.JButton VoucherButton;
     private javax.swing.JTextField VoucherStatusTF;
     private javax.swing.JLabel stdvoucher;
